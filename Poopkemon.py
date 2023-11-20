@@ -24,7 +24,11 @@ Dracoco.dfs = "10"
 Dracoco.type = "Feu"
 Dracoco.atq = {"Magma" : int("50"), "Rafale Feu" : int("10")}
 
+pookelist = []
+pookelist.append(Pigrochou)
+
 ton_pokemon = rd.randint(0,14)
+print(pookelist)
 
 
 
