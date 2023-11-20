@@ -24,6 +24,13 @@ Dracoco.dfs = "10"
 Dracoco.type = "Feu"
 Dracoco.atq = {"Magma" : int("50"), "Rafale Feu" : int("10")}
 
+Torpingpong = Pokemon()
+Torpingpong.nom = Torpingpong
+Torpingpong.vie = int("140")
+Torpingpong.dfs = int("15")
+Torpingpong.type = "Eau"
+Torpingpong.atq = {"Pistolet à eau " : int("15"), "Hydrocanon" : int("25")}
+
 pookelist = []
 pookelist.append(Pigrochou)
 
