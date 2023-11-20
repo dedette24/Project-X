@@ -26,5 +26,5 @@ Dracoco.atq = {"Magma" : int("50"), "Rafale Feu" : int("10")}
 
 ton_pokemon = rd.randint(0,14)
 
-caca
+
 
