@@ -1,4 +1,4 @@
-import random
+import random as rd
 import time
 
 
@@ -18,8 +18,11 @@ Pigrochou.type = "Electrique"
 Pigrochou.atq = {"Coup de foudre" : int("20"), "Coup de queue" : int("10")}
 
 Dracoco = Pokemon()
-Dracoco.nom = Dracoco
+Dracoco.nom = "Dracoco"
 Dracoco.vie = "100"
 Dracoco.dfs = "10"
 Dracoco.type = "Feu"
 Dracoco.atq = {"Magma" : int("50"), "Rafale Feu" : int("10")}
+
+ton_pokemon = rd.randint(0,14)
+
