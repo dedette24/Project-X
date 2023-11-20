@@ -42,3 +42,17 @@ def choix_random(liste_tt_pokemon):
     print(type(equipe_1))
 
 choix_random(liste_tt_pokemon)
+
+pour les prénoms de pokemon :
+
+sarbouboule
+arkekes
+Poussière
+Tauros de mamamia
+Sologopitch
+Bulbasaur => Redbull
+Charmander => charmandercharmant
+Squirtle => NeSquic
+Jigglypuff => Jiclepue
+Snorlax => Sorsdurelax
+Gyarados => Gytan
