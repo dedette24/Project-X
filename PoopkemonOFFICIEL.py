@@ -36,9 +36,10 @@ liste_tt_pokemon.append(ciseau)
 
 def choix_random(liste_tt_pokemon):
     equipe_1 = []
-    choix = rd.randint(0,(len(liste_tt_pokemon)-1))
-    equipe_1.append(liste_tt_pokemon[choix])
-    print(equipe_1[0].nom, equipe_1[0].vie, equipe_1[0].dfs, equipe_1[0].type, equipe_1[0].atq)
+    for i in range(2):
+        choix = rd.randint(0,(len(liste_tt_pokemon)-1))
+        equipe_1.append(liste_tt_pokemon[choix])
+    print(equipe_1[0].nom, equipe_1[0].vie, equipe_1[0].dfs, equipe_1[0].type, equipe_1[0].atq, equipe_1[1].nom, equipe_1[1].vie, equipe_1[1].dfs, equipe_1[1].type, equipe_1[1].atq)
     print(type(equipe_1))
 
 choix_random(liste_tt_pokemon)
