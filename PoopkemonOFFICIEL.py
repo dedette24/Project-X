@@ -1,4 +1,5 @@
 import random as rd
+import time
 
 class Pokemon:
     def __init__(self):
@@ -143,7 +144,7 @@ Gytan.nom = "Gytan"
 Gytan.vie = int("150")
 Gytan.dfs = int("20")
 Gytan.type = "Feu et Electrique"
-Gytan.atq = {"fusion power" : int("15"), "All power" : int("25")}
+Gytan.atq = {"fusion power" : int("15"), "la pelle" : int("25")}
 liste_tt_pokemon.append(Gytan)
 
 
@@ -171,13 +172,17 @@ equipe_2_P1_atq, equipe_2_P2_atq = equipe_2[0].atq, equipe_2[1].atq
 print(f"équipe 1 : {equipe_1[0].nom} et {equipe_1[1].nom} / equipe 2 : {equipe_2[0].nom} et {equipe_2[1].nom} ")
 
 def start():
+    print("l'un d'entre vous choisie un chiffre entre 1 et 2 si le chiffre choisie par la perosnne est le bon, alors il commence, sinon c'est l'autre.")
     commence = rd.randint(1,2)
+    print("vous avez une minute pour vous décidez")
+    time.sleep(60)#1min
+    print("roulement de tambourrrrr")
     if commence == 1:
-        print("Le joueur 1 commence")
-        return 1
+        print("c'est le joueur 1 qui commence")
     else:
-        print("Le joueur 2 commence") 
-        return 2
+        print("c'est le joueur 2 qui commence") 
+
+
         
 def combat():
     return
