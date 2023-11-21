@@ -44,16 +44,26 @@ def choix_random(liste_tt_pokemon):
 
 choix_random(liste_tt_pokemon)
 
-pour les prénoms de pokemon :
+def commencer_en_premier():
+    commence = rd.randint(1,2)
+    if commence == 1:
+        print("Le joueur 1 commence")
+    else:
+        print("Le joueur 2 commence")
+         
 
-sarbouboule
-arkekes
-Poussière
-Tauros de mamamia
-Sologopitch
-Bulbasaur => Redbull
-Charmander => charmandercharmant
-Squirtle => NeSquic
-Jigglypuff => Jiclepue
-Snorlax => Sorsdurelax
-Gyarados => Gytan
+#pour les prénoms de pokemon :
+
+#sarbouboule
+#arkekes
+#Poussière
+#Tauros de mamamia
+#Sologopitch
+#Bulbasaur => Redbull
+#Charmander => charmandercharmant
+#Squirtle => NeSquic
+#Jigglypuff => Jiclepue
+#Snorlax => Sorsdurelax
+#Gyarados => Gytan
+#Evoli => Cacali
+#
