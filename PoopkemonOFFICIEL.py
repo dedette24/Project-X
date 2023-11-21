@@ -56,13 +56,14 @@ equipe_2_P1_dfs, equipe_2_P2_dfs = equipe_2[0].dfs, equipe_2[1].dfs
 equipe_2_P1_type, equipe_2_P2_type = equipe_2[0].type, equipe_2[1].type
 equipe_2_P1_atq, equipe_2_P2_atq = equipe_2[0].atq, equipe_2[1].atq
 
-def commencer_en_premier():
+def start():
     commence = rd.randint(1,2)
     if commence == 1:
         print("Le joueur 1 commence")
+        return 1
     else:
         print("Le joueur 2 commence") 
-         
+        return 2
 
 #pour les prénoms de pokemon :
 
