@@ -198,3 +198,14 @@ def surrender():
 
 surrender()
 
+
+
+def fin_de_combat(pokemon):
+    pokemon = pokemon
+    mort = sum([not pokemon.est_vivant for pokemon in pokemon])
+    if mort == 2:
+        return True
+    else:
+        return False
+    
+
