@@ -170,6 +170,18 @@ def start():
     else:
         print("Le joueur 2 commence") 
         return 2
+        
+def combat():
+    return
+
+def choisir_poop():
+
+def Surrender():
+    break
+    return 
+
+
+
 
 #pour les prénoms de pokemon :
 
