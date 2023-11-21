@@ -187,8 +187,14 @@ def start():
 def combat():
     return
 
-#def Surrender():
-    #break
-    #return 
-#"""
+def surrender():
+    abandon = int(input("tu ff ? si oui ecrit 1, sinon ecrit 2 : "))
+    if abandon == 1:
+        print("Le joueur machin a voté pour abandonner ! bien jouer autre joueur !")
+        combat = False
+    else: 
+        print("la partie continue !")
+        pass
+
+surrender()
 
