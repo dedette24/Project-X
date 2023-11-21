@@ -49,7 +49,7 @@ def commencer_en_premier():
     if commence == 1:
         print("Le joueur 1 commence")
     else:
-        print("Le joueur 2 commence")
+        print("Le joueur 2 commence") caca
          
 
 #pour les prénoms de pokemon :
