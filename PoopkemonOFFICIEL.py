@@ -36,20 +36,32 @@ liste_tt_pokemon.append(ciseau)
 
 def choix_random(liste_tt_pokemon):
     equipe_1 = []
+    equipe_2 = []
     for i in range(2):
         choix = rd.randint(0,(len(liste_tt_pokemon)-1))
         equipe_1.append(liste_tt_pokemon[choix])
-    print(equipe_1[0].nom, equipe_1[0].vie, equipe_1[0].dfs, equipe_1[0].type, equipe_1[0].atq, equipe_1[1].nom, equipe_1[1].vie, equipe_1[1].dfs, equipe_1[1].type, equipe_1[1].atq)
-    print(type(equipe_1))
-
+        choix = rd.randint(0,(len(liste_tt_pokemon)-1))
+        equipe_2.append(liste_tt_pokemon[choix])
+    return equipe_1, equipe_2
 choix_random(liste_tt_pokemon)
+equipe_1, equipe_2 = choix_random(liste_tt_pokemon)
+#toutes les données pour l'équipe 1
+equipe_1_P1_vie, equipe_1_P2_vie = equipe_1[0].vie, equipe_1[1].vie
+equipe_1_P1_dfs, equipe_1_P2_dfs = equipe_1[0].dfs, equipe_1[1].dfs
+equipe_1_P1_type, equipe_1_P2_type = equipe_1[0].type, equipe_1[1].type
+equipe_1_P1_atq, equipe_1_P2_atq = equipe_1[0].atq, equipe_1[1].atq
+#toutes les données pour l'équipe 2
+equipe_2_P1_vie, equipe_2_P2_vie = equipe_2[0].vie, equipe_2[1].vie
+equipe_2_P1_dfs, equipe_2_P2_dfs = equipe_2[0].dfs, equipe_2[1].dfs
+equipe_2_P1_type, equipe_2_P2_type = equipe_2[0].type, equipe_2[1].type
+equipe_2_P1_atq, equipe_2_P2_atq = equipe_2[0].atq, equipe_2[1].atq
 
 def commencer_en_premier():
     commence = rd.randint(1,2)
     if commence == 1:
         print("Le joueur 1 commence")
     else:
-        print("Le joueur 2 commence") caca
+        print("Le joueur 2 commence") 
          
 
 #pour les prénoms de pokemon :
