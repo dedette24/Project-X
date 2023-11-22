@@ -2,11 +2,11 @@ import random as rd
 import time
 
 class Pokemon:
-    def __init__(self):
+    def __init__(self): 
         self.nom = "Son blaze"
         self.vie = "Vie" #entre 78 et 150
         self.dfs = "Attaque" #entre 5 et 20
-        self.type = "son type (pour savoir si il fait degat *2)" #10 type : Electrique, Feu, Glace, Eau, Terre, Gadou, Plante, Ombre, acier, radiateur
+        self.type = "son type (pour savoir si il fait degat *2)" #10 type : Caca, radiateur, Emotional, Lumière, 
         self.atq = {} #entre 2 et 4
         
 liste_tt_pokemon = []
@@ -209,3 +209,6 @@ def fin_de_combat(pokemon):
         return False
     
 
+#Nom de poopkemon:
+#Monsieur Porc
+#
