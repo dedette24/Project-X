@@ -6,7 +6,7 @@ class Pokemon:
         self.nom = "Son blaze"
         self.vie = "Vie" #entre 78 et 150
         self.dfs = "Attaque" #entre 5 et 20
-        self.type = "son type (pour savoir si il fait degat *2)" #10 type : Caca, radiateur, Emotional, Lumière, Informatique, Aura, Légende, Gadou, Son, Espace
+        self.type = "son type (pour savoir si il fait degat *2)" #10 type : Caca, Feu, Eau, Gadou, Radiateur, Roche, Acier, Dragon, Glace, Ombre, emotionel
         self.atq = {} #entre 2 et 4
         
 liste_tt_pokemon = []
