@@ -159,6 +159,8 @@ def choix_random(liste_tt_pokemon):
         choix = rd.randint(0,(len(liste_tt_pokemon)-1))
         equipe_2.append(liste_tt_pokemon[choix])
     return equipe_1, equipe_2
+
+
 choix_random(liste_tt_pokemon)
 equipe_1, equipe_2 = choix_random(liste_tt_pokemon)
 #toutes les données pour l'équipe 1
@@ -231,11 +233,11 @@ def attaque_pokemon(liste_tt_pokemon, tours, joueur_1_pokemon_jouer, joueur_2_po
         choix = input(f"t'attaque qui ? : 0 = {equipe_1[0].nom} ou 1 = {equipe_1[1].nom} ? : ")
         pokemon_attaquer = equipe_2[choix]
 
-
-
-
 #Le premier poopkemon a envoyer, seulement au premier tour
 def premier_pokemon():
+
+#La boucle c :
+# While equipe_1_P1_vie =! 0 and equipe_1_P2_vie =! 0 or equipe_2_P1_vie =! 0 and equipe_2_P2_vie =! 0:
     
 
         
