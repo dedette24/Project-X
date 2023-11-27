@@ -5,11 +5,11 @@ class Pokemon:
     def __init__(self):
         self.nom = "Son blaze"
         self.vie = "Vie" #entre 78 et 150
-        self.dfs = "Attaque" #entre 5 et 20
+        self.dfs = "Def" #entre 5 et 20
         self.type = "son type (pour savoir si il fait degat *2)" #10 type : Electrique, Feu, Glace, Eau, Terre, Gadou, Plante, Ombre, acier, radiateur
         self.atq = {} #entre 2 et 4
     def attaquer(ennemi):
-        ennemi.vie = ennemi.vie - self.atq[1]
+        ennemi.vie -= (self.atq[1] - ennemi.dfs)
         
 liste_tt_pokemon = []
 #Pokemon num 1
