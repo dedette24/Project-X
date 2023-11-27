@@ -221,26 +221,27 @@ def choix_pokemon(equipe_1, equipe_2, tours): #celui qui joue decide quel pokemo
             joueur_2_pokemon_jouer = equipe_2[1]
         return joueur_2_pokemon_jouer
 
+
 def attaque_pokemon(liste_tt_pokemon, tours, joueur_1_pokemon_jouer, joueur_2_pokemon_jouer,equipe_1_P1_atq, equipe_1_P2_atq,equipe_2_P1_atq, equipe_2_P2_atq):
     print("c'est l'heure d'attaquer !")
     if tours / 2 == type(float):    
-        choix = input(f"t'attaque qui ? : 0 = {equipe_1[0].nom} ou 1 = {equipe_1[1].nom} ? : ")
-        pokemon_attaquer = equipe_1[choix]
-        choix2 = input(f"t'attaque qui ? : 0 = {equipe_2[0].nom} ou 1 = {equipe_2[1].nom} ? : ")
-        pokemon_attaquer = equipe_2[choix2]
-        attaque = input(f"tu veux utiliser quel attaque joueur 1 ? 0 = {equipe_1_P1_atq}")
-    else:
         choix = input(f"t'attaque qui ? : 0 = {equipe_2[0].nom} ou 1 = {equipe_2[1].nom} ? : ")
-        pokemon_attaquer = equipe_2[choix]
-        choix = input(f"t'attaque qui ? : 0 = {equipe_1[0].nom} ou 1 = {equipe_1[1].nom} ? : ")
         pokemon_attaquer = equipe_1[choix]
+    else:
+        choix = input(f"t'attaque qui ? : 0 = {equipe_1[0].nom} ou 1 = {equipe_1[1].nom} ? : ")
+        pokemon_attaquer = equipe_2[choix]
 
 
+
+
+#Le premier poopkemon a envoyer, seulement au premier tour
+def premier_pokemon():
+    
 
         
     
     
     
-    
-        
+
+
 
