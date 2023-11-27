@@ -14,16 +14,6 @@ def choix_random(liste_tt_pokemon):
     return equipe_1, equipe_2
 choix_random(liste_tt_pokemon)
 equipe_1, equipe_2 = choix_random(liste_tt_pokemon)
-#toutes les données pour l'équipe 1
-equipe_1_P1_vie, equipe_1_P2_vie = equipe_1[0].vie, equipe_1[1].vie
-equipe_1_P1_dfs, equipe_1_P2_dfs = equipe_1[0].dfs, equipe_1[1].dfs
-equipe_1_P1_type, equipe_1_P2_type = equipe_1[0].type, equipe_1[1].type
-equipe_1_P1_atq, equipe_1_P2_atq = equipe_1[0].atq, equipe_1[1].atq
-#toutes les données pour l'équipe 2
-equipe_2_P1_vie, equipe_2_P2_vie = equipe_2[0].vie, equipe_2[1].vie
-equipe_2_P1_dfs, equipe_2_P2_dfs = equipe_2[0].dfs, equipe_2[1].dfs
-equipe_2_P1_type, equipe_2_P2_type = equipe_2[0].type, equipe_2[1].type
-equipe_2_P1_atq, equipe_2_P2_atq = equipe_2[0].atq, equipe_2[1].atq
 print(f"équipe 1 : {equipe_1[0].nom} et {equipe_1[1].nom} / equipe 2 : {equipe_2[0].nom} et {equipe_2[1].nom} ")
 
 """def start(): #qui commence (flemme de faire un truc long ducoup y'a aussi arrangement irl mais ca marche)
@@ -62,37 +52,51 @@ abandon = surrender()"""
 
 to_continue = fin_de_jeu_vie(equipe_1_P1_vie, equipe_1_P2_vie, equipe_2_P1_vie, equipe_2_P2_vie)"""
 
-def choix_pokemon(equipe_1, equipe_2, tours): #celui qui joue decide quel pokemon jouer
+def choix(equipe_1, equipe_2, tours):
     if tours / 2 == type(float):
-        print(f"voci les pokemon que tu as : {equipe_1[0].nom} qui as {equipe_1[0].vie} et {equipe_1[1].nom} qui as {equipe_1[1].vie}")
-        joueur_1_pokemon_jouer = int(input(f"tu veux jouer qui ? 1 = {equipe_1[0].nom} ou 2 = {equipe_1[0].nom}: "))
-        if joueur_1_pokemon_jouer == 1:
-            joueur_1_pokemon_jouer = equipe_1[0]
-        else:
-            joueur_1_pokemon_jouer = equipe_1[1]
-        return joueur_1_pokemon_jouer
-    elif tours / 2 == type(int):
-        print(f"voci les pokemon que tu as : {equipe_2[0].nom} qui as {equipe_2[0].vie} et {equipe_2[1].nom} qui as {equipe_2[1].vie}")
-        joueur_2_pokemon_jouer = int(input(f"tu veux jouer qui ? 1 = {equipe_2[0].nom} ou 2 = {equipe_2[0].nom}: "))
-        if joueur_2_pokemon_jouer == 1:
-            joueur_2_pokemon_jouer = equipe_2[0]
-        else:
-            joueur_2_pokemon_jouer = equipe_2[1]
-        return joueur_2_pokemon_jouer
-
-def attaque_pokemon(liste_tt_pokemon, tours, joueur_1_pokemon_jouer, joueur_2_pokemon_jouer,equipe_1_P1_atq, equipe_1_P2_atq,equipe_2_P1_atq, equipe_2_P2_atq):
-    print("c'est l'heure d'attaquer !")
-    if tours / 2 == type(float):    
-        choix = input(f"t'attaque qui ? : 0 = {equipe_1[0].nom} ou 1 = {equipe_1[1].nom} ? : ")
-        pokemon_attaquer = equipe_1[choix]
-        choix2 = input(f"t'attaque qui ? : 0 = {equipe_2[0].nom} ou 1 = {equipe_2[1].nom} ? : ")
-        pokemon_attaquer = equipe_2[choix]
-        attaque = input(f"tu veux utiliser quel attaque joueur 1 ? 0 = {equipe_1_P1_atq}")
+        print("---")
+        print("Choisissez un Pokémon à jouer: ")
+        for i, pokemon in enumerate(equipe_1):
+            print(f"{i + 1}. {pokemon.nom} ({pokemon.vie})")
+        choix_pokemon = int(input("Entrez le numéro du Pokémon: ")) - 1
+        print("---")
+        return equipe_1[choix_pokemon]
     else:
-        choix = input(f"t'attaque qui ? : 0 = {equipe_2[0].nom} ou 1 = {equipe_2[1].nom} ? : ")
-        pokemon_attaquer = equipe_2[choix]
-        choix = input(f"t'attaque qui ? : 0 = {equipe_1[0].nom} ou 1 = {equipe_1[1].nom} ? : ")
-        pokemon_attaquer = equipe_1[choix]
+        print("---")
+        print("Choisissez un Pokémon à jouer: ")
+        for i, pokemon in enumerate(equipe_2):
+            print(f"{i + 1}. {pokemon.nom}")
+        choix_pokemon = int(input("Entrez le numéro du Pokémon: ")) - 1
+        print("---")
+        return equipe_2[choix_pokemon]
+
+
+def attaque(attacker, equipe_adverse, tours):
+    print(f"Nous sommes au tours {tours} !")
+    print(f"Choisissez une attaque pour {attacker.nom}:")
+    for i, (attaque, degat) in enumerate(attacker.atq.items()):
+            print(f"{i + 1}. {attaque} ({degat} dégâts)")
+    choix_attaque = int(input("Entrez le numéro de l'attaque: ")) - 1
+    attaque_selectionnee = list(attacker.atq.keys())[choix_attaque]
+    print("---")
+    print("qui veut tu attaquer ?")
+    for i, pokemon in enumerate(equipe_2):
+        print(f"{i + 1}. {pokemon.nom}")
+    choix_adversaire = int(input(f"entrer le numero du pokemon que vous voulez attquez : ")) - 1
+    adversaire = equipe_adverse[choix_adversaire]
+    degat_inflige = attacker.atq[attaque_selectionnee]
+    adversaire.vie -= (degat_inflige) - adversaire.dfs
+    
+    print("---")
+    print(f"{attacker.nom} utilise {attaque_selectionnee}et inflige {degat_inflige} dégâts à {adversaire.nom}.")
+    print(f"{adversaire.nom} a maintenant {adversaire.vie} points de vie.")
+    print("---")
+#fonctions choix et attaque
+tours = 1
+pokemon_joueur = choix(equipe_1, equipe_2, tours)
+for i in range(4):
+    attaque(pokemon_joueur, equipe_2, tours)
+    tours = tours + 1
         
     
     
