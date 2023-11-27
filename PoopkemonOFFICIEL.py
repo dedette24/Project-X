@@ -143,7 +143,7 @@ Gytan = Pokemon()
 Gytan.nom = "Gytan"
 Gytan.vie = int("150")
 Gytan.dfs = int("20")
-Gytan.type = "Feu et Electrique"
+Gytan.type = "Roche"
 Gytan.atq = {"fusion power" : int("15"), "la pelle" : int("25")}
 liste_tt_pokemon.append(Gytan)
 
