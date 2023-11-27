@@ -6,6 +6,7 @@ class Pokemon:
         self.nom = "Son blaze"
         self.vie = "Vie" #entre 78 et 150
         self.dfs = "Attaque" #entre 5 et 20
+        self.vit = "Vitesse" #entre 10 et 100
         self.type = "son type (pour savoir si il fait degat *2)" #10 type : Caca, Feu, Eau, Gadou, Radiateur, Roche, Acier, Dragon, Glace, Ombre, emotionel
         self.atq = {} #entre 2 et 4
         
@@ -16,6 +17,7 @@ Pigrochou.nom = "Pigrochou"
 Pigrochou.vie = int(100)
 Pigrochou.dfs = int(5)
 Pigrochou.type = "Electrique"
+Pigrochou.vit = int(10)
 Pigrochou.atq = {"Coup de foudre" : int("20"), "Coup de queue" : int("10")}
 liste_tt_pokemon.append(Pigrochou)
 #Pokemon num 2
