@@ -8,6 +8,8 @@ class Pokemon:
         self.dfs = "Attaque" #entre 5 et 20
         self.type = "son type (pour savoir si il fait degat *2)" #10 type : Electrique, Feu, Glace, Eau, Terre, Gadou, Plante, Ombre, acier, radiateur
         self.atq = {} #entre 2 et 4
+    def attaquer(ennemi):
+        ennemi.vie = ennemi.vie - self.atq[1]
         
 liste_tt_pokemon = []
 #Pokemon num 1
@@ -225,13 +227,16 @@ def attaque_pokemon(liste_tt_pokemon, tours, joueur_1_pokemon_jouer, joueur_2_po
         choix = input(f"t'attaque qui ? : 0 = {equipe_1[0].nom} ou 1 = {equipe_1[1].nom} ? : ")
         pokemon_attaquer = equipe_1[choix]
         choix2 = input(f"t'attaque qui ? : 0 = {equipe_2[0].nom} ou 1 = {equipe_2[1].nom} ? : ")
-        pokemon_attaquer = equipe_2[choix]
+        pokemon_attaquer = equipe_2[choix2]
         attaque = input(f"tu veux utiliser quel attaque joueur 1 ? 0 = {equipe_1_P1_atq}")
     else:
         choix = input(f"t'attaque qui ? : 0 = {equipe_2[0].nom} ou 1 = {equipe_2[1].nom} ? : ")
         pokemon_attaquer = equipe_2[choix]
         choix = input(f"t'attaque qui ? : 0 = {equipe_1[0].nom} ou 1 = {equipe_1[1].nom} ? : ")
         pokemon_attaquer = equipe_1[choix]
+
+
+
         
     
     
