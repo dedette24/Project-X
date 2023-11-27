@@ -6,6 +6,17 @@ class Pokemon:
         self.type = "son type (pour savoir si il fait degat *2)" #10 type : Electrique, Feu, Glace, Eau, Terre, Gadou, Plante, Ombre, acier, radiateur
         self.atq = {} #entre 2 et 4
         
+"""class Attaque:
+    def __init__(Pokemon):
+        Pokemon.power = "base power de l'attaque"
+        Pokemon.type = "type"
+        Pokemon.pp = "nb d'utilisations"
+        
+Coup_de_foudre = Attaque()
+Coup_de_foudre.power = int(20)
+Coup_de_foudre.type = "foudre"
+"""
+        
 liste_tt_pokemon = []
 #Pokemon num 1
 Pigrochou = Pokemon()
