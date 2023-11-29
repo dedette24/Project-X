@@ -16,6 +16,12 @@ choix_random(liste_tt_pokemon)
 equipe_1, equipe_2 = choix_random(liste_tt_pokemon)
 print(f"équipe 1 : {equipe_1[0].nom} et {equipe_1[1].nom} / equipe 2 : {equipe_2[0].nom} et {equipe_2[1].nom} ")
 
+def tours(equipe_1):
+    action = int(input("que voulez-vous faire ? 1: Attaquer, 2: Changer de poopkemon, 3: Utiliser un objet, 4:Fuire"))
+    if action == 1:
+        
+        
+
 """def start(): #qui commence (flemme de faire un truc long ducoup y'a aussi arrangement irl mais ca marche)
     print("l'un d'entre vous choisie un chiffre entre 1 et 2 si le chiffre choisie par la perosnne est le bon, alors il commence, sinon c'est l'autre.")
     commence = rd.randint(1,2)
