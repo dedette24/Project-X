@@ -4,7 +4,7 @@ class Pokemon:
         self.nom = "Son blaze"
         self.vie = "Vie" #entre 78 et 150
         self.dfs = "Attaque" #entre 5 et 20
-        self.type = "son type (pour savoir si il fait degat *2)" #10 type : Electrique, Feu, Glace, Eau, Terre, Fee, Plante, Ombre, Acier, Radiateur
+        self.type = "son type (pour savoir si il fait degat *2)" #10 type : Feu, Glace, Eau, Gadou, Fee, Plante, Ombre, Acier, Radiateur, Caca
         self.vitesse = "sa rapiditer" #entre 1 et 20
         
 class Attaque:
