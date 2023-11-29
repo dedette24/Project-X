@@ -238,6 +238,19 @@ def premier_pokemon():
 
 #La boucle c :
 # While equipe_1_P1_vie =! 0 and equipe_1_P2_vie =! 0 or equipe_2_P1_vie =! 0 and equipe_2_P2_vie =! 0:
+
+def abandon_equipe(equipe_1,equipe_2):
+    print("Joueur 1, tapez '1' pour abandonner.")
+    choix = input("choix utilisateur")
+
+    if choix == '1':
+        print("Joueur 1 a abandonné. Joueur 2 remporte la victoire!")
+        
+    else:
+        print("Le match continue.")
+
+abandon_equipe()
+
     
 
         
