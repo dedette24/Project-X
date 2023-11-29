@@ -103,6 +103,14 @@ pokemon_joueur = choix(equipe_1, equipe_2, tours)
 for i in range(4):
     attaque(pokemon_joueur, equipe_2, tours)
     tours = tours + 1
+
+"""def tours(equipe_1[0], equipe_1[1], equipe_2[0], equipe_2[1], tour):
+    action = int(input("que voulez-vous faire ? 1: Attaquer, 2: Changer de poopkemon, 3: Utiliser un objet, 4:Fuire"))
+    if action == 1:
+        attaquer() #Jsp c quoi la fonction
+    elif action == 2:
+        change_poke = input(f"pokemon voulez-vous déployer ? 1: {equipe_1[0].nom} ou 2: {equipe_1[1]}" )
+        le_poke_en_combat = """
         
     
     
