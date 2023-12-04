@@ -150,10 +150,14 @@ def phase_action(""" les poke actifs """, action_choisi):
     else:
         pass
 
-
-class Dodo()
+class Altération_statut()
   def __init__(self):
-    self.fatigué = {self.dodo}
+    self.fatigué = "" 
+    self.dodo = ""
+    self.jet_caca = ""
+      
+
+
 
 def fatiguer(self, cible):
         if self.fatigue > 0:
