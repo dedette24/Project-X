@@ -16,23 +16,33 @@ choix_random(liste_tt_pokemon)
 equipe_1, equipe_2 = choix_random(liste_tt_pokemon)
 print(f"équipe 1 : {equipe_1[0].nom} et {equipe_1[1].nom} / equipe 2 : {equipe_2[0].nom} et {equipe_2[1].nom} ")
 
-def tours(equipe_1):
+class action:
+    def __init__(self):
+        self.priorité = "1 (prioritaire) ou 2 (pas prioritaire)"
+        self.type = "attaque, change, objet, fuite"
+
+def phase_choix( pokemon_actifs """Faut les nommer""" , tour):
     action = int(input("que voulez-vous faire ? 1: Attaquer, 2: Changer de poopkemon, 3: Utiliser un objet, 4:Fuire"))
     if action == 1:
-        
-        
+        action_choisi = attaquer() # Jsp c quoi la fonction
+        return action_choisi
+    elif action == 2:
+        change_poke = input(f"pokemon voulez-vous déployer ? 1: {equipe_1[0].nom} ou 2: {equipe_1[1]}" )
+        pokemon_actif = # l'autre mon
+        return action_choisi
+    elif action == 3:
+        utiliser_obj() #Je sais tjrs pas 
+        return action_choisi
+    elif action == 4:
+        a = rd.randint(1,5)
+        if a == 1:
+            print("Bravo ! Vous avez fuit avec succès et avez perdu le combat par votre lacheté !")
+            break
+        else:
+            print("Haha, la fuite n'est pas une option, Looser")
 
-"""def start(): #qui commence (flemme de faire un truc long ducoup y'a aussi arrangement irl mais ca marche)
-    print("l'un d'entre vous choisie un chiffre entre 1 et 2 si le chiffre choisie par la perosnne est le bon, alors il commence, sinon c'est l'autre.")
-    commence = rd.randint(1,2)
-    print("vous avez une minute pour vous décidez")
-    time.sleep(10)#1min
-    print("roulement de tambourrrrr")
-    if commence == 1:
-        print("c'est le joueur 1 qui commence")
-    else:
-        print("c'est le joueur 2 qui commence")
-start()"""
+def phase_action(""" les poke actifs """, action_choisi):
+    if 
 
 """def surrender(): #si le joueur veut abandonner (marche ducoup on met entre crochet)
     abandon = int(input("tu ff ? si oui ecrit 1, sinon ecrit 2 : "))
