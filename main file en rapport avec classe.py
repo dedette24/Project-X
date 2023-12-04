@@ -77,33 +77,46 @@ def choix(equipe_1, equipe_2, tours):
         return equipe_2[choix_pokemon]
 
 
-def attaque(attacker, equipe_adverse, tours):
-    print(f"Nous sommes au tours {tours} !")
-    print(f"Choisissez une attaque pour {attacker.nom}:")
-    for i, (attaque, degat) in enumerate(attacker.atq.items()):
-            print(f"{i + 1}. {attaque} ({degat} dégâts)")
-    choix_attaque = int(input("Entrez le numéro de l'attaque: ")) - 1
-    attaque_selectionnee = list(attacker.atq.keys())[choix_attaque]
-    print("---")
-    print("qui veut tu attaquer ?")
-    for i, pokemon in enumerate(equipe_2):
-        print(f"{i + 1}. {pokemon.nom}")
-    choix_adversaire = int(input(f"entrer le numero du pokemon que vous voulez attquez : ")) - 1
-    adversaire = equipe_adverse[choix_adversaire]
-    degat_inflige = attacker.atq[attaque_selectionnee]
-    adversaire.vie -= (degat_inflige) - adversaire.dfs
-    
-    print("---")
-    print(f"{attacker.nom} utilise {attaque_selectionnee}et inflige {degat_inflige} dégâts à {adversaire.nom}.")
-    print(f"{adversaire.nom} a maintenant {adversaire.vie} points de vie.")
-    print("---")
-#fonctions choix et attaque
-tours = 1
-pokemon_joueur = choix(equipe_1, equipe_2, tours)
-for i in range(4):
-    attaque(pokemon_joueur, equipe_2, tours)
-    tours = tours + 1
+def choix_attaques(pokemon):
+    attaques_possibles = []
+    for attaque in attaques:
+        if attaque.type == pokemon.type:
+            attaques_possibles.append(attaque)
 
+    attaques_selectionnees = []
+    print(f"Choisissez 3 attaques pour {pokemon.nom} parmi les attaques suivantes :")
+    while len(attaques_selectionnees) < 3:
+        for i, attaque in enumerate(attaques_possibles, 1):
+            print(f"{i}. {attaque.name} (Puissance: {attaque.power}, PP: {attaque.pp})")
+
+        while True:
+            try:
+                choix = int(input(f"Choisissez l'attaque {len(attaques_selectionnees) + 1}: "))
+                break  # Sort de la boucle si la conversion en int réussit
+            except ValueError:
+                print("Veuillez entrer un nombre entier.")
+
+        if 1 <= choix <= len(attaques_possibles):
+            attaque_selectionnee = attaques_possibles.pop(choix - 1)
+            attaques_selectionnees.append(attaque_selectionnee)
+            print(f"{attaque_selectionnee.name} a été sélectionnée.")
+        else:
+            print("Choix invalide. Veuillez choisir parmi les attaques disponibles.")
+
+    return attaques_selectionnees
+
+atq_pok_e1_p1 = choix_attaques(equipe_1[0])
+atq_pok_e1_p2 = choix_attaques(equipe_1[1])
+atq_pok_e2_p1 = choix_attaques(equipe_2[0])
+atq_pok_e2_p2 = choix_attaques(equipe_2[1])
+print("\n")
+print(f"{equipe_1[0].nom} a les attaques suivantes : {[attaque.name for attaque in atq_pok_e1_p1]}")
+print("\n")
+print(f"{equipe_1[1].nom} a les attaques suivantes : {[attaque.name for attaque in atq_pok_e1_p2]}")
+print("\n")
+print(f"{equipe_2[0].nom} a les attaques suivantes : {[attaque.name for attaque in atq_pok_e2_p1]}")
+print("\n")
+print(f"{equipe_2[1].nom} a les attaques suivantes : {[attaque.name for attaque in atq_pok_e2_p2]}")
 """def tours(equipe_1[0], equipe_1[1], equipe_2[0], equipe_2[1], tour):
     action = int(input("que voulez-vous faire ? 1: Attaquer, 2: Changer de poopkemon, 3: Utiliser un objet, 4:Fuire"))
     if action == 1:
