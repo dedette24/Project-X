@@ -31,7 +31,15 @@ def phase_choix( pokemon_actifs """Faut les nommer""" , tour):
         pokemon_actif = # l'autre mon
         return action_choisi
     elif action == 3:
-        utiliser_obj() #Je sais tjrs pas 
+        def utiliser_objet():
+    utiliser_obj() #Je sais tjrs pas 
+    alea = rd.randint(1,3)
+    objet.soins = alea
+    objet.anti_poison = alea
+    objet.bonus_atq = alea
+    objet.bonus_dfs = alea
+    objet.malus_atq = alea
+    objet.malus_dfs = alea
         return action_choisi
     elif action == 4:
         a = rd.randint(1,5)
@@ -127,13 +135,7 @@ print("\n")
 print(f"{equipe_2[0].nom} a les attaques suivantes : {[attaque.name for attaque in atq_pok_e2_p1]}")
 print("\n")
 print(f"{equipe_2[1].nom} a les attaques suivantes : {[attaque.name for attaque in atq_pok_e2_p2]}")
-"""def tours(equipe_1[0], equipe_1[1], equipe_2[0], equipe_2[1], tour):
-    action = int(input("que voulez-vous faire ? 1: Attaquer, 2: Changer de poopkemon, 3: Utiliser un objet, 4:Fuire"))
-    if action == 1:
-        attaquer() #Jsp c quoi la fonction
-    elif action == 2:
-        change_poke = input(f"pokemon voulez-vous déployer ? 1: {equipe_1[0].nom} ou 2: {equipe_1[1]}" )
-        le_poke_en_combat = """
+
         
     
     
