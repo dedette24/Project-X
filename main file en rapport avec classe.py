@@ -16,23 +16,7 @@ choix_random(liste_tt_pokemon)
 equipe_1, equipe_2 = choix_random(liste_tt_pokemon)
 print(f"équipe 1 : {equipe_1[0].nom} et {equipe_1[1].nom} / equipe 2 : {equipe_2[0].nom} et {equipe_2[1].nom} ")
 
-class action:
-    def __init__(self):
-        self.priorité = "1 (prioritaire) ou 2 (pas prioritaire)"
-        self.type = "attaque, change, objet, fuite"
-
-def phase_choix( pokemon_actifs """Faut les nommer""" , tour):
-    action = int(input("que voulez-vous faire ? 1: Attaquer, 2: Changer de poopkemon, 3: Utiliser un objet, 4:Fuire"))
-    if action == 1:
-        action_choisi = attaquer() # Jsp c quoi la fonction
-        return action_choisi
-    elif action == 2:
-        change_poke = input(f"pokemon voulez-vous déployer ? 1: {equipe_1[0].nom} ou 2: {equipe_1[1]}" )
-        pokemon_actif = # l'autre mon
-        return action_choisi
-    elif action == 3:
-        def utiliser_objet():
-    utiliser_obj() #Je sais tjrs pas 
+def utiliser_objet():
     alea = rd.randint(1,3)
     objet.soins = alea
     objet.anti_poison = alea
@@ -40,6 +24,24 @@ def phase_choix( pokemon_actifs """Faut les nommer""" , tour):
     objet.bonus_dfs = alea
     objet.malus_atq = alea
     objet.malus_dfs = alea
+
+class Action:
+    def __init__(self):
+        self.priorité = "1 (prioritaire) ou 2 (pas prioritaire)"
+        self.type = "attaque, change, objet, fuite"
+
+def phase_choix( pokemon_actifs """Faut les nommer""" , tour):
+    action = int(input("que voulez-vous faire ? 1: Attaquer, 2: Changer de poopkemon, 3: Utiliser un objet, 4:Fuire"))
+    if action_choix == 1:
+        action.type = "attaque"
+        action.priorité = 1
+        return action
+    elif action == 2:
+        change_poke = input(f"pokemon voulez-vous déployer ? 1: {equipe_1[0].nom} ou 2: {equipe_1[1]}" )
+        pokemon_actif = # l'autre mon
+        return action_choisi
+    elif action == 3:
+        
         return action_choisi
     elif action == 4:
         a = rd.randint(1,5)
