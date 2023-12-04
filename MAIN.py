@@ -134,21 +134,17 @@ def phase_choix( pokemon_actifs """Faut les nommer""" , tour):
 
 def phase_action(""" les poke actifs """, action_choisi):
     if action.priorité == 4
+            change_poke = input(f"pokemon voulez-vous déployer ? 1: {equipe_1[0].nom} ou 2: {equipe_1[1]}" )
+            pokemon_actif = # l'autre mon
+    elif action.priorité == 3
+    elif action.priorité == 2
         a = rd.randint(1,5)
         if a == 1:
             print("Bravo ! Vous avez fuit avec succès et avez perdu le combat par votre lacheté !")
             break
         else:
             print("Haha, la fuite n'est pas une option, Looser")
-    elif action.priorité == 3
-    elif action.priorité == 2
     elif action.priorité == 1
-
-def phase_action(""" les poke actifs """, action_choisi):
-    if tata==tata:
-        pass
-    else:
-        pass
 
 class Altération_statut()
   def __init__(self):
