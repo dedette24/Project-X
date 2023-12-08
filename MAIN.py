@@ -1,7 +1,7 @@
 import random as rd
 import time
 from classe import *
-
+print("\n")
 
 def choix_random(liste_tt_pokemon):
     equipe_1 = []
@@ -14,38 +14,41 @@ def choix_random(liste_tt_pokemon):
     return equipe_1, equipe_2
 choix_random(liste_tt_pokemon)
 equipe_1, equipe_2 = choix_random(liste_tt_pokemon)
-justepourlamiseenforme = []
-justepourlamiseenforme.append(equipe_1)
-justepourlamiseenforme.append(equipe_2)
-print("équipe 1 : ")
-print(f"le pokemon 1 de l'equipe 1 est : {equipe_1[0].nom}")
-print(f"le pokemon 2 de l'equipe 1 est : {equipe_1[1].nom}")
-print("équipe 2 : ")
-print(f"le pokemon 1 de l'equipe 2 est : {equipe_2[0].nom}")
-print(f"le pokemon 2 de l'equipe 2 est : {equipe_2[1].nom}")
-#on définit la vitesse des pokemons
-liste_vitesse_pok = []
-liste_vitesse_pok.append(equipe_1[0].vitesse)
-liste_vitesse_pok.append(equipe_1[1].vitesse)
-liste_vitesse_pok.append(equipe_2[0].vitesse)
-liste_vitesse_pok.append(equipe_2[1].vitesse)
-print("")
 
-pokemon_jouer = [
-    equipe_1[0].nom,
-    equipe_2[0].nom
-]
+def info(equipe_1, equipe_2):
+    print("équipe 1 : ")
+    print(f"le pokemon 1 de l'equipe 1 est : {equipe_1[0].nom} et il a {equipe_1[0].vie} pv")
+    print(f"le pokemon 2 de l'equipe 1 est : {equipe_1[1].nom} et il a {equipe_1[1].vie} pv")
+    print("équipe 2 : ")
+    print(f"le pokemon 1 de l'equipe 2 est : {equipe_2[0].nom} et il a {equipe_2[0].vie} pv")
+    print(f"le pokemon 2 de l'equipe 2 est : {equipe_2[1].nom} et il a {equipe_2[1].vie} pv")
+    #on définit la vitesse des pokemons
+    print("")
+    print(f"la vitesse de {equipe_1[0].nom} est de : {equipe_1[0].vitesse}")
+    print(f"la vitesse de {equipe_1[1].nom} est de : {equipe_1[1].vitesse}")
+    print(f"la vitesse de {equipe_2[0].nom} est de : {equipe_2[0].vitesse}")
+    print(f"la vitesse de {equipe_2[1].nom} est de : {equipe_2[1].vitesse}")
+    print("")
+    return equipe_1, equipe_2
 
-print("")
+info(equipe_1, equipe_2)
 
-for i, pokemon in enumerate(pokemon_jouer, 0):
-    print(f"le pokemon de l'equipe {i+1} jouée est {pokemon}")
-print("")
+def choisir_pokemon(equipe,liste):
+    print("\nChoisissez un Pokémon a jouer parmi les suivants:")
+    for i, pokemon in enumerate(equipe, 1):
+        print(f"{i}. {pokemon.nom} (PV: {pokemon.vie})")
 
-for pokemon in enumerate(justepourlamiseenforme):
-    print(f"la vitesse du pokemon")
+    while True:
+        try:
+            choix_pokemon = int(input("Entrez le numéro du Pokémon que vous souhaitez jouer : "))
+            if 1 <= choix_pokemon <= len(equipe):
+                break
+            else:
+                print("Choix invalide. Veuillez choisir parmi les Pokémon disponibles.")
+        except ValueError:
+            print("Veuillez entrer un nombre entier.")
 
-
+    return equipe[choix_pokemon - 1] and liste.append(equipe[choix_pokemon - 1])
 
 def choix_attaques(pokemon):
     attaques_possibles = []
@@ -87,9 +90,43 @@ print("\n")
 print(f"{equipe_2[0].nom} a les attaques suivantes : {[attaque.name for attaque in atq_pok_e2_p1]}")
 print("\n")
 print(f"{equipe_2[1].nom} a les attaques suivantes : {[attaque.name for attaque in atq_pok_e2_p2]}")
+print("\n")
 
-def choix(vitesse, pokemon, equipe2):
-    pass
+def attaques_utilise(pokemon, equipe_adverse):
+        # Afficher les attaques disponibles pour le Pokémon
+    print(f"\n{pokemon.nom} a les attaques suivantes : {[attaque.name for attaque in pokemon.attaque]}")
+
+    # Sélection de l'attaque
+    while True:
+        try:
+            choix_attaque = int(input(f"Choisissez l'attaque (1-{len(pokemon.attaque)}): "))
+            if 1 <= choix_attaque <= len(pokemon.attaque):
+                break
+            else:
+                print("Choix invalide. Veuillez choisir parmi les attaques disponibles.")
+        except ValueError:
+            print("Veuillez entrer un nombre entier.")
+
+    attaque_utilisee = pokemon.attaque[choix_attaque - 1]
+    print(f"{pokemon.nom} utilise {attaque_utilisee.name}!")
+
+    # Sélection de la cible
+    print("\nChoisissez la cible pour l'attaque:")
+    for i, adversaire in enumerate(equipe_adverse, 1):
+        print(f"{i}. {adversaire.nom} (PV: {adversaire.vie})")
+
+    while True:
+        try:
+            choix_cible = int(input("Entrez le numéro de la cible : "))
+            if 1 <= choix_cible <= len(equipe_adverse):
+                break
+            else:
+                print("Choix invalide. Veuillez choisir parmi les Pokémon adverses.")
+        except ValueError:
+            print("Veuillez entrer un nombre entier.")
+
+    cible_attaquee = equipe_adverse[choix_cible - 1]
+    return cible_attaquee
 
 def attaques(pokemon, pokemons_adverse):
     if pokemon.vitesse > pokemons_adverse.vitesse:
@@ -97,6 +134,7 @@ def attaques(pokemon, pokemons_adverse):
             print(f"{i+1}. {pok}")
     else:
         pass
+        
 def utiliser_objet():
     alea = rd.randint(1,3)
     objet.soins = alea
