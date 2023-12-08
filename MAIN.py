@@ -149,41 +149,40 @@ class Action:
         self.priorité = "de 1 (pas prioritaire) a 4 (très prioritaire)"
         self.type = "attaque, change, objet, fuite"
 
-def phase_choix( pokemon_actifs """Faut les nommer""" , tour):
+# Phase de choix
     action = Action()
     action_choix = int(input("que voulez-vous faire ? 1: Attaquer, 2: Changer de poopkemon, 3: Utiliser un objet, 4:Fuire"))
     if action_choix == 1:
         action.type = "attaque"
         action.priorité = 1
-        return action
     elif action_choix == 2:
         action.type = "changer"
         action.priorité = 4
         change_poke = input(f"pokemon voulez-vous déployer ? 1: {equipe_1[0].nom} ou 2: {equipe_1[1]}" )
         pokemon_actif = # l'autre mon
-        return action
     elif action_choix == 3:
         action.type = "objet"
         action.priorité = 3
-        return action
     elif action_choix == 4:
         action.type = "fuite"
         action.priorité = 2
-        return action
 
-def phase_action(""" les poke actifs """, action_choisi):
+#Phase d'action
     if action.priorité == 4
-            change_poke = input(f"pokemon voulez-vous déployer ? 1: {equipe_1[0].nom} ou 2: {equipe_1[1]}" )
+            change_poke = input(f"Quel pokemon voulez-vous déployer ? 1: {equipe_1[0].nom}, ou 2: {equipe_1[1]}" )
             pokemon_actif = # l'autre mon
     elif action.priorité == 3
+            """utiliser_objet()"""
     elif action.priorité == 2
         a = rd.randint(1,5)
         if a == 1:
             print("Bravo ! Vous avez fuit avec succès et avez perdu le combat par votre lacheté !")
-            break
+            surrender = True
+            return surrender
         else:
             print("Haha, la fuite n'est pas une option, Looser")
-    elif action.priorité == 1
+    elif action.priorité == 1:
+        attaquer()
 
 class Altération_statut()
   def __init__(self):
