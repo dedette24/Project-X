@@ -134,15 +134,6 @@ def attaques(pokemon, pokemons_adverse):
             print(f"{i+1}. {pok}")
     else:
         pass
-        
-def utiliser_objet():
-    alea = rd.randint(1,3)
-    objet.soins = alea
-    objet.anti_poison = alea
-    objet.bonus_atq = alea
-    objet.bonus_dfs = alea
-    objet.malus_atq = alea
-    objet.malus_dfs = alea
 
 class Action:
     def __init__(self):
@@ -184,19 +175,25 @@ class Action:
     elif action.priorité == 1:
         attaquer()
 
-class Altération_statut()
+class Altération_statut:
   def __init__(self):
     self.fatigué = "" 
     self.dodo = ""
     self.jet_caca = ""
-      
 
+#Objet soin
 
+class Objets:
+    def __init__(self):
+    self.soins = alea
+    self.anti_poison = alea
+    self.bonus_atq = alea
+    self.bonus_dfs = alea
+    self.malus_atq = alea
+    self.malus_dfs = alea
 
-def fatiguer(self, cible):
-        if self.fatigue > 0:
-            print(f"{self.nom} est fatigué et ne peut pas attaquer ce tour.Il vous reste ")
-            self.reposer()
+ultra_soin = Objets()
+utra_soin.soins = 100
 
 
 
