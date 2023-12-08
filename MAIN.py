@@ -118,19 +118,20 @@ def phase_choix( pokemon_actifs """Faut les nommer""" , tour):
         action.type = "attaque"
         action.priorité = 1
         return action
-    elif action == 2:
+    elif action_choix == 2:
         action.type = "changer"
         action.priorité = 4
         change_poke = input(f"pokemon voulez-vous déployer ? 1: {equipe_1[0].nom} ou 2: {equipe_1[1]}" )
         pokemon_actif = # l'autre mon
-        return action_choisi
-    elif action == 3:
+        return action
+    elif action_choix == 3:
         action.type = "objet"
         action.priorité = 3
         return action
-    elif action == 4:
+    elif action_choix == 4:
         action.type = "fuite"
         action.priorité = 2
+        return action
 
 def phase_action(""" les poke actifs """, action_choisi):
     if action.priorité == 4
