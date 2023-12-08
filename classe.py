@@ -4,7 +4,7 @@ class Pokemon:
         self.nom = "Son blaze"
         self.vie = "Vie" #entre 78 et 150
         self.dfs = "Attaque" #entre 5 et 20
-        self.type = "son type (pour savoir si il fait degat *2)" #10 type : Feu, Glace, Eau, Gadou, Fee, Plante, Ombre, Acier, Radiateur, Caca
+        self.type = "son type (pour savoir si il fait degat *2)" #10 type : Feu, Glace, Eau, Gadou, Fee, Plante, Ombre, Acier, Ombre, Caca
         self.vitesse = "sa rapiditer" #entre 1 et 20
         
 class Attaque:
@@ -111,7 +111,7 @@ attaques.append(Rocaille)
 Éruption_radiante = Attaque()
 Éruption_radiante.name = "Éruption_radiante"
 Éruption_radiante.power = 30
-Éruption_radiante.type = "Radiateur"
+Éruption_radiante.type = "Ombre"
 Éruption_radiante.pp = 5
 attaques.append(Éruption_radiante)
 
@@ -277,10 +277,10 @@ for attaque in attaques:
         types_dict[type_].append(attaque)
 
 # on print les attaques pour chaques type :
-for type_, attaque_list in types_dict.items():
+"""for type_, attaque_list in types_dict.items():
     print(f"\nType: {type_}") #le \n ajoute juste un espace entre chaque truc (c'est plus beau)
     for attaque in attaque_list:
-        print(f"Nom: {attaque.name}, Power: {attaque.power}, PP: {attaque.pp}")
+        print(f"Nom: {attaque.name}, Power: {attaque.power}, PP: {attaque.pp}")"""
         
         
 liste_tt_pokemon = []
@@ -321,7 +321,7 @@ Zegrouille = Pokemon()
 Zegrouille.nom = "Zegrouille"
 Zegrouille.vie = int("100")
 Zegrouille.dfs = int("10")
-Zegrouille.type = "Radiateur"
+Zegrouille.type = "Ombre"
 Zegrouille.vitesse = int("11")
 liste_tt_pokemon.append(Zegrouille)
 
@@ -409,7 +409,7 @@ Sorsdurelax =Pokemon ()
 Sorsdurelax.nom = "Sorsdurelax"
 Sorsdurelax.vie = int("100")
 Sorsdurelax.dfs = int("13")
-Sorsdurelax.type = "Radiateur"
+Sorsdurelax.type = "Ombre"
 Sorsdurelax.vitesse = int("10")
 liste_tt_pokemon.append(Sorsdurelax)
 #16
