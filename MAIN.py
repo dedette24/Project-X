@@ -191,9 +191,12 @@ class Objets:
     self.bonus_dfs = alea
     self.malus_atq = alea
     self.malus_dfs = alea
+    self.Sabotage = alea
 
 ultra_soin = Objets()
 utra_soin.soins = 100
+
+soins = Objets()
 
 
 
