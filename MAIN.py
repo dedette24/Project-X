@@ -33,10 +33,10 @@ def info(equipe_1, equipe_2):
 
 info(equipe_1, equipe_2)
 
-def choisir_pokemon(equipe,liste):
-    print("\nChoisissez un Pokémon a jouer parmi les suivants:")
+def choisir_pokemon(equipe):
+    print(f"\nChoisissez un Pokémon a jouer parmi les suivants: ")
     for i, pokemon in enumerate(equipe, 1):
-        print(f"{i}. {pokemon.nom} (PV: {pokemon.vie})")
+        print(f"{i}. {pokemon.name} (PV: {pokemon.vie})")
 
     while True:
         try:
@@ -46,9 +46,11 @@ def choisir_pokemon(equipe,liste):
             else:
                 print("Choix invalide. Veuillez choisir parmi les Pokémon disponibles.")
         except ValueError:
-            print("Veuillez entrer un nombre entier.")
+            print("Veuillez entrer un namebre entier.")
 
-    return equipe[choix_pokemon - 1] and liste.append(equipe[choix_pokemon - 1])
+    return equipe[choix_pokemon - 1]
+
+Pokemon_actif = []
 
 def choix_attaques(pokemon):
     attaques_possibles = []
@@ -57,7 +59,7 @@ def choix_attaques(pokemon):
             attaques_possibles.append(attaque)
 
     attaques_selectionnees = []
-    print(f"Choisissez 3 attaques pour {pokemon.nom} parmi les attaques suivantes :")
+    print(f"Choisissez 3 attaques pour {pokemon.name} parmi les attaques suivantes :")
     while len(attaques_selectionnees) < 3:
         for i, attaque in enumerate(attaques_possibles, 1):
             print(f"{i}. {attaque.name} (Puissance: {attaque.power}, PP: {attaque.pp})")
@@ -67,7 +69,7 @@ def choix_attaques(pokemon):
                 choix = int(input(f"Choisissez l'attaque {len(attaques_selectionnees) + 1}: "))
                 break  # Sort de la boucle si la conversion en int réussit
             except ValueError:
-                print("Veuillez entrer un nombre entier.")
+                print("Veuillez entrer un namebre entier.")
 
         if 1 <= choix <= len(attaques_possibles):
             attaque_selectionnee = attaques_possibles.pop(choix - 1)
@@ -76,25 +78,28 @@ def choix_attaques(pokemon):
         else:
             print("Choix invalide. Veuillez choisir parmi les attaques disponibles.")
 
+    print("\n")
     return attaques_selectionnees
+
+liste_tt_attaques = []
 
 atq_pok_e1_p1 = choix_attaques(equipe_1[0])
 atq_pok_e1_p2 = choix_attaques(equipe_1[1])
 atq_pok_e2_p1 = choix_attaques(equipe_2[0])
 atq_pok_e2_p2 = choix_attaques(equipe_2[1])
-print("\n")
-print(f"{equipe_1[0].nom} a les attaques suivantes : {[attaque.name for attaque in atq_pok_e1_p1]}")
-print("\n")
-print(f"{equipe_1[1].nom} a les attaques suivantes : {[attaque.name for attaque in atq_pok_e1_p2]}")
-print("\n")
-print(f"{equipe_2[0].nom} a les attaques suivantes : {[attaque.name for attaque in atq_pok_e2_p1]}")
-print("\n")
-print(f"{equipe_2[1].nom} a les attaques suivantes : {[attaque.name for attaque in atq_pok_e2_p2]}")
-print("\n")
+liste_tt_attaques.append(atq_pok_e1_p1)
+liste_tt_attaques.append(atq_pok_e1_p2)
+liste_tt_attaques.append(atq_pok_e2_p1)
+liste_tt_attaques.append(atq_pok_e2_p2)
+print(f"{equipe_1[0].name} a les attaques suivantes : {[attaque.name for attaque in atq_pok_e1_p1]}")
+print(f"{equipe_1[1].name} a les attaques suivantes : {[attaque.name for attaque in atq_pok_e1_p2]}")
+print(f"{equipe_2[0].name} a les attaques suivantes : {[attaque.name for attaque in atq_pok_e2_p1]}")
+print(f"{equipe_2[1].name} a les attaques suivantes : {[attaque.name for attaque in atq_pok_e2_p2]}")
 
-def attaques_utilise(pokemon, equipe_adverse):
+print(liste_tt_attaques)
+def attaques_utilise(pokemon, attack):
         # Afficher les attaques disponibles pour le Pokémon
-    print(f"\n{pokemon.nom} a les attaques suivantes : {[attaque.name for attaque in pokemon.attaque]}")
+    print(f"\n{pokemon.name} a les attaques suivantes : {[attack.name for attaque in pokemon.attaque]}")
 
     # Sélection de l'attaque
     while True:
@@ -108,26 +113,28 @@ def attaques_utilise(pokemon, equipe_adverse):
             print("Veuillez entrer un nombre entier.")
 
     attaque_utilisee = pokemon.attaque[choix_attaque - 1]
-    print(f"{pokemon.nom} utilise {attaque_utilisee.name}!")
+    print(f"{pokemon} utilise l'attaque : {attaque_utilisee}")
+    return attaque_utilisee
 
+def attaque_cible(equipe):
     # Sélection de la cible
     print("\nChoisissez la cible pour l'attaque:")
-    for i, adversaire in enumerate(equipe_adverse, 1):
-        print(f"{i}. {adversaire.nom} (PV: {adversaire.vie})")
+    for i, adversaire in enumerate(equipe, 1):
+        print(f"{i}. {adversaire.name} (PV: {adversaire.vie})")
 
     while True:
         try:
             choix_cible = int(input("Entrez le numéro de la cible : "))
-            if 1 <= choix_cible <= len(equipe_adverse):
+            if 1 <= choix_cible <= len(equipe):
                 break
             else:
                 print("Choix invalide. Veuillez choisir parmi les Pokémon adverses.")
         except ValueError:
             print("Veuillez entrer un nombre entier.")
 
-    cible_attaquee = equipe_adverse[choix_cible - 1]
+    cible_attaquee = equipe[choix_cible - 1]
     return cible_attaquee
-
+    
 def attaques(pokemon, pokemons_adverse):
     if pokemon.vitesse > pokemons_adverse.vitesse:
         for i, pok in enumerate(1, pokemons_adverse):
@@ -135,6 +142,13 @@ def attaques(pokemon, pokemons_adverse):
     else:
         pass
 
+poke1_actif = choisir_pokemon(equipe_1)
+poke2_actif = choisir_pokemon(equipe_2)
+Pokemon_actif.append(poke1_actif)
+Pokemon_actif.append(poke2_actif)
+for i, pokemon in enumerate(Pokemon_actif, 1):
+            print(f"équipe {i} joue : {pokemon.name}")
+    
 class Action:
     def __init__(self):
         self.priorité = "de 1 (pas prioritaire) a 4 (très prioritaire)"
