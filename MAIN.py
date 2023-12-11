@@ -227,12 +227,12 @@ class Altération_statut:
 
 class Objets:
     def __init__(self):
-        self.soins = alea
-        self.anti_poison = alea
-        self.bonus_atq = alea
-        self.bonus_dfs = alea
-        self.malus_atq = alea        #Malus d'atq consiste si le pokémon frappe le pokémon ,ça renvoie son coup précedent .
-        self.malus_dfs = alea
+        self.soins = 2
+        self.anti_poison = 2
+        self.bonus_atq = 2
+        self.bonus_dfs = 2
+        self.malus_atq = 2        #Malus d'atq consiste si le pokémon frappe le pokémon ,ça renvoie son coup précedent .
+        self.malus_dfs = 2
 
 ultra_soin = Objets()
 ultra_soin.soins = 100
