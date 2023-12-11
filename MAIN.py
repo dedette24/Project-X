@@ -176,7 +176,7 @@ elif action_choix_2 == 4:
 #Phase d'action
 def phase_action(action_priorité):
     if action_priorité == 4:
-        change_poke = input(f"Quel pokemon voulez-vous déployer ? 1: {equipe_1[0].nom}, ou 2: {equipe_1[1]}" )
+        change_poke = int(input(f"Quel pokemon voulez-vous déployer ? 1: {equipe_1[0].name}, ou 2: {equipe_1[1].name}" ))
         pokemon_actif = equipe_1[change_poke - 1]
     elif action_priorité == 3:
         objet = input(f"Quel objet souhaitez vous utiliser ? 1:")
@@ -201,6 +201,7 @@ elif action2.priorité > action.priorité:
 elif action.priorité == action2.priorité:
     if action.type == "attaque":
         """attaque()"""
+
 
 class Altération_statut:
   def __init__(self):
