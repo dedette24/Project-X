@@ -197,6 +197,11 @@ ultra_soin = Objets()
 utra_soin.soins = 100
 
 soins = Objets()
+soins.soins = 50
+
+anti_poison = Objets()
+anti_poison.soins = -1,5%
+
 
 
 
