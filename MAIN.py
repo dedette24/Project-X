@@ -244,14 +244,12 @@ class Objets:
         self.anti_poison = 2
         self.bonus_atq = 2
         self.bonus_dfs = 2
-        self.malus_atq = 2        #Malus d'atq consiste si le pokémon frappe le pokémon ,ça renvoie son coup précedent .
-        self.malus_dfs = 2
 
 ultra_soin = Objets()
-ultra_soin.soins = 100
+ultra_soin.soins = 35
 
 soins = Objets()
-soins.soins = 50
+soins.soins = 15
 
 anti_poison = Objets()
 anti_poison.poison = 10                #attaque de poison sur le poopkemon , protéger le pokemon grâce à une anti_poison , qui le sauve de 10% se sa vie 
@@ -261,13 +259,6 @@ bonus_atq.attaque = 10*3
 
 bonus_dfs = Objets() 
 bonus_dfs.defense = +5
-
-malus_atq = Objets()
-malus_atq.attaque = -6
-
-malus_dfs = Objets()
-malus_dfs.defense = -8       #si le poopkemon défend l'attq de son adversaire il a des chances d'avoir un malus de dfs
-
 
 def utiliser_objet(objets, pokemon):
     pokemon.vie += objets.soin
