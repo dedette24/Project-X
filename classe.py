@@ -1,7 +1,7 @@
 import random
 class Pokemon:
     def __init__(self):
-        self.nom = "Son blaze"
+        self.name = "Son blaze"
         self.vie = "Vie" #entre 78 et 150
         self.dfs = "Attaque" #entre 5 et 20
         self.type = "son type (pour savoir si il fait degat *2)" #10 type : Feu, Glace, Eau, Gadou, Fee, Plante, Ombre, Acier, Ombre, Caca
@@ -286,7 +286,7 @@ for attaque in attaques:
 liste_tt_pokemon = []
 #Pokemon num 1
 Pigrochou = Pokemon()
-Pigrochou.nom = "Pigrochou"
+Pigrochou.name = "Pigrochou"
 Pigrochou.vie = int(100)
 Pigrochou.dfs = int(5)
 Pigrochou.type = "Electrique"
@@ -294,7 +294,7 @@ Pigrochou.vitesse = int("10")
 liste_tt_pokemon.append(Pigrochou)
 #Pokemon num 2
 dracoco = Pokemon()
-dracoco.nom = "dracoco"
+dracoco.name = "dracoco"
 dracoco.vie = int(150)
 dracoco.dfs = int(20)
 dracoco.type = "Feu"
@@ -302,7 +302,7 @@ dracoco.vitesse = int("5")
 liste_tt_pokemon.append(dracoco)
 #Pokemon num 3
 ciseau = Pokemon()
-ciseau.nom = "ciseau"
+ciseau.name = "ciseau"
 ciseau.vie = int(78)
 ciseau.dfs = int(10)
 ciseau.type = "Acier"
@@ -310,7 +310,7 @@ ciseau.vitesse = int("15")
 liste_tt_pokemon.append(ciseau)
 #4
 Torpingpong = Pokemon()
-Torpingpong.nom = "Torpingpong"
+Torpingpong.name = "Torpingpong"
 Torpingpong.vie = int("140")
 Torpingpong.dfs = int("15")
 Torpingpong.type = "Eau"
@@ -318,7 +318,7 @@ Torpingpong.vitesse = int("10")
 liste_tt_pokemon.append(Torpingpong)
 #5
 Zegrouille = Pokemon()
-Zegrouille.nom = "Zegrouille"
+Zegrouille.name = "Zegrouille"
 Zegrouille.vie = int("100")
 Zegrouille.dfs = int("10")
 Zegrouille.type = "Ombre"
@@ -326,7 +326,7 @@ Zegrouille.vitesse = int("11")
 liste_tt_pokemon.append(Zegrouille)
 
 Terramen = Pokemon()
-Terramen.nom = "Terramen"
+Terramen.name = "Terramen"
 Terramen.vie = int("100")
 Terramen.dfs = int("25")
 Terramen.type = "Terre"
@@ -334,7 +334,7 @@ Terramen.vitesse = int("10")
 liste_tt_pokemon.append(Terramen)
 #6
 sarbouboule = Pokemon()
-sarbouboule.nom = "sarbouboule"
+sarbouboule.name = "sarbouboule"
 sarbouboule.vie = int("100")
 sarbouboule.dfs = int("25")
 sarbouboule.type = "Glace"
@@ -342,7 +342,7 @@ sarbouboule.vitesse = int("10")
 liste_tt_pokemon.append(sarbouboule)
 #7
 arkekes = Pokemon()
-arkekes.nom = "arkekes"
+arkekes.name = "arkekes"
 arkekes.vie = int("100")
 arkekes.dfs = int("24")
 arkekes.type = "Ombre"
@@ -350,7 +350,7 @@ arkekes.vitesse = int("10")
 liste_tt_pokemon.append(arkekes)
 #8
 Gagabou = Pokemon()
-Gagabou.nom = "Gagabou"
+Gagabou.name = "Gagabou"
 Gagabou.vie = int("90")
 Gagabou.dfs = int("19")
 Gagabou.type = "Fee"
@@ -358,7 +358,7 @@ Gagabou.vitesse = int("10")
 liste_tt_pokemon.append(Gagabou)
 #9
 Taumamamia = Pokemon()
-Taumamamia.nom = "Taumamamia"
+Taumamamia.name = "Taumamamia"
 Taumamamia.vie = int("100")
 Taumamamia.dfs = int("20")
 Taumamamia.type = "Feu"
@@ -366,7 +366,7 @@ Taumamamia.vitesse = int("10")
 liste_tt_pokemon.append(Taumamamia)
 #10
 Sologopitch = Pokemon()
-Sologopitch.nom = "Sologopitch"
+Sologopitch.name = "Sologopitch"
 Sologopitch.vie = int("100")
 Sologopitch.dfs = int("10")
 Sologopitch.type = "Acier"
@@ -374,7 +374,7 @@ Sologopitch.vitesse = int("10")
 liste_tt_pokemon.append(Sologopitch)
 #11
 Bulbaredbull = Pokemon ()
-Bulbaredbull.nom = "Bulbaredbull"
+Bulbaredbull.name = "Bulbaredbull"
 Bulbaredbull.vie = int("100")
 Bulbaredbull.dfs = int("8")
 Bulbaredbull.type = "Eau"
@@ -382,7 +382,7 @@ Bulbaredbull.vitesse = int("10")
 liste_tt_pokemon.append(Bulbaredbull)
 #12
 charmandercharmant = Pokemon()
-charmandercharmant.nom = "charmandercharmant"
+charmandercharmant.name = "charmandercharmant"
 charmandercharmant.vie = int("110")
 charmandercharmant.dfs = int("16")
 charmandercharmant.type = "Fee"
@@ -390,7 +390,7 @@ charmandercharmant.vitesse = int("10")
 liste_tt_pokemon.append(charmandercharmant)
 #13
 NeSquictle = Pokemon ()
-NeSquictle.nom = "NeSquictle"
+NeSquictle.name = "NeSquictle"
 NeSquictle.vie = int("99")
 NeSquictle.dfs = int("19")
 NeSquictle.type = "Terre"
@@ -398,7 +398,7 @@ NeSquictle.vitesse = int("10")
 liste_tt_pokemon.append(NeSquictle)
 #14
 JicleJacqueline = Pokemon ()
-JicleJacqueline.nom = "JicleJacqueline"
+JicleJacqueline.name = "JicleJacqueline"
 JicleJacqueline.vie = int("100")
 JicleJacqueline.dfs = int("19")
 JicleJacqueline.type = "Plante"
@@ -406,7 +406,7 @@ JicleJacqueline.vitesse = int("10")
 liste_tt_pokemon.append(JicleJacqueline)
 #15
 Sorsdurelax =Pokemon ()
-Sorsdurelax.nom = "Sorsdurelax"
+Sorsdurelax.name = "Sorsdurelax"
 Sorsdurelax.vie = int("100")
 Sorsdurelax.dfs = int("13")
 Sorsdurelax.type = "Ombre"
@@ -414,7 +414,7 @@ Sorsdurelax.vitesse = int("10")
 liste_tt_pokemon.append(Sorsdurelax)
 #16
 Gytan = Pokemon()
-Gytan.nom = "Gytan"
+Gytan.name = "Gytan"
 Gytan.vie = int("150")
 Gytan.dfs = int("20")
 Gytan.type = "Electrique"
@@ -422,7 +422,7 @@ Gytan.vitesse = int("10")
 liste_tt_pokemon.append(Gytan)
 #17
 Dedette = Pokemon()
-Dedette.nom = "Dedette"
+Dedette.name = "Dedette"
 Dedette.vie = int("123")
 Dedette.dfs = int("20")
 Dedette.type = "Eau"
