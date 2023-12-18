@@ -17,17 +17,17 @@ equipe_1, equipe_2 = choix_random(liste_tt_pokemon)
 
 def info(equipe_1, equipe_2):
     print("équipe 1 : ")
-    print(f"le pokemon 1 de l'equipe 1 est : {equipe_1[0].nom} et il a {equipe_1[0].vie} pv")
-    print(f"le pokemon 2 de l'equipe 1 est : {equipe_1[1].nom} et il a {equipe_1[1].vie} pv")
+    print(f"le pokemon 1 de l'equipe 1 est : {equipe_1[0].name} et il a {equipe_1[0].vie} pv")
+    print(f"le pokemon 2 de l'equipe 1 est : {equipe_1[1].name} et il a {equipe_1[1].vie} pv")
     print("équipe 2 : ")
-    print(f"le pokemon 1 de l'equipe 2 est : {equipe_2[0].nom} et il a {equipe_2[0].vie} pv")
-    print(f"le pokemon 2 de l'equipe 2 est : {equipe_2[1].nom} et il a {equipe_2[1].vie} pv")
+    print(f"le pokemon 1 de l'equipe 2 est : {equipe_2[0].name} et il a {equipe_2[0].vie} pv")
+    print(f"le pokemon 2 de l'equipe 2 est : {equipe_2[1].name} et il a {equipe_2[1].vie} pv")
     #on définit la vitesse des pokemons
     print("")
-    print(f"la vitesse de {equipe_1[0].nom} est de : {equipe_1[0].vitesse}")
-    print(f"la vitesse de {equipe_1[1].nom} est de : {equipe_1[1].vitesse}")
-    print(f"la vitesse de {equipe_2[0].nom} est de : {equipe_2[0].vitesse}")
-    print(f"la vitesse de {equipe_2[1].nom} est de : {equipe_2[1].vitesse}")
+    print(f"la vitesse de {equipe_1[0].name} est de : {equipe_1[0].vitesse}")
+    print(f"la vitesse de {equipe_1[1].name} est de : {equipe_1[1].vitesse}")
+    print(f"la vitesse de {equipe_2[0].name} est de : {equipe_2[0].vitesse}")
+    print(f"la vitesse de {equipe_2[1].name} est de : {equipe_2[1].vitesse}")
     print("")
     return equipe_1, equipe_2
 
@@ -83,20 +83,16 @@ def choix_attaques(pokemon):
 
 liste_tt_attaques = []
 
-atq_pok_e1_p1 = choix_attaques(equipe_1[0])
-atq_pok_e1_p2 = choix_attaques(equipe_1[1])
-atq_pok_e2_p1 = choix_attaques(equipe_2[0])
-atq_pok_e2_p2 = choix_attaques(equipe_2[1])
-liste_tt_attaques.append(atq_pok_e1_p1)
-liste_tt_attaques.append(atq_pok_e1_p2)
-liste_tt_attaques.append(atq_pok_e2_p1)
-liste_tt_attaques.append(atq_pok_e2_p2)
-print(f"{equipe_1[0].name} a les attaques suivantes : {[attaque.name for attaque in atq_pok_e1_p1]}")
-print(f"{equipe_1[1].name} a les attaques suivantes : {[attaque.name for attaque in atq_pok_e1_p2]}")
-print(f"{equipe_2[0].name} a les attaques suivantes : {[attaque.name for attaque in atq_pok_e2_p1]}")
-print(f"{equipe_2[1].name} a les attaques suivantes : {[attaque.name for attaque in atq_pok_e2_p2]}")
+att1 = choix_attaques(equipe_1[0])
+att2 = choix_attaques(equipe_1[1])
+att3 = choix_attaques(equipe_2[0])
+att4 = choix_attaques(equipe_2[1])
+liste_tt_attaques.append(att1)
+liste_tt_attaques.append(att2)
+liste_tt_attaques.append(att3)
+liste_tt_attaques.append(att4)
 
-print(liste_tt_attaques)
+
 def attaques_utilise(pokemon, attack):
         # Afficher les attaques disponibles pour le Pokémon
     print(f"\n{pokemon.name} a les attaques suivantes : {[attack.name for attaque in pokemon.attaque]}")
@@ -116,7 +112,7 @@ def attaques_utilise(pokemon, attack):
     print(f"{pokemon} utilise l'attaque : {attaque_utilisee}")
     return attaque_utilisee
 
-def attaque_cible(equipe):
+def attaque_cible(equipe, adversaire):
     # Sélection de la cible
     print("\nChoisissez la cible pour l'attaque:")
     for i, adversaire in enumerate(equipe, 1):
@@ -149,27 +145,34 @@ Pokemon_actif.append(poke2_actif)
 for i, pokemon in enumerate(Pokemon_actif, 1):
             print(f"équipe {i} joue : {pokemon.name}")
     
+##################################
+
 class Action:
     def __init__(self):
         self.priorité = "de 1 (pas prioritaire) a 4 (très prioritaire)"
         self.type = "attaque, changer, objet, fuite"
+        self.do = "CE que ca va faire"
 
 # Phase de choix
 #Joueur 1
 action = Action()
-action_choix = int(input("que voulez-vous faire ? 1: Attaquer, 2: Changer de poopkemon, 3: Utiliser un objet, 4:Fuire"))
+action_choix = int(input("que voulez-vous faire ? 1: Attaquer, 2: Changer de poopkemon, 3: Utiliser un objet, 4:Fuire : "))
 if action_choix == 1:
     action.priorité = 1
     action.type = "attaque"
+    action.do = False
 elif action_choix == 2:
     action.priorité = 4
     action.type = "changer"
+    action.do = choisir_pokemon(equipe_1)
 elif action_choix == 3:
     action.priorité = 3
-    action.type = "objet"    
+    action.type = "objet"  
+    action.do = False  
 elif action_choix == 4:
     action.priorité = 2
     action.type = "fuite"
+    action.do = False
 
 #Joueur 2
 action2 = Action()
@@ -177,20 +180,26 @@ action_choix_2 = int(input("que voulez-vous faire ? 1: Attaquer, 2: Changer de p
 if action_choix_2 == 1:
     action2.priorité = 1
     action.type = "attaque"
+    action.do = False
 elif action_choix_2 == 2:
     action2.priorité = 4
     action.type = "changer"
+    action.do = choisir_pokemon(equipe_2)
 elif action_choix_2 == 3:
     action2.priorité = 3
     action.type = "objet"
+    action.do = False
 elif action_choix_2 == 4:
     action2.priorité = 2
-    action.type = "fuite"
+    action.type = "fuite" 
+    action.do = False
+    
 
 #Phase d'action
 def phase_action(action_priorité):
     if action_priorité == 4:
-        """changer_de_poopkemon"""
+        change_poke = int(input(f"Quel pokemon voulez-vous déployer ? 1: {equipe_1[0].name}, ou 2: {equipe_1[1].name}" ))
+        pokemon_actif = equipe_1[change_poke - 1]
     elif action_priorité == 3:
         objet = input(f"Quel objet souhaitez vous utiliser ? 1:")
         """utiliser_objet(objet)"""
