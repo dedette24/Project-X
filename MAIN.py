@@ -202,7 +202,7 @@ def phase_action(action_priorité):
         pokemon_actif = equipe_1[change_poke - 1]
     elif action_priorité == 3:
         objet = input(f"Quel objet souhaitez vous utiliser ? 1:")
-        """utiliser_objet(objet)"""
+        utiliser_objet(objet)
     elif action_priorité == 2:
         a = rd.randint(1,5)
         if a == 1:
@@ -253,9 +253,13 @@ class Objets:
         self.anti_poison = 2
         self.bonus_atq = 2
         self.bonus_dfs = 2
+        self.utilisations = 1
+liste_obj = []
 
 ultra_soin = Objets()
 ultra_soin.soins = 35
+ultra_soin.bonus_atq = 3
+liste_obj.append(ultra_soins)
 
 soins = Objets()
 soins.soins = 15
@@ -267,14 +271,14 @@ bonus_atq = Objets()
 bonus_atq.attaque = 10*3
 
 bonus_dfs = Objets() 
-bonus_dfs.defense = +5
+bonus_dfs.defense = 5
 
 def utiliser_objet(objets, pokemon):
     pokemon.vie += objets.soin
-    pokemon.atq += objets.attaque          #Ou sinn les dégâts
+    pokemon.atq += objets.bonus_atq
     pokemon.dfs += objets.defense
-    pokemon.statut += Objets.anti_poison
-    
+    pokemon.statut += objets.anti_poison
+    objets.utilisation -= 1   
 
 
         
