@@ -7,19 +7,8 @@ action = [0, 0]
 liste_tt_attaques = []
 Pokemon_actif = []
 
-
-#choisie pokemon aleatoire pour chaque équipe
-def choix_random(liste_tt_pokemon):
-    equipe_1 = []
-    equipe_2 = []
-    for i in range(2):
-        choix = rd.randint(0,(len(liste_tt_pokemon)-1))
-        equipe_1.append(liste_tt_pokemon[choix])
-        choix = rd.randint(0,(len(liste_tt_pokemon)-1))
-        equipe_2.append(liste_tt_pokemon[choix])
-    return equipe_1, equipe_2
-choix_random(liste_tt_pokemon)
-equipe_1, equipe_2 = choix_random(liste_tt_pokemon)
+equipe_1 = liste_pokemon[:2]
+equipe_2 = liste_pokemon[-2:]
 
 def info(equipe_1, equipe_2):
     print("équipe 1 : ")
@@ -42,12 +31,13 @@ info(equipe_1, equipe_2)
 #qui attaquer
 def choix_attaques_DEBUT(pokemon):
     attaques_possibles = [attaque for attaque in attaques if attaque.type == pokemon.type]
+    vrai_attaque_dispo = attaques_possibles[:4]
     attaques_selectionnees = []
 
     print(f"Choisissez 3 attaques pour {pokemon.name} parmi les attaques suivantes :")
     
     while len(attaques_selectionnees) < 3:
-        for i, attaque in enumerate(attaques_possibles, 1):
+        for i, attaque in enumerate(vrai_attaque_dispo, 1):
             print(f"{i}. {attaque.name} (Puissance: {attaque.power}, PP: {attaque.pp})")
 
         while True:
@@ -57,8 +47,8 @@ def choix_attaques_DEBUT(pokemon):
             except ValueError:
                 print("Veuillez entrer un nombre entier.")
 
-        if 1 <= choix <= len(attaques_possibles):
-            attaque_selectionnee = attaques_possibles.pop(choix - 1)
+        if 1 <= choix <= len(vrai_attaque_dispo):
+            attaque_selectionnee = vrai_attaque_dispo.pop(choix - 1)
             
             # Vérification si l'attaque n'a pas déjà été sélectionnée
             if attaque_selectionnee not in attaques_selectionnees:
