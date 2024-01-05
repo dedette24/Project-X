@@ -231,7 +231,7 @@ def abandon(num, actif, liste, rec):
         print(f"Le joueur {num} a perdu, victoire au joueur {num + 1 if num == 1 else num - 1}")
         break
     else :
-        print("Le combat n'est pas fini, n'abandonne pas !")
+        print("Le combat n'est pas fini, n'abandonne pas ! \U0001f643")
 
 #-------------------------------------------------------------------------------------------------
 # Mtn faut la boucle
@@ -248,5 +248,5 @@ def efficace(num, actif):
         liste_effi = ["glace", "plante"]
     #etc
     if actif[adv].type in liste_effi:
-        degats_infligés = actif[num-1].power - actif[adv].dfs*1.5
-        print("c super efficace")
+        degats_infligés = (actif[num-1].power - actif[adv].dfs) * 1.5
+        print("c'est super efficace !")
