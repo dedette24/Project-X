@@ -236,3 +236,11 @@ def abandon(num, actif, liste, rec):
 #-------------------------------------------------------------------------------------------------
 # Mtn faut la boucle
 # A faire : L'etat KO des pokemons , Changer de poopkemon, dégats super efficace et pas très efficace,
+
+
+"""par exemple pour feu qui est efficace sur glace
+liste_efficace_feu = [glace, plante, etc...]
+if adv.type in liste_efficace{atq.type}:
+    degats_infligés = (liste[num-1].power - actif[adv].def)*1.5
+    print(c super efficace)
+etc pour pas très efficace et tt"""
