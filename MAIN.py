@@ -159,7 +159,7 @@ def efficace_raccour(num, actif, liste, B, N, O):
     else:
         adv = 0
     if actif[adv].type in B:
-        degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].dfs * 1.5)) * 1.75  #super efficace
+        degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].dfs * 1.5)) * 2  #super efficace
         actif[adv].vie -= degats_infligés
         print("c super efficace")
     elif actif[adv].type in N:
