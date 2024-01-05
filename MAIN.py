@@ -168,7 +168,7 @@ def attaque_boucle(num, actif, liste):
     print(f"Vous utilisez l'attaque {liste[num-1].name}")
     
     degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - actif[adv].def) 
-    print(f"Vous infliger {liste[num-1].power} à {actif[adv].name}")
+    print(f"Vous infliger {degats_infligés} à {actif[adv].name}")
     actif[adv].vie -= degats_infligés  """actif[adv].vie - (liste[num-1].power - actif[adv].def)""" # J'ai remplacé ça par degats_infligés au-dessus
     liste[num-1].pp -= 1
     print(f"il vous reste {liste[num-1].pp} utilisation restantes pour l'attaque {liste[num-1].name}")
@@ -250,17 +250,17 @@ def efficace(num, actif):
         liste_nul = ["feu", "eau", "dragon", "lumiere"] #N
         liste_0 = ["roche"] #X
         if actif[adv].type in liste_effi:
-            degats_infligés = actif[num-1].power - actif[adv].dfs*1.5
+            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5)) * 1.75  #super efficace
             actif[adv].vie -= degats_infligés
             print("c super efficace")
         elif actif[adv].type in liste_nul:
-            degats_infligés = actif[num-1].power - actif[adv].dfs*1.5
+            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5)) / 1.5  # Pas très efficace
             actif[adv].vie -= degats_infligés
             print("c'est pas tres éfficace")
-        elif actif[adv].type in liste_0:
+        elif actif[adv].type in liste_0:    #Inefficace
             print("Vous ne faites pas de degat !")
         else:
-            degats_infligés = actif[num-1].power - actif[adv].dfs
+            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5))    #Normal
             actif[adv].vie -= degats_infligés
         
     if actif[num-1].type == "glace": #glace
@@ -552,7 +552,7 @@ def efficace(num, actif):
             actif[adv].vie -= degats_infligés
 
     if actif[num-1].type == "psy": #psy
-        liste_effi = ["poision", "combat"] #T
+        liste_effi = ["poison", "combat"] #T
         liste_nul = ["caca", "acier", "dragon", "insecte", "spectre", "psy"] #N
         liste_0 = ["ombre"] #X
         if actif[adv].type in liste_effi:
