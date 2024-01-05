@@ -285,11 +285,12 @@ noms_attaques = [
 def generer_attaque_aleatoire(noms):
     attaques_par_type = {}
     
-    for _ in range(100):
+    for _ in range(150):
         nom_aleatoire = random.choice(noms)
-        power_aleatoire = random.randint(5, 25)  
+        noms.remove(nom_aleatoire)
+        power_aleatoire = random.randint(19, 25)  
         type_aleatoire = random.choice(["feu", "glace", "eau", "plante", "caca", "ombre", "fee", "electrique", "acier", "roche", "dragon", "poison", "vol", "combat", "insecte", "spectre", "lumiere", "psy"])
-        pp_aleatoire = random.randint(4, 11)  
+        pp_aleatoire = random.randint(6, 11)  
 
         attaque = Attaque(nom_aleatoire, power_aleatoire, type_aleatoire, pp_aleatoire)
 
