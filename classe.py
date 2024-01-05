@@ -34,7 +34,7 @@ Lance_flamme = Attaque()
 Lance_flamme.name = "Lance_flamme"
 Lance_flamme.power=18
 Lance_flamme.type = "Feu" 
-Lance_flamme.pp=10
+Lance_flamme.pp=0
 attaques.append(Lance_flamme)
 
 Eclair_sacré = Attaque()
@@ -428,3 +428,136 @@ Dedette.dfs = int("20")
 Dedette.type = "Eau"
 Dedette.vitesse = int("10")
 liste_tt_pokemon.append(Dedette)
+
+class Objet:
+    def __init__(self, name, obj_type, pp, point):
+        self.name = name
+        self.type = obj_type
+        self.pp = pp
+        self.point = point
+
+def generer_objets_aleatoires(noms_objets):
+    objets_aleatoires = []
+
+    for _ in range(4):
+        nom_aleatoire = random.choice(noms_objets)
+        type_aleatoire = random.choice(["attaque", "heal", "def"])
+        pp_aleatoire = 1
+        if type_aleatoire == "attaque" or type_aleatoire == "def":    
+            point_aleatoire = random.randint(1, 15)  
+        elif type_aleatoire == "heal":    
+            point_aleatoire = random.randint(1, 20)
+
+        # S'assurer qu'aucun objet n'est sélectionné deux fois
+        while any(objet.name == nom_aleatoire for objet in objets_aleatoires):
+            nom_aleatoire = random.choice(noms_objets)
+
+        objet = Objet(nom_aleatoire, type_aleatoire, pp_aleatoire, point_aleatoire)
+        objets_aleatoires.append(objet)
+
+    return objets_aleatoires
+
+noms_objets_pokemon = [
+    "Potion",
+    "Super Potion",
+    "Hyper Potion",
+    "Baie Oran",
+    "Baie Sitrus",
+    "Poudre Soin",
+    "Antidote",
+    "Antipara",
+    "Anti-Brûle",
+    "Rappel",
+    "Rappel Max",
+    "Méga-Gemme",
+    "Pierre Dure",
+    "Baie Maron",
+    "Baie Pêcha",
+    "Baie Ceriz",
+    "Baie Fraive",
+    "Baie Willia",
+    "Baie Kika",
+    "Baie Nanone",
+    "Baie Remu",
+    "Baie Qualot",
+    "Baie Sédra",
+    "Baie Tamato",
+    "Baie Babiri",
+    "Baie Jouca",
+    "Baie Charti",
+    "Baie Chocco",
+    "Baie Babiri",
+    "Baie Prine",
+    "Baie Nanone",
+    "Baie Kika",
+    "Baie Babiri",
+    "Pierre Foudre",
+    "Pierre Eau",
+    "Pierre Feu",
+    "Pierre Plante",
+    "Méga-Gemme Eau",
+    "Méga-Gemme Feu",
+    "Méga-Gemme Plante",
+    "Méga-Gemme Electro",
+    "Méga-Gemme Glace",
+    "Méga-Gemme Psy",
+    "Méga-Gemme Ténèbres",
+    "Méga-Gemme Vol",
+    "Méga-Gemme Acier",
+    "Méga-Gemme Roche",
+    "Méga-Gemme Sol",
+    "Méga-Gemme Combat",
+    "Méga-Gemme Poison",
+    "Méga-Gemme Spectre",
+    "Méga-Gemme Insecte",
+    "Méga-Gemme Normal",
+    "Méga-Gemme Dragon",
+    "Méga-Gemme Poison",
+    "Méga-Gemme Psy",
+    "Méga-Gemme Vol",
+    "Méga-Gemme Ténèbres",
+    "Méga-Gemme Roche",
+    "Méga-Gemme Sol",
+    "Méga-Gemme Combat",
+    "Méga-Gemme Insecte",
+    "Méga-Gemme Normal",
+    "Méga-Gemme Dragon",
+    "Méga-Gemme Poison",
+    "Méga-Gemme Psy",
+    "Méga-Gemme Vol",
+    "Méga-Gemme Ténèbres",
+    "Méga-Gemme Roche",
+    "Méga-Gemme Sol",
+    "Méga-Gemme Combat",
+    "Méga-Gemme Insecte",
+    "Méga-Gemme Normal",
+    "Méga-Gemme Dragon",
+    "Méga-Gemme Poison",
+    "Méga-Gemme Psy",
+    "Méga-Gemme Vol",
+    "Méga-Gemme Ténèbres",
+    "Méga-Gemme Roche",
+    "Méga-Gemme Sol",
+    "Méga-Gemme Combat",
+    "Méga-Gemme Insecte",
+    "Méga-Gemme Normal",
+    "Méga-Gemme Dragon"
+]
+
+
+
+while len(noms_objets_pokemon) < 100:
+    noms_objets_pokemon.append(f"Objet_{len(noms_objets_pokemon)+1}")
+
+# Mélanger la liste pour plus de variété
+random.shuffle(noms_objets_pokemon)
+
+"""# Afficher les 10 premiers noms d'objets
+print(noms_objets_pokemon[:10])"""
+
+# Utiliser la fonction pour générer 4 objets aléatoires
+objets_aleatoires = generer_objets_aleatoires(noms_objets_pokemon)
+
+# Afficher les détails des objets générés
+for objet in objets_aleatoires:
+    print(f"Nom: {objet.name}, Type: {objet.type}, PP: {objet.pp}, Point: {objet.point}")
