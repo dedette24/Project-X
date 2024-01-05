@@ -1,9 +1,10 @@
 import random
 class Pokemon:
-    def __init__(self, name, vie, dfs, type, vts):
+    def __init__(self, name, vie, dfs, atq, type, vts):
         self.name =  name #"Son blaze"
         self.vie = vie #"Vie" #entre 78 et 150
-        self.dfs = dfs #"Attaque" #entre 5 et 20
+        self.dfs = dfs #"Défense" #entre 5 et 20
+        self.atq = atq # "Attaque"  entre 10 et 35
         self.type = type #"son type (pour savoir si il fait degat *2)" #10 type : feu, Glace, Eau, Fee, Plante, Ombre, Acier, Caca, electrique, 
         self.vitesse = vts #"sa rapiditer" #entre 1 et 20
 
@@ -35,7 +36,8 @@ def generer_pokemon_aleatoire(noms):
     for _ in range(4):
         nom_aleatoire = random.choice(noms)
         vie_aléatoire = random.randint(78, 150)  
-        dfs_aléatoire = random.randint(10, 25)  
+        dfs_aléatoire = random.randint(5, 25)  
+        atq_aléatoire = random.randint(10, 35)
         type_aleatoire = random.choice(["feu", "glace", "eau", "plante", "caca", "ombre", "fee", "electrique", "acier", "roche", "dragon", "poison", "vol", "combat", "insecte", "spectre", "lumiere", "psy"])
         vts_aleatoire = random.randint(5, 20)  
 
@@ -43,7 +45,7 @@ def generer_pokemon_aleatoire(noms):
         while any(poke.name == nom_aleatoire for poke in pokemon):
             nom_aleatoire = random.choice(noms)
 
-        choix = Pokemon(nom_aleatoire, vie_aléatoire, dfs_aléatoire, type_aleatoire, vts_aleatoire)
+        choix = Pokemon(nom_aleatoire, vie_aléatoire, dfs_aléatoire, atq_aléatoire, type_aleatoire, vts_aleatoire)
         pokemon.append(choix)
 
     return pokemon
