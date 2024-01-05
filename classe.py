@@ -1,272 +1,311 @@
-import random 
+import random
 class Pokemon:
-    def __init__(self):
-        self.name = "Son blaze"
-        self.vie = "Vie" #entre 78 et 150
-        self.dfs = "Défense" #entre 5 et 20
-        self.atq = "Attaque" # entre 10 et 25
-        self.type = "son type (pour savoir si il fait degat *2)" #10 type : Feu, Glace, Eau, Fee, Plante, Ombre, Acier, Caca, Electrique, 
-        self.vitesse = "sa rapiditer" #entre 1 et 20
-        
+    def __init__(self, name, vie, dfs, type, vts):
+        self.name =  name #"Son blaze"
+        self.vie = vie #"Vie" #entre 78 et 150
+        self.dfs = dfs #"Attaque" #entre 5 et 20
+        self.type = type #"son type (pour savoir si il fait degat *2)" #10 type : feu, Glace, Eau, Fee, Plante, Ombre, Acier, Caca, electrique, 
+        self.vitesse = vts #"sa rapiditer" #entre 1 et 20
+
+pokemon_names = [
+    "Flarion", "Aquaphox", "Voltalon", "Terradra", "Pyrospire",
+    "Zephyreon", "Dracoline", "Glacara", "Sylverix", "Magmawisp",
+    "Leafblade", "Frostbite", "Thunderaegis", "Rockquake", "Psychwing",
+    "Spectrosa", "Emberflare", "Aquaquill", "Galestorm", "Terrafin",
+    "Flufflare", "Voltorbolt", "Earthquakeon", "Pyroclaw", "Zephyraptor",
+    "Dracofire", "Glacius", "Sylvanight", "Magmaraider", "Leafshadow",
+    "Frostnova", "Tidaltide", "Blitzspark", "Boulderback", "Mindflare",
+    "Shadowstalker", "Flareonix", "Wavewarden", "Boltstrike", "Mossquake",
+    "Infernia", "Aerowing", "Blizzardragon", "Lavalanche", "Leafwhisper",
+    "Thunderclaw", "Wavecrest", "Quakestone", "Vortexblade", "Solarflare",
+    "Lunarshroud", "Mysticbreeze", "Searage", "Frostfang", "Stormsurge",
+    "Abyssalbite", "Ironhide", "Mysticshade", "Radiantbeam", "Dreadhowl",
+    "Venomfang", "Magmaflare", "Cinderstorm", "Glacialchill", "Leafsong",
+    "Zapstrike", "Aerofrost", "Aquashade", "Rockshade", "Flarefrost",
+    "Voltflare", "Sylvanstrike", "Pyroscorch", "Dracothunder", "Aquamist",
+    "Leafshimmer", "Frostbreeze", "Shadowsting", "Mysticblast", "Ragingroar",
+    "Thunderstrike", "Blazeclaw", "Aquanox", "Gustwhisper", "Stoneshatter",
+    "Flamehowl", "Waveblade", "Stormshadow", "Terraquake", "Freezefury",
+    "Zephyrtide", "Dracowind", "Volcanicburst", "Lunarflare", "Solarshard",
+    "Arcticstorm", "Mysticshroud", "Cinderwing", "Venomquake", "Boltstorm"
+]
+
+def generer_pokemon_aleatoire(noms):
+    pokemon = []
+    for _ in range(4):
+        nom_aleatoire = random.choice(noms)
+        vie_aléatoire = random.randint(78, 150)  
+        dfs_aléatoire = random.randint(10, 25)  
+        type_aleatoire = random.choice(["feu", "glace", "eau", "plante", "caca", "ombre", "fee", "electrique", "acier", "roche", "dragon", "poison", "vol", "combat", "insecte", "spectre", "lumiere", "psy"])
+        vts_aleatoire = random.randint(5, 20)  
+
+        # S'assurer qu'aucun nom n'est sélectionné deux fois
+        while any(poke.name == nom_aleatoire for poke in pokemon):
+            nom_aleatoire = random.choice(noms)
+
+        choix = Pokemon(nom_aleatoire, vie_aléatoire, dfs_aléatoire, type_aleatoire, vts_aleatoire)
+        pokemon.append(choix)
+
+    return pokemon
+
+liste_pokemon = generer_pokemon_aleatoire(pokemon_names)
+
 class Attaque:
-    def __init__(self):
-        self.name = "nom de l'attaque"
-        self.power = "degat"
-        self.type = "le type de l'attaque"
-        self.pp = "nbr d'utilisation"
+    def __init__(self, name, power, attack_type, pp):
+        self.name = name
+        self.power = power
+        self.type = attack_type
+        self.pp = pp
+
+import random
+
+noms_attaques = [
+    "Lance-Flamme",
+    "Hydrocanon",
+    "Éclair",
+    "Poing-Éclair",
+    "Tranche",
+    "Lame d'Air",
+    "Vive-Attaque",
+    "Vibraqua",
+    "Laser Glace",
+    "Psyko",
+    "Tonnerre",
+    "Fatal-Foudre",
+    "Dracogriffe",
+    "Séisme",
+    "Boule Roc",
+    "Coup d'Boule",
+    "Météores",
+    "Lame de Roc",
+    "Bourdon",
+    "Jet de Sable",
+    "Morsure",
+    "Ailes d'Acier",
+    "Rafale Psy",
+    "Ombre Nocturne",
+    "Poing Météor",
+    "Lance-Soleil",
+    "Giga-Sangsue",
+    "Piqué",
+    "Bec Vrille",
+    "Plaquage",
+    "Lilliput",
+    "Lance-Flèches",
+    "Gyroballe",
+    "Boue-Bombe",
+    "Pouvoir Antique",
+    "Bulldoboule",
+    "Éclat Magique",
+    "Piqûre",
+    "Toxik",
+    "Lutte",
+    "Dard Mortel",
+    "Croc de Mort",
+    "Coud'Boue",
+    "Balayage",
+    "Sabotage",
+    "Trempette",
+    "Morphing",
+    "Regard Médusant",
+    "Force Poigne",
+    "Gonflette",
+    "Jet de Pierre",
+    "Jet de Sable",
+    "Gonflette",
+    "Fléau",
+    "Éclats Glace",
+    "Tomberoche",
+    "Casse-Brique",
+    "Coup Bas",
+    "Direct Toxik",
+    "Séduction",
+    "Attraction",
+    "Tricherie",
+    "Piqûre",
+    "Onde de Choc",
+    "Grimace",
+    "Blizzard",
+    "Danse-Pluie",
+    "Brume",
+    "Éruption",
+    "Zénith",
+    "Poudre Toxik",
+    "Queue de Fer",
+    "Faux-Chage",
+    "Ombre Portée",
+    "Ombre Nocturne",
+    "Soin",
+    "Poudre Dodo",
+    "Tunnel",
+    "Prescience",
+    "Tir de Boue",
+    "Tomberoche",
+    "Blizzard",
+    "Flamme Croix",
+    "Pisto-Poing",
+    "Tempête de Sable",
+    "Piège de Roc",
+    "Piqué",
+    "Tunnel",
+    "Croc Mortel",
+    "Danse Lame",
+    "Coup d'Boule",
+    "Balayette",
+    "Direct Toxik",
+    "Piqué",
+    "Ombre Nocturne",
+    "Gonflette",
+    "Tir de Boue",
+    "Jet de Pierre",
+    "Tomberoche",
+    "Tranche-Nuit",
+    "Mach Punch",
+    "Vent Glace",
+    "Plaie-Croix",
+    "Force-Nature",
+    "Lance-Flamme",
+    "Tour Rapide",
+    "Poing de Feu",
+    "Saisie",
+    "Berceuse",
+    "Laser Glace",
+    "Rugissement",
+    "Picochoc",
+    "Représailles",
+    "Surf",
+    "Onde Folie",
+    "Onde de Choc",
+    "Gros Yeux",
+    "Attraction",
+    "Poudre Toxik",
+    "Météores",
+    "Tricherie",
+    "Coup Bas",
+    "Bouclier Royal",
+    "Queue de Fer",
+    "Jet de Sable",
+    "Exploforce",
+    "Foudre",
+    "Soin",
+    "Morsure",
+    "Direct Toxik",
+    "Charge",
+    "Pistolet à O",
+    "Jet de Sable",
+    "Coup d'Main",
+    "Mégaphone",
+    "Éclats Glace",
+    "Balayette",
+    "Coup Bas",
+    "Boue-Bombe",
+    "Vol Magnétik",
+    "Choc Venin",
+    "Champ Électrifié",
+    "Séisme",
+    "Coup d'Boule",
+    "Vampibaiser",
+    "Queue de Fer",
+    "Pouvoir Antique",
+    "Roulade",
+    "Lance-Soleil",
+    "Lance-Flamme",
+    "Frappe Atlas",
+    "Lame de Roc",
+    "Berceuse",
+    "Explosion",
+    "Garde Large",
+    "Soin",
+    "Griffe Acier",
+    "Gyroballe",
+    "Laser Glace",
+    "Aurore",
+    "Boule Élek",
+    "Vent Glace",
+    "Mur Lumière",
+    "Vive-Attaque",
+    "Séisme",
+    "Vol Magnétik",
+    "Flamme Croix",
+    "Chargeur",
+    "Brouillard",
+    "Rayon Simple",
+    "Coup d'Boule",
+    "Piqûre",
+    "Choc Venin",
+    "Vent Glace",
+    "Vampibaiser",
+    "Danse-Pluie",
+    "Tricherie",
+    "Queue de Fer",
+    "Soin",
+    "Jet de Pierre",
+    "Poudre Dodo",
+    "Saisie",
+    "Poing Météor",
+    "Laser Glace",
+    "Séduction",
+    "Pouvoir Antique",
+    "Tir de Boue",
+    "Coup Bas",
+    "Faux-Chage",
+    "Choc Psy",
+    "Exploforce",
+    "Ombre Nocturne",
+    "Lance-Flèches",
+    "Picochoc",
+    "Machination",
+    "Représailles",
+    "Aile d'Acier",
+    "Gonflette",
+    "Éclat Magique",
+    "Jet de Pierre",
+    "Lame d'Air",
+    "Soin",
+    "Poing-Éclair",
+    "Danse-Lames",
+    "Poudre Toxik",
+    "Tomberoche",
+    "Dracogriffe",
+    "Croc Mortel",
+    "Lance-Soleil",
+    "Morsure",
+    "Coup d'Main",
+    "Balayette",
+    "Poing Météor",
+    "Casse-Brique",
+    "Ombre Nocturne",
+    "Onde de Choc",
+    "Éruption",
+    "Jet de S"
+]
         
-attaques = []
+def generer_attaque_aleatoire(noms):
+    attaques_par_type = {}
+    
+    for _ in range(100):
+        nom_aleatoire = random.choice(noms)
+        power_aleatoire = random.randint(5, 25)  
+        type_aleatoire = random.choice(["feu", "glace", "eau", "plante", "caca", "ombre", "fee", "electrique", "acier", "roche", "dragon", "poison", "vol", "combat", "insecte", "spectre", "lumiere", "psy"])
+        pp_aleatoire = random.randint(4, 11)  
 
-Boule_de_feu = Attaque()
-Boule_de_feu.name = "Boule_de_feu"
-Boule_de_feu.power = int(20)
-Boule_de_feu.type= "Feu"
-Boule_de_feu.pp = int(5)
-attaques.append(Boule_de_feu)
+        attaque = Attaque(nom_aleatoire, power_aleatoire, type_aleatoire, pp_aleatoire)
 
-Coup_de_foudre = Attaque()
-Coup_de_foudre.name = "Coup_de_foudre"
-Coup_de_foudre.power = int(25)
-Coup_de_foudre.type = "Electrique"
-Coup_de_foudre.pp = int(8)
-attaques.append(Coup_de_foudre)
+        # S'assurer qu'il y a entre 6 et 8 attaques pour chaque type
+        if type_aleatoire not in attaques_par_type:
+            attaques_par_type[type_aleatoire] = []
+        
+        if len(attaques_par_type[type_aleatoire]) < 8:
+            attaques_par_type[type_aleatoire].append(attaque)
 
-Lance_flamme = Attaque()
-Lance_flamme.name = "Lance_flamme"
-Lance_flamme.power=18
-Lance_flamme.type = "Feu" 
-Lance_flamme.pp=0
-attaques.append(Lance_flamme)
+    # Créer une liste finale d'attaques
+    attaques_finales = []
+    for attaques_liste in attaques_par_type.values():
+        attaques_finales.extend(attaques_liste)
 
-Eclair_sacré = Attaque()
-Eclair_sacré.name = "Eclair_sacré"
-Eclair_sacré.power=22
-Eclair_sacré.type="Electrique"
-Eclair_sacré.pp=7
-attaques.append(Eclair_sacré)
+    return attaques_finales
 
-Vague_gelée = Attaque()
-Vague_gelée.name = "Vague_gelée"
-Vague_gelée.power=15
-Vague_gelée.type="Glace"
-Vague_gelée.pp=12
-attaques.append(Vague_gelée)
-
-# Tempête_de_feu
-Tempête_de_feu = Attaque()
-Tempête_de_feu.name = "Tempête_de_feu"
-Tempête_de_feu.power = 30
-Tempête_de_feu.type = "Feu"
-Tempête_de_feu.pp = 5
-attaques.append(Tempête_de_feu)
-
-# Raz_de_marée
-Raz_de_marée = Attaque()
-Raz_de_marée.name = "Raz_de_marée"
-Raz_de_marée.power = 18
-Raz_de_marée.type = "Eau"
-Raz_de_marée.pp = 8
-attaques.append(Raz_de_marée)
-
-# Fouet_de_plantes
-Fouet_de_plantes = Attaque()
-Fouet_de_plantes.name = "Fouet_de_plantes"
-Fouet_de_plantes.power = 12
-Fouet_de_plantes.type = "Plante"
-Fouet_de_plantes.pp = 15
-attaques.append(Fouet_de_plantes)
-
-# Tornade_de_fer
-Tornade_de_fer = Attaque()
-Tornade_de_fer.name = "Tornade_de_fer"
-Tornade_de_fer.power = 28
-Tornade_de_fer.type = "Acier"
-Tornade_de_fer.pp = 6
-attaques.append(Tornade_de_fer)
-
-# Griffe_acier
-Griffe_acier = Attaque()
-Griffe_acier.name = "Griffe_acier"
-Griffe_acier.power = 23
-Griffe_acier.type = "Acier"
-Griffe_acier.pp = 9
-attaques.append(Griffe_acier)
-
-# Ombre_nocturne
-Ombre_nocturne = Attaque()
-Ombre_nocturne.name = "Ombre_nocturne"
-Ombre_nocturne.power = 17
-Ombre_nocturne.type = "Ombre"
-Ombre_nocturne.pp = 11
-attaques.append(Ombre_nocturne)
-
-# Rocaille
-Rocaille = Attaque()
-Rocaille.name = "Rocaille"
-Rocaille.power = 25
-Rocaille.type = "Terre"
-Rocaille.pp = 7
-attaques.append(Rocaille)
-
-# Éruption_radiante
-Éruption_radiante = Attaque()
-Éruption_radiante.name = "Éruption_radiante"
-Éruption_radiante.power = 30
-Éruption_radiante.type = "Ombre"
-Éruption_radiante.pp = 5
-attaques.append(Éruption_radiante)
-
-# Glace_éternelle
-Glace_éternelle = Attaque()
-Glace_éternelle.name = "Glace_éternelle"
-Glace_éternelle.power = 25
-Glace_éternelle.type = "Glace"
-Glace_éternelle.pp = 8
-attaques.append(Glace_éternelle)
-
-# Torrent_d_éclairs
-Torrent_d_éclairs = Attaque()
-Torrent_d_éclairs.name = "Torrent_d_éclairs"
-Torrent_d_éclairs.power = 28
-Torrent_d_éclairs.type = "Electrique"
-Torrent_d_éclairs.pp = 6
-attaques.append(Torrent_d_éclairs)
-
-# Danse_de_l_ombre
-Danse_de_l_ombre = Attaque()
-Danse_de_l_ombre.name = "Danse_de_l_ombre"
-Danse_de_l_ombre.power = 17
-Danse_de_l_ombre.type = "Ombre"
-Danse_de_l_ombre.pp = 11
-attaques.append(Danse_de_l_ombre)
-
-# Séisme
-Séisme = Attaque()
-Séisme.name = "Séisme"
-Séisme.power = 32
-Séisme.type = "Terre"
-Séisme.pp = 4
-attaques.append(Séisme)
-
-# Végétation_explosive
-Végétation_explosive = Attaque()
-Végétation_explosive.name = "Végétation_explosive"
-Végétation_explosive.power = 20
-Végétation_explosive.type = "Plante"
-Végétation_explosive.pp = 7
-attaques.append(Végétation_explosive)
-
-# Chaleur_ardente
-Chaleur_ardente = Attaque()
-Chaleur_ardente.name = "Chaleur_ardente"
-Chaleur_ardente.power = 26
-Chaleur_ardente.type = "Feu"
-Chaleur_ardente.pp = 9
-attaques.append(Chaleur_ardente)
-
-# Éclats_d_acier
-Éclats_d_acier = Attaque()
-Éclats_d_acier.name = "Éclats_d_acier"
-Éclats_d_acier.power = 22
-Éclats_d_acier.type = "Acier"
-Éclats_d_acier.pp = 10
-attaques.append(Éclats_d_acier)
-
-# Rafale_aquatique
-Rafale_aquatique = Attaque()
-Rafale_aquatique.name = "Rafale_aquatique"
-Rafale_aquatique.power = 18
-Rafale_aquatique.type = "Eau"
-Rafale_aquatique.pp = 12
-attaques.append(Rafale_aquatique)
-
-# Lueur_mystique
-Lueur_mystique = Attaque()
-Lueur_mystique.name = "Lueur_mystique"
-Lueur_mystique.power = 23
-Lueur_mystique.type = "Fee"
-Lueur_mystique.pp = 8
-attaques.append(Lueur_mystique)
-
-# Souffle_gelé
-Souffle_gelé = Attaque()
-Souffle_gelé.name = "Souffle_gelé"
-Souffle_gelé.power = 18
-Souffle_gelé.type = "Glace"
-Souffle_gelé.pp = 10
-attaques.append(Souffle_gelé)
-
-# Éclair_céleste
-Éclair_céleste = Attaque()
-Éclair_céleste.name = "Éclair_céleste"
-Éclair_céleste.power = 30
-Éclair_céleste.type = "Electrique"
-Éclair_céleste.pp = 5
-attaques.append(Éclair_céleste)
-
-# Fleur_solaire
-Fleur_solaire = Attaque()
-Fleur_solaire.name = "Fleur_solaire"
-Fleur_solaire.power = 22
-Fleur_solaire.type = "Plante"
-Fleur_solaire.pp = 8
-attaques.append(Fleur_solaire)
-
-# Déflagration
-Déflagration = Attaque()
-Déflagration.name = "Déflagration"
-Déflagration.power = 25
-Déflagration.type = "Feu"
-Déflagration.pp = 7
-attaques.append(Déflagration)
-
-# Lame_acérée
-Lame_acérée = Attaque()
-Lame_acérée.name = "Lame_acérée"
-Lame_acérée.power = 28
-Lame_acérée.type = "Acier"
-Lame_acérée.pp = 6
-attaques.append(Lame_acérée)
-
-# Cascade
-Cascade = Attaque()
-Cascade.name = "Cascade"
-Cascade.power = 20
-Cascade.type = "Eau"
-Cascade.pp = 9
-attaques.append(Cascade)
-
-# Ténèbres_profondes
-Ténèbres_profondes = Attaque()
-Ténèbres_profondes.name = "Ténèbres_profondes"
-Ténèbres_profondes.power = 16
-Ténèbres_profondes.type = "Ombre"
-Ténèbres_profondes.pp = 13
-attaques.append(Ténèbres_profondes)
-
-# Sacre
-Sacre = Attaque()
-Sacre.name = "Sacre"
-Sacre.power = 26
-Sacre.type = "Fee"
-Sacre.pp = 7
-attaques.append(Sacre)
-
-# Étreinte_mystique
-Étreinte_mystique = Attaque()
-Étreinte_mystique.name = "Étreinte_mystique"
-Étreinte_mystique.power = 21
-Étreinte_mystique.type = "Fee"
-Étreinte_mystique.pp = 9
-attaques.append(Étreinte_mystique)
-
-# Ruée_tellurique
-Ruée_tellurique = Attaque()
-Ruée_tellurique.name = "Ruée_tellurique"
-Ruée_tellurique.power = 32
-Ruée_tellurique.type = "Terre"
-Ruée_tellurique.pp = 4
-attaques.append(Ruée_tellurique)
+attaques = generer_attaque_aleatoire(noms_attaques)
     
 #separer les attaques par types :
 types_dict = {}
@@ -282,189 +321,6 @@ for attaque in attaques:
     print(f"\nType: {type_}") #le \n ajoute juste un espace entre chaque truc (c'est plus beau)
     for attaque in attaque_list:
         print(f"Nom: {attaque.name}, Power: {attaque.power}, PP: {attaque.pp}")"""
-        
-        
-liste_tt_pokemon = []
-#Pokemon num 1
-Pigrochou = Pokemon()
-Pigrochou.name = "Pigrochou"
-Pigrochou.vie = int(100)
-Pigrochou.dfs = int(5)
-Pigrochou.atq = int(15)
-Pigrochou.type = "Electrique"
-Pigrochou.vitesse = int("10")
-liste_tt_pokemon.append(Pigrochou)
-#Pokemon num 2
-dracoco = Pokemon()
-dracoco.name = "dracoco"
-dracoco.vie = int(150)
-dracoco.dfs = int(20)
-dracoco.atq = int(20)
-dracoco.type = "Feu"
-dracoco.vitesse = int("5")
-liste_tt_pokemon.append(dracoco)
-#Pokemon num 3
-ciseau = Pokemon()
-ciseau.name = "ciseau"
-ciseau.vie = int(78)
-ciseau.dfs = int(10)
-ciseau.atq = int(22)
-ciseau.type = "Acier"
-ciseau.vitesse = int("15")
-liste_tt_pokemon.append(ciseau)
-#4
-Torpingpong = Pokemon()
-Torpingpong.name = "Torpingpong"
-Torpingpong.vie = int("140")
-Torpingpong.dfs = int("15")
-Torpingpong.atq = int(18)
-Torpingpong.type = "Eau"
-Torpingpong.vitesse = int("10")
-liste_tt_pokemon.append(Torpingpong)
-#5
-Zegrouille = Pokemon()
-Zegrouille.name = "Zegrouille"
-Zegrouille.vie = int("100")
-Zegrouille.dfs = int("10")
-Zegrouille.atq = int(12)
-Zegrouille.type = "Ombre"
-Zegrouille.vitesse = int("11")
-liste_tt_pokemon.append(Zegrouille)
-
-Terramen = Pokemon()
-Terramen.name = "Terramen"
-Terramen.vie = int("100")
-Terramen.dfs = int("25")
-Terramen.atq = int(14)
-Terramen.type = "Roche"
-Terramen.vitesse = int("10")
-liste_tt_pokemon.append(Terramen)
-#6
-sarbouboule = Pokemon()
-sarbouboule.name = "sarbouboule"
-sarbouboule.vie = int("100")
-sarbouboule.dfs = int("25")
-sarbouboule.atq = int(11)
-sarbouboule.type = "Glace"
-sarbouboule.vitesse = int("10")
-liste_tt_pokemon.append(sarbouboule)
-#7
-arkekes = Pokemon()
-arkekes.name = "arkekes"
-arkekes.vie = int("100")
-arkekes.dfs = int("24")
-arkekes.atq = int(20)
-arkekes.type = "Combat"
-arkekes.vitesse = int("10")
-liste_tt_pokemon.append(arkekes)
-#8
-Gagabou = Pokemon()
-Gagabou.name = "Gagabou"
-Gagabou.vie = int("90")
-Gagabou.dfs = int("19")
-Gagabou.atq = int(22)
-Gagabou.type = "Dragon"
-Gagabou.vitesse = int("10")
-liste_tt_pokemon.append(Gagabou)
-#9
-Taumamamia = Pokemon()
-Taumamamia.name = "Taumamamia"
-Taumamamia.vie = int("100")
-Taumamamia.dfs = int("20")
-Taumamamia.atq = int(19)
-Taumamamia.type = "Feu"
-Taumamamia.vitesse = int("10")
-liste_tt_pokemon.append(Taumamamia)
-#10
-Sologopitch = Pokemon()
-Sologopitch.name = "Sologopitch"
-Sologopitch.vie = int("100")
-Sologopitch.dfs = int("10")
-Sologopitch.atq = int(25)
-Sologopitch.type = "Acier"
-Sologopitch.vitesse = int("10")
-liste_tt_pokemon.append(Sologopitch)
-#11
-Bulbaredbull = Pokemon ()
-Bulbaredbull.name = "Bulbaredbull"
-Bulbaredbull.vie = int("100")
-Bulbaredbull.dfs = int("12")
-Bulbaredbull.atq = int(22)
-Bulbaredbull.type = "Eau"
-Bulbaredbull.vitesse = int("10")
-liste_tt_pokemon.append(Bulbaredbull)
-#12
-charmandercharmant = Pokemon()
-charmandercharmant.name = "charmandercharmant"
-charmandercharmant.vie = int("110")
-charmandercharmant.dfs = int("16")
-charmandercharmant.atq = int(19)
-charmandercharmant.type = "Fee"
-charmandercharmant.vitesse = int("10")
-liste_tt_pokemon.append(charmandercharmant)
-#13
-NeSquictle = Pokemon ()
-NeSquictle.name = "NeSquictle"
-NeSquictle.vie = int("99")
-NeSquictle.dfs = int("19")
-NeSquictle.atq = int(13)
-NeSquictle.type = "Psy"
-NeSquictle.vitesse = int("10")
-liste_tt_pokemon.append(NeSquictle)
-#14
-JicleJacqueline = Pokemon ()
-JicleJacqueline.name = "JicleJacqueline"
-JicleJacqueline.vie = int("100")
-JicleJacqueline.dfs = int("19")
-JicleJaqueline.atq = int(16)
-JicleJacqueline.type = "Plante"
-JicleJacqueline.vitesse = int("10")
-liste_tt_pokemon.append(JicleJacqueline)
-#15
-Sorsdurelax =Pokemon ()
-Sorsdurelax.name = "Sorsdurelax"
-Sorsdurelax.vie = int("100")
-Sorsdurelax.dfs = int("13")
-Sorsdurelax.atq = int(23)
-Sorsdurelax.type = "Ombre"
-Sorsdurelax.vitesse = int("10")
-liste_tt_pokemon.append(Sorsdurelax)
-#16
-Gytan = Pokemon()
-Gytan.name = "Gytan"
-Gytan.vie = int("150")
-Gytan.dfs = int("20")
-Gytan.atq = int(18)
-Gytan.type = "Electrique"
-Gytan.vitesse = int("10")
-liste_tt_pokemon.append(Gytan)
-#17
-Dedette = Pokemon()
-Dedette.name = "Dedette"
-Dedette.vie = int("151")
-Dedette.dfs = int("21")
-Dedette.atq = int(26)
-Dedette.type = "Eau"
-Dedette.vitesse = int("10")
-liste_tt_pokemon.append(Dedette)
-#18
-Mic_Mact = Pokemon()
-Mic_Mact.name = "Mic_Mact"
-Mic_Mact.vie = int(80)
-Mic_Mact.dfs = int(5)
-Mic_Mact.atq = int(9)
-Mic_Mact.type = "Caca"
-Mic_Mact.vitesse = int(0)
-liste_tt_pokemon.append(Mic_Mact)
-#19
-THE_Random = Pokemon()
-THE_Random.name = "~\THE_Random/~"
-THE_Random.vie = random.randint(90, 150)
-THE_Random.dfs = random.randint(10, 25)
-THE_Random.atq = random.randint(15, 30)
-THE_Random.type = "Lumiere"
-THE_Random.vitesse = random.randint(5, 15)
-liste_tt_pokemon.append(THE_Random)
 
 class Objet:
     def __init__(self, name, obj_type, pp, point):
@@ -530,8 +386,55 @@ noms_objets_pokemon = [
     "Baie Babiri",
     "Pierre Foudre",
     "Pierre Eau",
-    "Pierre Feu",
+    "Pierre feu",
     "Pierre Plante",
+    "Méga-Gemme Eau",
+    "Méga-Gemme feu",
+    "Méga-Gemme Plante",
+    "Méga-Gemme Electro",
+    "Méga-Gemme Glace",
+    "Méga-Gemme Psy",
+    "Méga-Gemme Ténèbres",
+    "Méga-Gemme Vol",
+    "Méga-Gemme Acier",
+    "Méga-Gemme Roche",
+    "Méga-Gemme Sol",
+    "Méga-Gemme Combat",
+    "Méga-Gemme Poison",
+    "Méga-Gemme Spectre",
+    "Méga-Gemme Insecte",
+    "Méga-Gemme Normal",
+    "Méga-Gemme Dragon",
+    "Méga-Gemme Poison",
+    "Méga-Gemme Psy",
+    "Méga-Gemme Vol",
+    "Méga-Gemme Ténèbres",
+    "Méga-Gemme Roche",
+    "Méga-Gemme Sol",
+    "Méga-Gemme Combat",
+    "Méga-Gemme Insecte",
+    "Méga-Gemme Normal",
+    "Méga-Gemme Dragon",
+    "Méga-Gemme Poison",
+    "Méga-Gemme Psy",
+    "Méga-Gemme Vol",
+    "Méga-Gemme Ténèbres",
+    "Méga-Gemme Roche",
+    "Méga-Gemme Sol",
+    "Méga-Gemme Combat",
+    "Méga-Gemme Insecte",
+    "Méga-Gemme Normal",
+    "Méga-Gemme Dragon",
+    "Méga-Gemme Poison",
+    "Méga-Gemme Psy",
+    "Méga-Gemme Vol",
+    "Méga-Gemme Ténèbres",
+    "Méga-Gemme Roche",
+    "Méga-Gemme Sol",
+    "Méga-Gemme Combat",
+    "Méga-Gemme Insecte",
+    "Méga-Gemme Normal",
+    "Méga-Gemme Dragon"
 ]
 
 
