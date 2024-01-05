@@ -238,9 +238,15 @@ def abandon(num, actif, liste, rec):
 # A faire : L'etat KO des pokemons , Changer de poopkemon, dégats super efficace et pas très efficace,
 
 
-"""par exemple pour feu qui est efficace sur glace
-liste_efficace_feu = [glace, plante, etc...]
-if adv.type in liste_efficace{atq.type}:
-    degats_infligés = (liste[num-1].power - actif[adv].def)*1.5
-    print(c super efficace)
-etc pour pas très efficace et tt"""
+#par exemple pour feu qui est efficace sur glace
+def efficace(num, actif):
+    if num == 1:
+        adv = 1
+    else:
+        adv = 0
+    if actif[num-1].type == "feu":
+        liste_effi = ["glace", "plante"]
+    #etc
+    if actif[adv].type in liste_effi:
+        degats_infligés = actif[num-1].power - actif[adv].dfs*1.5
+        print("c super efficace")
