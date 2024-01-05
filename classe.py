@@ -1,9 +1,10 @@
-import random
+import random 
 class Pokemon:
     def __init__(self):
         self.name = "Son blaze"
         self.vie = "Vie" #entre 78 et 150
-        self.dfs = "Attaque" #entre 5 et 20
+        self.dfs = "Défense" #entre 5 et 20
+        self.atq = "Attaque" # entre 10 et 25
         self.type = "son type (pour savoir si il fait degat *2)" #10 type : Feu, Glace, Eau, Fee, Plante, Ombre, Acier, Caca, Electrique, 
         self.vitesse = "sa rapiditer" #entre 1 et 20
         
@@ -289,6 +290,7 @@ Pigrochou = Pokemon()
 Pigrochou.name = "Pigrochou"
 Pigrochou.vie = int(100)
 Pigrochou.dfs = int(5)
+Pigrochou.atq = int(15)
 Pigrochou.type = "Electrique"
 Pigrochou.vitesse = int("10")
 liste_tt_pokemon.append(Pigrochou)
@@ -297,6 +299,7 @@ dracoco = Pokemon()
 dracoco.name = "dracoco"
 dracoco.vie = int(150)
 dracoco.dfs = int(20)
+dracoco.atq = int(20)
 dracoco.type = "Feu"
 dracoco.vitesse = int("5")
 liste_tt_pokemon.append(dracoco)
@@ -305,6 +308,7 @@ ciseau = Pokemon()
 ciseau.name = "ciseau"
 ciseau.vie = int(78)
 ciseau.dfs = int(10)
+ciseau.atq = int(22)
 ciseau.type = "Acier"
 ciseau.vitesse = int("15")
 liste_tt_pokemon.append(ciseau)
@@ -313,6 +317,7 @@ Torpingpong = Pokemon()
 Torpingpong.name = "Torpingpong"
 Torpingpong.vie = int("140")
 Torpingpong.dfs = int("15")
+Torpingpong.atq = int(18)
 Torpingpong.type = "Eau"
 Torpingpong.vitesse = int("10")
 liste_tt_pokemon.append(Torpingpong)
@@ -321,6 +326,7 @@ Zegrouille = Pokemon()
 Zegrouille.name = "Zegrouille"
 Zegrouille.vie = int("100")
 Zegrouille.dfs = int("10")
+Zegrouille.atq = int(12)
 Zegrouille.type = "Ombre"
 Zegrouille.vitesse = int("11")
 liste_tt_pokemon.append(Zegrouille)
@@ -329,7 +335,8 @@ Terramen = Pokemon()
 Terramen.name = "Terramen"
 Terramen.vie = int("100")
 Terramen.dfs = int("25")
-Terramen.type = "Terre"
+Terramen.atq = int(14)
+Terramen.type = "Roche"
 Terramen.vitesse = int("10")
 liste_tt_pokemon.append(Terramen)
 #6
@@ -337,6 +344,7 @@ sarbouboule = Pokemon()
 sarbouboule.name = "sarbouboule"
 sarbouboule.vie = int("100")
 sarbouboule.dfs = int("25")
+sarbouboule.atq = int(11)
 sarbouboule.type = "Glace"
 sarbouboule.vitesse = int("10")
 liste_tt_pokemon.append(sarbouboule)
@@ -345,7 +353,8 @@ arkekes = Pokemon()
 arkekes.name = "arkekes"
 arkekes.vie = int("100")
 arkekes.dfs = int("24")
-arkekes.type = "Ombre"
+arkekes.atq = int(20)
+arkekes.type = "Combat"
 arkekes.vitesse = int("10")
 liste_tt_pokemon.append(arkekes)
 #8
@@ -353,7 +362,8 @@ Gagabou = Pokemon()
 Gagabou.name = "Gagabou"
 Gagabou.vie = int("90")
 Gagabou.dfs = int("19")
-Gagabou.type = "Fee"
+Gagabou.atq = int(22)
+Gagabou.type = "Dragon"
 Gagabou.vitesse = int("10")
 liste_tt_pokemon.append(Gagabou)
 #9
@@ -361,6 +371,7 @@ Taumamamia = Pokemon()
 Taumamamia.name = "Taumamamia"
 Taumamamia.vie = int("100")
 Taumamamia.dfs = int("20")
+Taumamamia.atq = int(19)
 Taumamamia.type = "Feu"
 Taumamamia.vitesse = int("10")
 liste_tt_pokemon.append(Taumamamia)
@@ -369,6 +380,7 @@ Sologopitch = Pokemon()
 Sologopitch.name = "Sologopitch"
 Sologopitch.vie = int("100")
 Sologopitch.dfs = int("10")
+Sologopitch.atq = int(25)
 Sologopitch.type = "Acier"
 Sologopitch.vitesse = int("10")
 liste_tt_pokemon.append(Sologopitch)
@@ -376,7 +388,8 @@ liste_tt_pokemon.append(Sologopitch)
 Bulbaredbull = Pokemon ()
 Bulbaredbull.name = "Bulbaredbull"
 Bulbaredbull.vie = int("100")
-Bulbaredbull.dfs = int("8")
+Bulbaredbull.dfs = int("12")
+Bulbaredbull.atq = int(22)
 Bulbaredbull.type = "Eau"
 Bulbaredbull.vitesse = int("10")
 liste_tt_pokemon.append(Bulbaredbull)
@@ -385,6 +398,7 @@ charmandercharmant = Pokemon()
 charmandercharmant.name = "charmandercharmant"
 charmandercharmant.vie = int("110")
 charmandercharmant.dfs = int("16")
+charmandercharmant.atq = int(19)
 charmandercharmant.type = "Fee"
 charmandercharmant.vitesse = int("10")
 liste_tt_pokemon.append(charmandercharmant)
@@ -393,7 +407,8 @@ NeSquictle = Pokemon ()
 NeSquictle.name = "NeSquictle"
 NeSquictle.vie = int("99")
 NeSquictle.dfs = int("19")
-NeSquictle.type = "Terre"
+NeSquictle.atq = int(13)
+NeSquictle.type = "Psy"
 NeSquictle.vitesse = int("10")
 liste_tt_pokemon.append(NeSquictle)
 #14
@@ -401,6 +416,7 @@ JicleJacqueline = Pokemon ()
 JicleJacqueline.name = "JicleJacqueline"
 JicleJacqueline.vie = int("100")
 JicleJacqueline.dfs = int("19")
+JicleJaqueline.atq = int(16)
 JicleJacqueline.type = "Plante"
 JicleJacqueline.vitesse = int("10")
 liste_tt_pokemon.append(JicleJacqueline)
@@ -409,6 +425,7 @@ Sorsdurelax =Pokemon ()
 Sorsdurelax.name = "Sorsdurelax"
 Sorsdurelax.vie = int("100")
 Sorsdurelax.dfs = int("13")
+Sorsdurelax.atq = int(23)
 Sorsdurelax.type = "Ombre"
 Sorsdurelax.vitesse = int("10")
 liste_tt_pokemon.append(Sorsdurelax)
@@ -417,17 +434,37 @@ Gytan = Pokemon()
 Gytan.name = "Gytan"
 Gytan.vie = int("150")
 Gytan.dfs = int("20")
+Gytan.atq = int(18)
 Gytan.type = "Electrique"
 Gytan.vitesse = int("10")
 liste_tt_pokemon.append(Gytan)
 #17
 Dedette = Pokemon()
 Dedette.name = "Dedette"
-Dedette.vie = int("123")
-Dedette.dfs = int("20")
+Dedette.vie = int("151")
+Dedette.dfs = int("21")
+Dedette.atq = int(26)
 Dedette.type = "Eau"
 Dedette.vitesse = int("10")
 liste_tt_pokemon.append(Dedette)
+#18
+Mic_Mact = Pokemon()
+Mic_Mact.name = "Mic_Mact"
+Mic_Mact.vie = int(80)
+Mic_Mact.dfs = int(5)
+Mic_Mact.atq = int(9)
+Mic_Mact.type = "Caca"
+Mic_Mact.vitesse = int(0)
+liste_tt_pokemon.append(Mic_Mact)
+#19
+THE_Random = Pokemon()
+THE_Random.name = "~\THE_Random/~"
+THE_Random.vie = random.randint(90, 150)
+THE_Random.dfs = random.randint(10, 25)
+THE_Random.atq = random.randint(15, 30)
+THE_Random.type = "Lumiere"
+THE_Random.vitesse = random.randint(5, 15)
+liste_tt_pokemon.append(THE_Random)
 
 class Objet:
     def __init__(self, name, obj_type, pp, point):
@@ -495,53 +532,6 @@ noms_objets_pokemon = [
     "Pierre Eau",
     "Pierre Feu",
     "Pierre Plante",
-    "Méga-Gemme Eau",
-    "Méga-Gemme Feu",
-    "Méga-Gemme Plante",
-    "Méga-Gemme Electro",
-    "Méga-Gemme Glace",
-    "Méga-Gemme Psy",
-    "Méga-Gemme Ténèbres",
-    "Méga-Gemme Vol",
-    "Méga-Gemme Acier",
-    "Méga-Gemme Roche",
-    "Méga-Gemme Sol",
-    "Méga-Gemme Combat",
-    "Méga-Gemme Poison",
-    "Méga-Gemme Spectre",
-    "Méga-Gemme Insecte",
-    "Méga-Gemme Normal",
-    "Méga-Gemme Dragon",
-    "Méga-Gemme Poison",
-    "Méga-Gemme Psy",
-    "Méga-Gemme Vol",
-    "Méga-Gemme Ténèbres",
-    "Méga-Gemme Roche",
-    "Méga-Gemme Sol",
-    "Méga-Gemme Combat",
-    "Méga-Gemme Insecte",
-    "Méga-Gemme Normal",
-    "Méga-Gemme Dragon",
-    "Méga-Gemme Poison",
-    "Méga-Gemme Psy",
-    "Méga-Gemme Vol",
-    "Méga-Gemme Ténèbres",
-    "Méga-Gemme Roche",
-    "Méga-Gemme Sol",
-    "Méga-Gemme Combat",
-    "Méga-Gemme Insecte",
-    "Méga-Gemme Normal",
-    "Méga-Gemme Dragon",
-    "Méga-Gemme Poison",
-    "Méga-Gemme Psy",
-    "Méga-Gemme Vol",
-    "Méga-Gemme Ténèbres",
-    "Méga-Gemme Roche",
-    "Méga-Gemme Sol",
-    "Méga-Gemme Combat",
-    "Méga-Gemme Insecte",
-    "Méga-Gemme Normal",
-    "Méga-Gemme Dragon"
 ]
 
 
