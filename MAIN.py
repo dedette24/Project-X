@@ -30,6 +30,7 @@ info(equipe_1, equipe_2)
 
 #qui attaquer
 def choix_attaques_DEBUT(pokemon):
+    print("\n ----------------------")
     attaques_possibles = [attaque for attaque in attaques if attaque.type == pokemon.type]
     vrai_attaque_dispo = attaques_possibles[:4]
     attaques_selectionnees = []
@@ -62,14 +63,15 @@ def choix_attaques_DEBUT(pokemon):
     print("\n")
     return attaques_selectionnees
 
-"""equipe_1[0].pouvoir = choix_attaques_DEBUT(equipe_1[0])
+equipe_1[0].pouvoir = choix_attaques_DEBUT(equipe_1[0])
 equipe_1[1].pouvoir = choix_attaques_DEBUT(equipe_1[1])
 equipe_2[0].pouvoir = choix_attaques_DEBUT(equipe_2[0])
-equipe_2[1].pouvoir = choix_attaques_DEBUT(equipe_2[1])"""
+equipe_2[1].pouvoir = choix_attaques_DEBUT(equipe_2[1])
 
 #print(equipe_1[0].pouvoir[0].name) --> ce qui faut faire pour afficher attaque
 #qui jouer
 def choisir_pokemon(equipe, num):
+    print("\n ----------------------")
     print(f"\nChoisissez un Pokémon a jouer parmi les suivants equipe {num}: ")
     for i, pokemon in enumerate(equipe, 1):
         print(f"{i}. {pokemon.name} (PV: {pokemon.vie})")
@@ -97,6 +99,7 @@ for i, pokemon in enumerate(Pokemon_actif, 1):
 #LES 2 MARCHES
 #premier 0 : action de l'equipe 1 - deuxieme 0 action de l'equipe 2
 def choix_action(num, liste):
+    print("\n ----------------------")
     print(f"\nVous allez maintenant choisir 'action que vous voulez faire !")
     print(f"1. attaquer")
     print(f"2. changer de poopkemon")
@@ -127,10 +130,11 @@ def choix_action(num, liste):
 choix_attaque_moment = [0, 0]
 
 def choix_attaque(pokemon, num, liste):
+    print("\n ----------------------")
     # Afficher les attaques disponibles pour le Pokémon
     print(f"\n{pokemon[num-1].name} a les attaques suivantes : ")
     for i in range(3):
-        print(f"attaque {i+1} : {pokemon[num-1].pouvoir[i].name} ({pokemon[num-1].pouvoir[i].pp} utilisation restantes)")
+        print(f"attaque {i+1} : {pokemon[num-1].pouvoir[i].name} ({pokemon[num-1].pouvoir[i].pp} utilisation restantes) ({pokemon[num-1].pouvoir[i].name})")
     while True:
         try:
             action = int(input(f"Choisie l'une des attaques ci-dessous que vous voulez utiliser equipe {num} : "))
@@ -148,19 +152,158 @@ def choix_attaque(pokemon, num, liste):
     print(liste)
     return(liste)
 
+def efficace_raccour(num, actif, liste, B, N, O):
+    print("\n ----------------------")
+    if num == 1:
+        adv = 1
+    else:
+        adv = 0
+    if actif[adv].type in B:
+        degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].dfs * 1.5)) * 1.75  #super efficace
+        actif[adv].vie -= degats_infligés
+        print("c super efficace")
+    elif actif[adv].type in N:
+        degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].dfs * 1.5)) / 1.5  # Pas très efficace
+        actif[adv].vie -= degats_infligés
+        print("c'est pas tres éfficace")
+    elif actif[adv].type in O:    #Inefficace
+        print("Vous ne faites pas de degat !")
+    else:
+        print("l'attaque va se derouler normalement ! ")
+        degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].dfs * 1.5))    #Normal
+        actif[adv].vie -= degats_infligés
+
+def efficace(num, actif, liste):
+    degats_infligés = 0
+    if num == 1:
+        adv = 1
+    else:
+        adv = 0
+
+    if actif[num-1].type == "feu": #feu
+        liste_effi = ["glace", "plante", "acier", "insecte"] #T
+        liste_nul = ["feu", "eau", "dragon", "lumiere"] #N
+        liste_0 = ["roche"] #X
+        efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
+        
+    if actif[num-1].type == "glace": #glace
+        liste_effi = ["glace", "plante", "caca", "roche", "dragon", "poison", "vol"] #T
+        liste_nul = ["feu", "insecte"] #N
+        liste_0 = ["eau"] #X
+        efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
+
+    if actif[num-1].type == "eau": #eau
+        liste_effi = ["feu", "caca", "roche"] #T
+        liste_nul = ["eau", "dragon"] #N
+        liste_0 = [] #X
+        efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
+            
+    if actif[num-1].type == "plante": #plante
+        liste_effi = ["eau", "roche"] #T
+        liste_nul = ["feu", "glace","plante","acier","dragon", "poison", "insecte"] #N
+        liste_0 = ["caca"] #X
+        efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
+
+    if actif[num-1].type == "caca": #caca
+        liste_effi = ["feu", "plante", "ombre", "fee", "acier", "dragon", "combat", "lumiere", "psy"] #T
+        liste_nul = ["caca", "poison", "roche"] #N
+        liste_0 = ["glace", "eau"] #X
+        efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
+
+    if actif[num-1].type == "ombre": #ombre
+        liste_effi = ["spectre", "psy"] #T
+        liste_nul = ['ombre', 'dragon', 'combat'] #N
+        liste_0 = ["fee"] #X
+        efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
+            
+    if actif[num-1].type == "fee": #fee
+        liste_effi = ["caca", "ombre", "dragon", "combat", "lumiere", "psy"] #T
+        liste_nul = ['feu', 'fee', 'acier', "poison"] #N
+        liste_0 = [] #X
+        efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
+
+    if actif[num-1].type == "electrique": #electrique
+        liste_effi = ["eau", "acier", "vol"] #T
+        liste_nul = ['plante', 'electrique', 'dragon'] #N
+        liste_0 = ["roche"] #X
+        efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
+
+    if actif[num-1].type == "acier": #acier
+        liste_effi = ["glace", "caca", "fee", "roche", "dragon", "poison"] #T
+        liste_nul = ["feu", "plante", "acier", "insecte"] #N
+        liste_0 = [] #X
+        efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
+
+    if actif[num-1].type == "roche": #roche
+        liste_effi = ["feu", "glace", "electrique", "acier", "roche", "poison"] #T
+        liste_nul = ['eau', 'insecte', 'dragon'] #N
+        liste_0 = ["vol"] #X
+        efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
+    
+    if actif[num-1].type == "dragon": #dragon
+        liste_effi = ["dragon", "psy"] #T
+        liste_nul = [] #N
+        liste_0 = [] #X
+        efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
+
+    if actif[num-1].type == "poison": #poison
+        liste_effi = ["plante", "fee", "acier", "dragon", "poison", "combat"] #T
+        liste_nul = ["roche", "psy"] #N
+        liste_0 = [] #X
+        efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
+
+    if actif[num-1].type == "vol": #vol
+        liste_effi = ["plante", "combat", "insecte"] #T
+        liste_nul = ["electrique", "acier", "roche", "dragon", "vol"] #N
+        liste_0 = [] #X
+        efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
+    
+    if actif[num-1].type == "combat": #combat
+        liste_effi = ["glace", "fee", "acier", "roche", "insecte"] #T
+        liste_nul = ["eau", "caca", "dragon", "psy"] #N
+        liste_0 = ["ombre", "vol", "spectre"] #X
+        efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
+
+    if actif[num-1].type == "insecte": #insecte
+        liste_effi = ["plante", "caca", "ombre", "fee", "psy"] #T
+        liste_nul = ["feu", "dragon", "insecte"] #N
+        liste_0 = ["vol"] #X
+        efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
+
+    if actif[num-1].type == "spectre": #spectre
+        liste_effi = ["dragon", "psy", "fee", "spectre"] #T
+        liste_nul = [] #N
+        liste_0 = ["ombre", "lumiere"] #X
+        efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
+
+    if actif[num-1].type == "lumiere": #lumiere
+        liste_effi = ["dragon", "caca", "ombre", "vol", "combat", "spectre"] #T
+        liste_nul = ["feu", "fee", "acier", "lumiere"] #N
+        liste_0 = ["plante"] #X
+        efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
+
+    if actif[num-1].type == "psy": #psy
+        liste_effi = ["poison", "combat"] #T
+        liste_nul = ["caca", "acier", "dragon", "insecte", "spectre", "psy"] #N
+        liste_0 = ["ombre"] #X
+        efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
+
+    return degats_infligés
+
 def attaque_boucle(num, actif, liste):
+    print("\n ----------------------")
     if num == 1:
         adv = 1
     else: 
         adv = 0 
     print("Il est maintenant temps d'attaquer")
-    choix_attaque(actif, num, liste)
+    trans = choix_attaque(actif, num, liste)
     print(f"Vous utilisez l'attaque {actif[num-1].name}")
-    degat = int(efficace(num, actif)
+    degat = int(efficace(num, actif, trans))
     print(f"Vous infliger {degat} à {actif[adv].name}")
     actif[adv].vie -= degat
-    actif[num-1].pp -= 1
-    print(f"il vous reste {test[num-1].pp} utilisation restantes pour l'attaque {test[num-1].name}")
+    trans[num-1].pp -= 1
+    print(f"il vous reste {trans[num-1].pp} utilisation restantes pour l'attaque {trans[num-1].name}")
     print(f"il reste {actif[adv].vie} vie à {actif[adv].name}")
 
 attaque_boucle(1, Pokemon_actif, choix_attaque_moment)
@@ -179,6 +322,7 @@ recurence = [0, 0]
 #si def alors 1, si attaque alors 2
 
 def utiliser_objet(num, actif, liste, rec):
+    print("\n ----------------------")
     print("\n")
     if num == 1:
         potions_disponibles = liste[:2]
@@ -217,10 +361,11 @@ def utiliser_objet(num, actif, liste, rec):
 utiliser_objet(1, Pokemon_actif, objets_aleatoires, recurence)
 
 def abandon(num, actif, liste, rec):
+    print("\n ----------------------")
     chance = rd.randint(1, 5)
     if chance == 2:
         print(f"Le joueur {num} a perdu, victoire au joueur {num + 1 if num == 1 else num - 1}")
-        break
+        pass
     else :
         print("Le combat n'est pas fini, n'abandonne pas ! \U0001f643")
 
@@ -230,332 +375,4 @@ def abandon(num, actif, liste, rec):
 
 
 #par exemple pour feu qui est efficace sur glace
-def efficace(num, actif):
-    if num == 1:
-        adv = 1
-    else:
-        adv = 0
 
-    if actif[num-1].type == "feu": #feu
-        liste_effi = ["glace", "plante", "acier", "insecte"] #T
-        liste_nul = ["feu", "eau", "dragon", "lumiere"] #N
-        liste_0 = ["roche"] #X
-        if actif[adv].type in liste_effi:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5)) * 1.75  #super efficace
-            actif[adv].vie -= degats_infligés
-            print("c super efficace")
-        elif actif[adv].type in liste_nul:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5)) / 1.5  # Pas très efficace
-            actif[adv].vie -= degats_infligés
-            print("c'est pas tres éfficace")
-        elif actif[adv].type in liste_0:    #Inefficace
-            print("Vous ne faites pas de degat !")
-        else:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5))    #Normal
-            actif[adv].vie -= degats_infligés
-        
-    if actif[num-1].type == "glace": #glace
-        liste_effi = ["glace", "plante", "caca", "roche", "dragon", "poison", "vol"] #T
-        liste_nul = ["feu", "insecte"] #N
-        liste_0 = ["eau"] #X
-        if actif[adv].type in liste_effi:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5)) * 1.75  #super efficace
-            actif[adv].vie -= degats_infligés
-            print("c super efficace")
-        elif actif[adv].type in liste_nul:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5)) / 1.5  # Pas très efficace
-            actif[adv].vie -= degats_infligés
-            print("c'est pas tres éfficace")
-        elif actif[adv].type in liste_0:    #Inefficace
-            print("Vous ne faites pas de degat !")
-        else:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5))    #Normal
-            actif[adv].vie -= degats_infligés
-
-    if actif[num-1].type == "eau": #eau
-        liste_effi = ["feu", "caca", "roche"] #T
-        liste_nul = ["eau", "dragon"] #N
-        liste_0 = [] #X
-        if actif[adv].type in liste_effi:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5)) * 1.75  #super efficace
-            actif[adv].vie -= degats_infligés
-            print("c super efficace")
-        elif actif[adv].type in liste_nul:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5)) / 1.5  # Pas très efficace
-            actif[adv].vie -= degats_infligés
-            print("c'est pas tres éfficace")
-        elif actif[adv].type in liste_0:    #Inefficace
-            print("Vous ne faites pas de degat !")
-        else:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5))    #Normal
-            actif[adv].vie -= degats_infligés
-            
-    if actif[num-1].type == "plante": #plante
-        liste_effi = ["eau", "roche"] #T
-        liste_nul = ["feu", "glace","plante","acier","dragon", "poison", "insecte"] #N
-        liste_0 = ["caca"] #X
-        if actif[adv].type in liste_effi:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5)) * 1.75  #super efficace
-            actif[adv].vie -= degats_infligés
-            print("c super efficace")
-        elif actif[adv].type in liste_nul:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5)) / 1.5  # Pas très efficace
-            actif[adv].vie -= degats_infligés
-            print("c'est pas tres éfficace")
-        elif actif[adv].type in liste_0:    #Inefficace
-            print("Vous ne faites pas de degat !")
-        else:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5))    #Normal
-            actif[adv].vie -= degats_infligés
-
-    if actif[num-1].type == "caca": #caca
-        liste_effi = ["feu", "plante", "ombre", "fee", "acier", "dragon", "combat", "lumiere", "psy"] #T
-        liste_nul = ["caca", "poison", "roche"] #N
-        liste_0 = ["glace", "eau"] #X
-        if actif[adv].type in liste_effi:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5)) * 1.75  #super efficace
-            actif[adv].vie -= degats_infligés
-            print("c super efficace")
-        elif actif[adv].type in liste_nul:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5)) / 1.5  # Pas très efficace
-            actif[adv].vie -= degats_infligés
-            print("c'est pas tres éfficace")
-        elif actif[adv].type in liste_0:    #Inefficace
-            print("Vous ne faites pas de degat !")
-        else:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5))    #Normal
-            actif[adv].vie -= degats_infligés
-
-    if actif[num-1].type == "ombre": #ombre
-        liste_effi = ["spectre", "psy"] #T
-        liste_nul = ['ombre', 'dragon', 'combat'] #N
-        liste_0 = ["fee"] #X
-        if actif[adv].type in liste_effi:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5)) * 1.75  #super efficace
-            actif[adv].vie -= degats_infligés
-            print("c super efficace")
-        elif actif[adv].type in liste_nul:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5)) / 1.5  # Pas très efficace
-            actif[adv].vie -= degats_infligés
-            print("c'est pas tres éfficace")
-        elif actif[adv].type in liste_0:    #Inefficace
-            print("Vous ne faites pas de degat !")
-        else:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5))    #Normal
-            actif[adv].vie -= degats_infligés
-            
-    if actif[num-1].type == "fee": #fee
-        liste_effi = ["caca", "ombre", "dragon", "combat", "lumiere", "psy"] #T
-        liste_nul = ['feu', 'fee', 'acier', "poison"] #N
-        liste_0 = [] #X
-        if actif[adv].type in liste_effi:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5)) * 1.75  #super efficace
-            actif[adv].vie -= degats_infligés
-            print("c super efficace")
-        elif actif[adv].type in liste_nul:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5)) / 1.5  # Pas très efficace
-            actif[adv].vie -= degats_infligés
-            print("c'est pas tres éfficace")
-        elif actif[adv].type in liste_0:    #Inefficace
-            print("Vous ne faites pas de degat !")
-        else:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5))    #Normal
-            actif[adv].vie -= degats_infligés
-
-    if actif[num-1].type == "electrique": #electrique
-        liste_effi = ["eau", "acier", "vol"] #T
-        liste_nul = ['plante', 'electrique', 'dragon'] #N
-        liste_0 = ["roche"] #X
-        if actif[adv].type in liste_effi:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5)) * 1.75  #super efficace
-            actif[adv].vie -= degats_infligés
-            print("c super efficace")
-        elif actif[adv].type in liste_nul:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5)) / 1.5  # Pas très efficace
-            actif[adv].vie -= degats_infligés
-            print("c'est pas tres éfficace")
-        elif actif[adv].type in liste_0:    #Inefficace
-            print("Vous ne faites pas de degat !")
-        else:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5))    #Normal
-            actif[adv].vie -= degats_infligés
-
-    if actif[num-1].type == "acier": #acier
-        liste_effi = ["glace", "caca", "fee", "roche", "dragon", "poison"] #T
-        liste_nul = ["feu", "plante", "acier", "insecte"] #N
-        liste_0 = [] #X
-        if actif[adv].type in liste_effi:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5)) * 1.75  #super efficace
-            actif[adv].vie -= degats_infligés
-            print("c super efficace")
-        elif actif[adv].type in liste_nul:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5)) / 1.5  # Pas très efficace
-            actif[adv].vie -= degats_infligés
-            print("c'est pas tres éfficace")
-        elif actif[adv].type in liste_0:    #Inefficace
-            print("Vous ne faites pas de degat !")
-        else:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5))    #Normal
-            actif[adv].vie -= degats_infligés
-
-    if actif[num-1].type == "roche": #roche
-        liste_effi = ["feu", "glace", "electrique", "acier", "roche", "poison"] #T
-        liste_nul = ['eau', 'insecte', 'dragon'] #N
-        liste_0 = ["vol"] #X
-        if actif[adv].type in liste_effi:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5)) * 1.75  #super efficace
-            actif[adv].vie -= degats_infligés
-            print("c super efficace")
-        elif actif[adv].type in liste_nul:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5)) / 1.5  # Pas très efficace
-            actif[adv].vie -= degats_infligés
-            print("c'est pas tres éfficace")
-        elif actif[adv].type in liste_0:    #Inefficace
-            print("Vous ne faites pas de degat !")
-        else:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5))    #Normal
-            actif[adv].vie -= degats_infligés
-    
-    if actif[num-1].type == "dragon": #dragon
-        liste_effi = ["dragon", "psy"] #T
-        liste_nul = [] #N
-        liste_0 = [] #X
-        if actif[adv].type in liste_effi:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5)) * 1.75  #super efficace
-            actif[adv].vie -= degats_infligés
-            print("c super efficace")
-        elif actif[adv].type in liste_nul:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5)) / 1.5  # Pas très efficace
-            actif[adv].vie -= degats_infligés
-            print("c'est pas tres éfficace")
-        elif actif[adv].type in liste_0:    #Inefficace
-            print("Vous ne faites pas de degat !")
-        else:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5))    #Normal
-            actif[adv].vie -= degats_infligés
-
-    if actif[num-1].type == "poison": #poison
-        liste_effi = ["plante", "fee", "acier", "dragon", "poison", "combat"] #T
-        liste_nul = ["roche", "psy"] #N
-        liste_0 = [] #X
-        if actif[adv].type in liste_effi:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5)) * 1.75  #super efficace
-            actif[adv].vie -= degats_infligés
-            print("c super efficace")
-        elif actif[adv].type in liste_nul:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5)) / 1.5  # Pas très efficace
-            actif[adv].vie -= degats_infligés
-            print("c'est pas tres éfficace")
-        elif actif[adv].type in liste_0:    #Inefficace
-            print("Vous ne faites pas de degat !")
-        else:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5))    #Normal
-            actif[adv].vie -= degats_infligés
-
-    if actif[num-1].type == "vol": #vol
-        liste_effi = ["plante", "combat", "insecte"] #T
-        liste_nul = ["electrique", "acier", "roche", "dragon", "vol"] #N
-        liste_0 = [] #X
-        if actif[adv].type in liste_effi:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5)) * 1.75  #super efficace
-            actif[adv].vie -= degats_infligés
-            print("c super efficace")
-        elif actif[adv].type in liste_nul:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5)) / 1.5  # Pas très efficace
-            actif[adv].vie -= degats_infligés
-            print("c'est pas tres éfficace")
-        elif actif[adv].type in liste_0:    #Inefficace
-            print("Vous ne faites pas de degat !")
-        else:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5))    #Normal
-            actif[adv].vie -= degats_infligés
-    
-    if actif[num-1].type == "combat": #combat
-        liste_effi = ["glace", "fee", "acier", "roche", "insecte"] #T
-        liste_nul = ["eau", "caca", "dragon", "psy"] #N
-        liste_0 = ["ombre", "vol", "spectre"] #X
-        if actif[adv].type in liste_effi:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5)) * 1.75  #super efficace
-            actif[adv].vie -= degats_infligés
-            print("c super efficace")
-        elif actif[adv].type in liste_nul:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5)) / 1.5  # Pas très efficace
-            actif[adv].vie -= degats_infligés
-            print("c'est pas tres éfficace")
-        elif actif[adv].type in liste_0:    #Inefficace
-            print("Vous ne faites pas de degat !")
-        else:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5))    #Normal
-            actif[adv].vie -= degats_infligés
-
-    if actif[num-1].type == "insecte": #insecte
-        liste_effi = ["plante", "caca", "ombre", "fee", "psy"] #T
-        liste_nul = ["feu", "dragon", "insecte"] #N
-        liste_0 = ["vol"] #X
-        if actif[adv].type in liste_effi:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5)) * 1.75  #super efficace
-            actif[adv].vie -= degats_infligés
-            print("c super efficace")
-        elif actif[adv].type in liste_nul:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5)) / 1.5  # Pas très efficace
-            actif[adv].vie -= degats_infligés
-            print("c'est pas tres éfficace")
-        elif actif[adv].type in liste_0:    #Inefficace
-            print("Vous ne faites pas de degat !")
-        else:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5))    #Normal
-            actif[adv].vie -= degats_infligés
-
-    if actif[num-1].type == "spectre": #spectre
-        liste_effi = ["dragon", "psy", "fee", "spectre"] #T
-        liste_nul = [] #N
-        liste_0 = ["ombre", "lumiere"] #X
-        if actif[adv].type in liste_effi:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5)) * 1.75  #super efficace
-            actif[adv].vie -= degats_infligés
-            print("c super efficace")
-        elif actif[adv].type in liste_nul:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5)) / 1.5  # Pas très efficace
-            actif[adv].vie -= degats_infligés
-            print("c'est pas tres éfficace")
-        elif actif[adv].type in liste_0:    #Inefficace
-            print("Vous ne faites pas de degat !")
-        else:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5))    #Normal
-            actif[adv].vie -= degats_infligés
-
-    if actif[num-1].type == "lumiere": #lumiere
-        liste_effi = ["dragon", "caca", "ombre", "vol", "combat", "spectre"] #T
-        liste_nul = ["feu", "fee", "acier", "lumiere"] #N
-        liste_0 = ["plante"] #X
-        if actif[adv].type in liste_effi:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5)) * 1.75  #super efficace
-            actif[adv].vie -= degats_infligés
-            print("c super efficace")
-        elif actif[adv].type in liste_nul:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5)) / 1.5  # Pas très efficace
-            actif[adv].vie -= degats_infligés
-            print("c'est pas tres éfficace")
-        elif actif[adv].type in liste_0:    #Inefficace
-            print("Vous ne faites pas de degat !")
-        else:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5))    #Normal
-            actif[adv].vie -= degats_infligés
-
-    if actif[num-1].type == "psy": #psy
-        liste_effi = ["poison", "combat"] #T
-        liste_nul = ["caca", "acier", "dragon", "insecte", "spectre", "psy"] #N
-        liste_0 = ["ombre"] #X
-        if actif[adv].type in liste_effi:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5)) * 1.75  #super efficace
-            actif[adv].vie -= degats_infligés
-            print("c super efficace")
-        elif actif[adv].type in liste_nul:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5)) / 1.5  # Pas très efficace
-            actif[adv].vie -= degats_infligés
-            print("c'est pas tres éfficace")
-        elif actif[adv].type in liste_0:    #Inefficace
-            print("Vous ne faites pas de degat !")
-        else:
-            degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].def * 1.5))    #Normal
-            actif[adv].vie -= degats_infligés
