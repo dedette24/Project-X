@@ -166,8 +166,10 @@ def attaque_boucle(num, actif, liste):
     print("Il est maintenant temps d'attaquer")
     choix_attaque(actif, num, liste)
     print(f"Vous utilisez l'attaque {liste[num-1].name}")
+    
+    degats_infligés = (liste[num-1].power - actif[adv].def)
     print(f"Vous infliger {liste[num-1].power} à {actif[adv].name}")
-    actif[adv].vie =  actif[adv].vie - liste[num-1].power
+    actif[adv].vie -= degats_infligés  """actif[adv].vie - (liste[num-1].power - actif[adv].def)""" # J'ai remplacé ça par degats_infligés au-dessus
     liste[num-1].pp -= 1
     print(f"il vous reste {liste[num-1].pp} utilisation restantes pour l'attaque {liste[num-1].name}")
     print(f"il reste {actif[adv].vie} vie à {actif[adv].name}")
@@ -222,3 +224,15 @@ def utiliser_objet(num, actif, liste, rec):
     return rec, actif, liste
 
 utiliser_objet(1, Pokemon_actif, objets_aleatoires, recurence)
+
+def abandon(num, actif, liste, rec):
+    chance = rd.randint(1, 5)
+    if chance == 2:
+        print(f"Le joueur {num} a perdu, victoire au joueur {num + 1 if num == 1 else num - 1}")
+        break
+    else :
+        print("Le combat n'est pas fini, n'abandonne pas !")
+
+#-------------------------------------------------------------------------------------------------
+# Mtn faut la boucle
+# A faire : L'etat KO des pokemons , Changer de poopkemon, dégats super efficace et pas très efficace,
