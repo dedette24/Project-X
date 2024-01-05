@@ -167,7 +167,7 @@ def attaque_boucle(num, actif, liste):
     choix_attaque(actif, num, liste)
     print(f"Vous utilisez l'attaque {liste[num-1].name}")
     
-    degats_infligés = ((liste[num-1].power + 1.5 * actif[num - 1].atq) - actif[adv].def) 
+    degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - actif[adv].def) 
     print(f"Vous infliger {liste[num-1].power} à {actif[adv].name}")
     actif[adv].vie -= degats_infligés  """actif[adv].vie - (liste[num-1].power - actif[adv].def)""" # J'ai remplacé ça par degats_infligés au-dessus
     liste[num-1].pp -= 1
