@@ -73,14 +73,14 @@ def choisir_pokemon(equipe, num):
         try:
             choix_pokemon = int(input("Entrez le numéro du Pokémon que vous souhaitez jouer : "))
             if equipe[choix_pokemon-1].vie < 1:
-                print("Vous ne pouvez plus utiliser ce pokemon, il est mort.")
+                print("Vous ne pouvez plus utiliser ce pokemon, il est KO.")
             else:
                 if 1 <= choix_pokemon <= len(equipe):
                     break
                 else:
                     print("Choix invalide. Veuillez choisir parmi les Pokémon disponibles.")
         except ValueError:
-            print("Veuillez entrer un namebre entier.")
+            print("Veuillez entrer un nombre entier.")
 
     return equipe[choix_pokemon - 1]
 
