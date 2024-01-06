@@ -44,6 +44,16 @@ while not fin:
     time.sleep(1.5)
     choix_action(1, action)
     choix_action(2, action)
+    if action == [2, 2]:
+        choisir_pokemon(equipe_1, 1)
+        choisir_pokemon(equipe_2, 2)
+    elif action[1] == 2:
+        choisir_pokemon(equipe_2, 2)
+    elif action[0] == 2:
+        choisir_pokemon(equipe_1, 1)
+    else: 
+        pass
+    
     if action == [1, 1]:
         if Pokemon_actif[0].vitesse < Pokemon_actif[1].vitesse:
             print("le pokemon de l'équipe 2 est plus rapide ! il va donc commencer a attaquer.")
@@ -81,16 +91,7 @@ while not fin:
         time.sleep(1.5)
     else:
         pass
-    if action == [2, 2]:
-        choisir_pokemon(equipe_1, 1)
-        choisir_pokemon(equipe_2, 2)
-    elif action[1] == 2:
-        choisir_pokemon(equipe_2, 2)
-    elif action[0] == 2:
-        choisir_pokemon(equipe_1, 1)
-    else: 
-        pass
-    
+
     if action == [3, 3]:
         utiliser_objet(1, Pokemon_actif, objets_aleatoires, recurence)
         utiliser_objet(2, Pokemon_actif, objets_aleatoires, recurence)
