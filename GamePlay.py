@@ -72,11 +72,15 @@ while not fin:
       
     if action == [2, 2]:
         choisir_pokemon(equipe_1, 1)
+        Pokemon_actif[0] = choisir_pokemon(equipe_1, 1)
         choisir_pokemon(equipe_2, 2)
+        Pokemon_actif[1] = choisir_pokemon(equipe_2, 2)
     elif action[1] == 2:
         choisir_pokemon(equipe_2, 2)
+        Pokemon_actif[1] = choisir_pokemon(equipe_2, 2)
     elif action[0] == 2:
         choisir_pokemon(equipe_1, 1)
+        Pokemon_actif[0] = choisir_pokemon(equipe_1, 1)
     else: 
         pass
     
