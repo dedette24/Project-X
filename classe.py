@@ -23,7 +23,7 @@ pokemon_names = [
     "Thunderclaw", "Wavecrest", "Quakestone", "Vortexblade", "Solarflare",
     "Lunarshroud", "Mysticbreeze", "Searage", "Frostfang", "Stormsurge",
     "Abyssalbite", "Ironhide", "Mysticshade", "Radiantbeam", "Dreadhowl",
-    "Venomfang", "Magmaflare", "Cinderstorm", "Glacialchill", "Leafsong",
+    "Venomfang", "Magmaflare", "Cinderstorm", "Glacialchill", "Dedette",
     "Zapstrike", "Aerofrost", "Aquashade", "Rockshade", "Flarefrost",
     "Voltflare", "Sylvanstrike", "Pyroscorch", "Dracothunder", "Aquamist",
     "Leafshimmer", "Frostbreeze", "Shadowsting", "Mysticblast", "Ragingroar",
@@ -292,7 +292,7 @@ def generer_attaque_aleatoire(noms):
         noms.remove(nom_aleatoire)
         power_aleatoire = random.randint(19, 25)  
         type_aleatoire = random.choice(["feu", "glace", "eau", "plante", "caca", "ombre", "fee", "electrique", "acier", "roche", "dragon", "poison", "vol", "combat", "insecte", "spectre", "lumiere", "psy"])
-        pp_aleatoire = random.randint(6, 11)  
+        pp_aleatoire = random.randint(3, 7)  
 
         attaque = Attaque(nom_aleatoire, power_aleatoire, type_aleatoire, pp_aleatoire)
 
