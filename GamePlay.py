@@ -48,6 +48,7 @@ while not fin:
         if Pokemon_actif[0].vitesse < Pokemon_actif[1].vitesse:
             print("le pokemon de l'équipe 2 est plus rapide ! il va donc commencer a attaquer.")
             attaque_boucle(2, Pokemon_actif, choix_attaque_moment)
+            attaque_boucle(1, Pokemon_actif, choix_attaque_moment)
         elif Pokemon_actif[0].vitesse == Pokemon_actif[1].vitesse:
             print("on va jeter les dés !")
             x = int(random.randint(1,2))
@@ -61,6 +62,7 @@ while not fin:
         else:
             print("le pokemon de l'équipe 1 va commencer a attaquer !")
             attaque_boucle(1, Pokemon_actif, choix_attaque_moment)
+            attaque_boucle(2, Pokemon_actif, choix_attaque_moment)
     elif 1 in action:
         coordonnee = action.index(1) + 1
         print(f"le pokemon de l'équipe {coordonnee} attaquer !")
@@ -99,3 +101,8 @@ while not fin:
         pass
     if equipe_1[0].vie == 0 and equipe_1[1].vie == 0 or equipe_2[0].vie == 0 and equipe_2[1].vie == 0 or abandon == True:
         fin = True
+
+
+        
+         
+         
