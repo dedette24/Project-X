@@ -37,7 +37,7 @@ def generer_pokemon_aleatoire(noms):
     pokemon = []
     for _ in range(4):
         nom_aleatoire = random.choice(noms)
-        vie_aléatoire = random.randint(78, 150)  
+        vie_aléatoire = random.randint(100, 150)  
         dfs_aléatoire = random.randint(5, 25)  
         atq_aléatoire = random.randint(10, 35)
         type_aleatoire = random.choice(["feu", "glace", "eau", "plante", "caca", "ombre", "fee", "electrique", "acier", "roche", "dragon", "poison", "vol", "combat", "insecte", "spectre", "lumiere", "psy"])
@@ -265,7 +265,6 @@ noms_attaques = [
     "Éclat Magique",
     "Jet de Pierre",
     "Lame d'Air",
-    "Soin",
     "Poing-Éclair",
     "Danse-Lames",
     "Poudre Toxik",
@@ -287,12 +286,12 @@ noms_attaques = [
 def generer_attaque_aleatoire(noms):
     attaques_par_type = {}
     
-    for _ in range(150):
+    for _ in range(200):
         nom_aleatoire = random.choice(noms)
         noms.remove(nom_aleatoire)
         power_aleatoire = random.randint(19, 25)  
         type_aleatoire = random.choice(["feu", "glace", "eau", "plante", "caca", "ombre", "fee", "electrique", "acier", "roche", "dragon", "poison", "vol", "combat", "insecte", "spectre", "lumiere", "psy"])
-        pp_aleatoire = random.randint(3, 7)  
+        pp_aleatoire = random.randint(4, 7)  
 
         attaque = Attaque(nom_aleatoire, power_aleatoire, type_aleatoire, pp_aleatoire)
 
