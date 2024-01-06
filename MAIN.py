@@ -316,9 +316,9 @@ def attaque_boucle(num, actif, liste):
         adv = 0 
     print(f"Vous allez attaquer équipe {num} !")
     trans = choix_attaque(actif, num, liste)
-    print(f"Vous utilisez l'attaque {actif[num-1].name}")
+    print(f"Vous utilisez l'attaque {trans[num-1].name}")
     degat = int(efficace(num, actif, trans))
-    print(f"Vous infliger {degat} à {actif[adv].name}")
+    print(f"Vous infliger {degat} dégats à {actif[adv].name}")
     actif[adv].vie -= degat
     trans[num-1].pp -= 1
     print(f"il vous reste {trans[num-1].pp} utilisation restantes pour l'attaque {trans[num-1].name}")
