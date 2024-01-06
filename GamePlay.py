@@ -7,7 +7,7 @@ from colorama import Fore, Style
 
 recurence = [0, 0]
 
-print(Fore.YELLOW + "Bienvenue dans Poopkemon, une réadaptation du jeu Pokemon version Python non graphique (donc forcément moins bien) ! "+ Fore.RESET)
+print(Fore.YELLOW + "Bienvenue dans Poopkemon, une réadaptation du jeu Pokemon version Python non graphique (donc forcément moins bien) \ ! "+ Fore.RESET)
 time.sleep(3)
 print("\nLa partie va maintenant commencé !")
 time.sleep(1.5)
