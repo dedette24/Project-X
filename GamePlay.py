@@ -83,9 +83,9 @@ while not fin:
         pass
     if action == [2, 2]:
         choisir_pokemon(equipe_1, 1)
-        choisir_pokemon(equipe_1, 2)
+        choisir_pokemon(equipe_2, 2)
     elif action[1] == 2:
-        choisir_pokemon(equipe_1, 2)
+        choisir_pokemon(equipe_2, 2)
     elif action[0] == 2:
         choisir_pokemon(equipe_1, 1)
     else: 
@@ -95,7 +95,7 @@ while not fin:
         utiliser_objet(1, Pokemon_actif, objets_aleatoires, recurence)
         utiliser_objet(2, Pokemon_actif, objets_aleatoires, recurence)
     elif 3 in action:
-        coordonnee = action.index(1) + 1
+        coordonnee = action.index(3) + 1
         utiliser_objet(coordonnee, Pokemon_actif, objets_aleatoires, recurence)
     else:
         pass
@@ -104,15 +104,17 @@ while not fin:
         print("Vous avez tout les 2 abandonnées au meme moment, pas tres malin...")
     elif 4 in action:
         if round > 4:
-            coordonnee = action.index(1) + 1
+            coordonnee = action.index(4) + 1
             print(f"LE JOUEUR {coordonnee} A DECIDER D'ABANDONNER LA PARTIE")
             abandon = True
         else:
             print("tu ne peux qu'a partir du round 4 chef... fallait lire les conditions U0001F910 :( )")  
     else:
         pass
-    if equipe_1[0].vie == 0 and equipe_1[1].vie == 0 or equipe_2[0].vie == 0 and equipe_2[1].vie == 0 or abandon == True:
+    if equipe_1[0].alive == False and equipe_1[1].alive == False or equipe_2[0].alive == False and equipe_2[1].vie == False or abandon == True:
         fin = True
+        print("GG !")
+        break
 
 
         
