@@ -8,7 +8,210 @@
 </head>
 
 <body>
-  <p>Cette page est la pour expliquer notre démarche de travail</p>
+    
+        <header></header>
+        <div class="rotate">
+            <img src="Poopkémon.png" alt="menu hamburger" class="menu-hamburger" height="">
+        </div>
+        <nav class="navbar">
+            <a href="#" class="logo">Poopkémon</a>
+            <div class="navlinks">
+                <ul>
+                    <li><a href="#Home">Home</a></li>
+                    <li><a href="#à propos">à propos</a></li>
+                    <li><a href="#Comment y jouer ?">Comment y jouer ?</a></li>
+                    <li><a href="#Le Monde des Poopkémons">Le Monde des Poopkémons</a></li>
+                    <li><a href="#Notre travail">Notre travail</a></li>
+                </ul>
+        </nav>
+    </nav>
 
+</body>
+
+<script>
+    const menuHamburger = document.querySelector(".menu-hamburger")
+    const navLinks = document.querySelector(".nav-links")
+
+    menuHamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('mobile-menu')
+    })
+</script>
+<section class="à propos" id="à propos">
+    <div class="row">
+        <div class="col50"></div>
+        <h2 class="titre-texte"><span>A</span> Propos</h2>
+        <p>
+            <tr>
+
+                <td>Cette page est la pour expliquer notre démarche de travail
+                </td>
+            </tr>
+            <style>
+                body {
+                    font-size: 12px;
+                }
+            </style>
+            </head>
+
+            <body>
+
+    </div>
+    <div class="col50">
+        </div>
+    </div>
+    </div>
+</section>
+<section class="Comment y jouer ?" id="Comment y jouer ?">
+    <div class="titre"></div>
+    <h2 class="titre-texte"><span>C</span>omment y jouer ?</h2>
+    <p>
+        Sélectionnez trois Poopkémon pour former une équipe et affrontez celle de votre adversaire ! À chaque tour, les
+        deux joueurs choisissent le Poopkémon qu’ils enverront sur le champ de bataille. À la fin du tour, le niveau des
+        PV et de la jauge de synergie du Poopkémon victorieux est conservé. Le joueur qui sera parvenu à mettre K.O.
+        tous les Poopkémons de l’équipe adverse remporte la victoire !
+        <br>
+        C'est le principe de presque tout les jeux de combat et de stratégie mais le nôtre comporte d'autres spécificités qui ne sont pas dans le jeu original,
+        comme des modes de jeu alternatif !
+        Ce n'est encore qu'un progés, et nous n' en avons qu'un seul actif pour l'instant qui est le Random Battle (Combat Aléatoire), mais nous avons pour ambition d'en
+        faire d'autres plus tard, mais je ne voudrais pas gacher la surprise alors arrétons nous là pour l'instant.
+
+    </p>
+    </div>
+    <div class="contenue">
+        <div class="box">
+            <div class="inbox">
+            </div>
+        </div>
+    </div>
+</section>
+
+</html>
+
+<div id="item-list"></div>
+</div>
+</div>
+</body>
+<style>
+    body {
+        font-size: 18px;
+    }
+
+    h1,
+    h6 {
+        font-size: 24px;/
+    }
+
+    p {
+        font-size: 16px;
+    }
+</style>
+<section class="Le Monde des Poopkémons" id="Le Monde des Poopkémons">
+    <div class="row"></div>
+    <h2 class="titre-texte"><span>L</span>e Monde des Poopkémons</h2>
+
+
+    <div>
+        <p>
+            Les Poopkémons, ces adorables créatures aux pouvoirs mystérieux, peuplent un univers où l'amitié et
+            l'aventure
+            s'entremêlent.
+            Chaque dresseur rêve de son équipe parfaite, prêt à relever tous les défis du monde Poopkémon
+            Les arènes de combat sont le théâtre où les liens entre dresseurs et Poopkémons sont mis à l'épreuve,
+            forgeant
+            des souvenirs inoubliables."
+            Les légendaires Poopkémons errent parfois dans des contrées lointaines, éveillant la curiosité des
+            chercheurs et
+            des dresseurs audacieux."
+            Les Poopkémons de type feu, eau, plante et bien d'autres défient les lois de la nature, créant un équilibre
+            unique dans ce monde fantastique."
+
+        </p>
+    </div>
+    <img src="pikachu.png" alt="pigrochou" width="480" height="270">
+</section>
+
+</html>
+
+<html>
+
+<head>
+
+</head>
+
+
+<body>
+
+    <iframe src="https://giphy.com/embed/G2qi0ogzHYMVDfQoVb" width="480" height="270" frameBorder="0"
+        class="giphy-embed" allowFullScreen></iframe>
+    <p><a href="https://giphy.com/gifs/pokemon-pokemon-25-25th-yaffle-G2qi0ogzHYMVDfQoVb"></a></p>
+
+</body>
+
+
+</html>
+
+</head>
+
+<body>
+
+
+    <script>
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const searchTerm = urlParams.get('item');
+
+        if (searchTerm) {
+            document.write(`<p>Résultats pour : ${searchTerm}</p>`);
+        } else {
+            document.write("");
+        }
+    </script>
+</body>
+
+</html>
+
+</html>
+
+<head>
+    <title></title>
+    <style>
+        #scrollToTopBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button id="scrollToTopBtn" onclick="scrollToTop()">Revenir vers le haut</button>
+
+    <script>
+        window.onscroll = function () {
+            scrollFunction();
+        };
+
+        function scrollFunction() {
+            var scrollToTopBtn = document.getElementById("scrollToTopBtn");
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                scrollToTopBtn.style.display = "block";
+            } else {
+                scrollToTopBtn.style.display = "none";
+            }
+        }
+
+        function scrollToTop() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
     
 </body>
