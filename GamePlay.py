@@ -44,6 +44,32 @@ while not fin:
     time.sleep(1.5)
     choix_action(1, action)
     choix_action(2, action)
+            
+    if action == [4, 4]:
+        print("Vous avez tout les 2 abandonnées au meme moment, pas tres malin...")
+    elif 4 in action:
+        if round > 4:
+            coordonnee = action.index(4) + 1
+            print(f"LE JOUEUR {coordonnee} A DECIDER D'ABANDONNER LA PARTIE")
+            abandon = True
+        else:
+            print("tu ne peux qu'a partir du round 4 chef... fallait lire les conditions U0001F910 :( )")  
+    else:
+        pass
+    if equipe_1[0].alive == False and equipe_1[1].alive == False or equipe_2[0].alive == False and equipe_2[1].vie == False or abandon == True:
+        fin = True
+        print("GG !")
+        break
+                
+    if action == [3, 3]:
+        utiliser_objet(1, Pokemon_actif, objets_aleatoires, recurence)
+        utiliser_objet(2, Pokemon_actif, objets_aleatoires, recurence)
+    elif 3 in action:
+        coordonnee = action.index(3) + 1
+        utiliser_objet(coordonnee, Pokemon_actif, objets_aleatoires, recurence)
+    else:
+        pass
+      
     if action == [2, 2]:
         choisir_pokemon(equipe_1, 1)
         choisir_pokemon(equipe_2, 2)
@@ -71,6 +97,7 @@ while not fin:
                 time.sleep(1.5)
                 attaque_boucle(1, Pokemon_actif, choix_attaque_moment)
                 time.sleep(1.5)
+                
             else:
                 print("le pokemon de l'équipe 2 va commencer a attaquer !")
                 time.sleep(1.5)
@@ -85,37 +112,13 @@ while not fin:
             time.sleep(1.5)
     elif 1 in action:
         coordonnee = action.index(1) + 1
-        print(f"le pokemon de l'équipe {coordonnee} attaquer !")
+        print(f"le pokemon de l'équipe {coordonnee} attaque !")
         time.sleep(1.5)
         attaque_boucle(coordonnee, Pokemon_actif, choix_attaque_moment)
         time.sleep(1.5)
     else:
         pass
 
-    if action == [3, 3]:
-        utiliser_objet(1, Pokemon_actif, objets_aleatoires, recurence)
-        utiliser_objet(2, Pokemon_actif, objets_aleatoires, recurence)
-    elif 3 in action:
-        coordonnee = action.index(3) + 1
-        utiliser_objet(coordonnee, Pokemon_actif, objets_aleatoires, recurence)
-    else:
-        pass
-
-    if action == [4, 4]:
-        print("Vous avez tout les 2 abandonnées au meme moment, pas tres malin...")
-    elif 4 in action:
-        if round > 4:
-            coordonnee = action.index(4) + 1
-            print(f"LE JOUEUR {coordonnee} A DECIDER D'ABANDONNER LA PARTIE")
-            abandon = True
-        else:
-            print("tu ne peux qu'a partir du round 4 chef... fallait lire les conditions U0001F910 :( )")  
-    else:
-        pass
-    if equipe_1[0].alive == False and equipe_1[1].alive == False or equipe_2[0].alive == False and equipe_2[1].vie == False or abandon == True:
-        fin = True
-        print("GG !")
-        break
 
 
         
