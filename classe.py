@@ -7,6 +7,8 @@ class Pokemon:
         self.atq = atq # "Attaque"  entre 10 et 35
         self.type = type #"son type (pour savoir si il fait degat *2)" #10 type : feu, Glace, Eau, Fee, Plante, Ombre, Acier, Caca, electrique, 
         self.vitesse = vts #"sa rapiditer" #entre 1 et 20
+        self.pouvoir = []
+        self.alive = True
 
 pokemon_names = [
     "Flarion", "Aquaphox", "Voltalon", "Terradra", "Pyrospire",
@@ -319,12 +321,6 @@ for attaque in attaques:
     else:
         types_dict[type_].append(attaque)
 
-# on print les attaques pour chaques type :
-"""for type_, attaque_list in types_dict.items():
-    print(f"\nType: {type_}") #le \n ajoute juste un espace entre chaque truc (c'est plus beau)
-    for attaque in attaque_list:
-        print(f"Nom: {attaque.name}, Power: {attaque.power}, PP: {attaque.pp}")"""
-
 class Objet:
     def __init__(self, name, obj_type, pp, point):
         self.name = name
@@ -448,12 +444,6 @@ while len(noms_objets_pokemon) < 100:
 # Mélanger la liste pour plus de variété
 random.shuffle(noms_objets_pokemon)
 
-"""# Afficher les 10 premiers noms d'objets
-print(noms_objets_pokemon[:10])"""
-
 # Utiliser la fonction pour générer 4 objets aléatoires
 objets_aleatoires = generer_objets_aleatoires(noms_objets_pokemon)
 
-# Afficher les détails des objets générés
-for objet in objets_aleatoires:
-    print(f"Nom: {objet.name}, Type: {objet.type}, PP: {objet.pp}, Point: {objet.point}")
