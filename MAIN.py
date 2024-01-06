@@ -19,10 +19,10 @@ def info(equipe_1, equipe_2):
     print(f"le pokemon 2 de l'equipe 2 est : {equipe_2[1].name} et il a {equipe_2[1].vie} pv")
     #on définit la vitesse des pokemons
     print("")
-    print(f"la vitesse de {equipe_1[0].name} est de : {equipe_1[0].vitesse}")
-    print(f"la vitesse de {equipe_1[1].name} est de : {equipe_1[1].vitesse}")
-    print(f"la vitesse de {equipe_2[0].name} est de : {equipe_2[0].vitesse}")
-    print(f"la vitesse de {equipe_2[1].name} est de : {equipe_2[1].vitesse}")
+    print(f"la vitesse de {equipe_1[0].name} est de : {equipe_1[0].vitesse} et il est de type {equipe_1[0].type}")
+    print(f"la vitesse de {equipe_1[1].name} est de : {equipe_1[1].vitesse} et il est de type {equipe_1[1].type}")
+    print(f"la vitesse de {equipe_2[0].name} est de : {equipe_2[0].vitesse} et il est de type {equipe_2[0].type}")
+    print(f"la vitesse de {equipe_2[1].name} est de : {equipe_2[1].vitesse} et il est de type {equipe_2[1].type}")
     print("")
     return equipe_1, equipe_2
 
