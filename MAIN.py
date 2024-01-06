@@ -63,7 +63,7 @@ def choix_attaques_DEBUT(pokemon):
 
 #print(equipe_1[0].pouvoir[0].name) --> ce qui faut faire pour afficher attaque
 #qui jouer
-def choisir_pokemon(equipe, num, actif):
+def choisir_pokemon(equipe, num):
     print("\n ----------------------")
     print(f"\nChoisissez un Pokémon a jouer parmi les suivants equipe {num}: ")
     for i, pokemon in enumerate(equipe, 1):
@@ -76,7 +76,6 @@ def choisir_pokemon(equipe, num, actif):
                 print("Vous ne pouvez plus utiliser ce pokemon, il est KO.")
             else:
                 if 1 <= choix_pokemon <= len(equipe):
-                    actif[num] = equipe[choix_pokemon - 1]
                     break
                 else:
                     print("Choix invalide. Veuillez choisir parmi les Pokémon disponibles.")
