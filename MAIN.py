@@ -165,6 +165,7 @@ def efficace_raccour(num, actif, liste, B, N, O):
         print("c'est pas tres éfficace")
         return degats_infligés
     elif actif[adv].type in O:    #Inefficace
+        degats_infligés = 0
         print("Vous ne faites pas de degat !")
         return degats_infligés
     else:
