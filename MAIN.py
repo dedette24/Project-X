@@ -63,7 +63,7 @@ def choix_attaques_DEBUT(pokemon):
 
 #print(equipe_1[0].pouvoir[0].name) --> ce qui faut faire pour afficher attaque
 #qui jouer
-def choisir_pokemon(equipe, num):
+def choisir_pokemon(equipe, num, actif):
     print("\n ----------------------")
     print(f"\nChoisissez un Pokémon a jouer parmi les suivants equipe {num}: ")
     for i, pokemon in enumerate(equipe, 1):
@@ -76,6 +76,7 @@ def choisir_pokemon(equipe, num):
                 print("Vous ne pouvez plus utiliser ce pokemon, il est KO.")
             else:
                 if 1 <= choix_pokemon <= len(equipe):
+                    actif[num] = equipe[choix_pokemon - 1]
                     break
                 else:
                     print("Choix invalide. Veuillez choisir parmi les Pokémon disponibles.")
@@ -319,12 +320,12 @@ def attaque_boucle(num, actif, liste):
     print(f"Vous utilisez l'attaque {trans[num-1].name}")
     degat = int(efficace(num, actif, trans))
     print(f"Vous infliger {degat} dégats à {actif[adv].name}")
-    actif[adv].vie -= degat
     trans[num-1].pp -= 1
     print(f"il vous reste {trans[num-1].pp} utilisation restantes pour l'attaque {trans[num-1].name}")
     if actif[adv].vie < 1:
         actif[adv].alive = False
-        print(f"Vous avez eliminé {actif[adv].name}, l'adversaire ne pourra plus l'utiliser à moins d'utiliser une potion de 'heal'.")
+        print(f"Vous avez eliminé {actif[adv].name}, l'adversaire ne pourra plus l'utiliser.")
+        actif[adv] = actif[adv].name + " est incappable de se battre"
     else:
         print(f"il reste {actif[adv].vie} vie à {actif[adv].name}")
 
