@@ -47,26 +47,38 @@ while not fin:
     if action == [1, 1]:
         if Pokemon_actif[0].vitesse < Pokemon_actif[1].vitesse:
             print("le pokemon de l'équipe 2 est plus rapide ! il va donc commencer a attaquer.")
+            time.sleep(1.5)
             attaque_boucle(2, Pokemon_actif, choix_attaque_moment)
+            time.sleep(1.5)
             attaque_boucle(1, Pokemon_actif, choix_attaque_moment)
+            time.sleep(1.5)
         elif Pokemon_actif[0].vitesse == Pokemon_actif[1].vitesse:
             print("on va jeter les dés !")
             x = int(random.randint(1,2))
             print(x)
             if x == 1:
                 print("le pokemon de l'équipe 1 va commencer a attaquer !")
+                time.sleep(1.5)
                 attaque_boucle(1, Pokemon_actif, choix_attaque_moment)
+                time.sleep(1.5)
             else:
                 print("le pokemon de l'équipe 2 va commencer a attaquer !")
+                time.sleep(1.5)
                 attaque_boucle(2, Pokemon_actif, choix_attaque_moment)
+                time.sleep(1.5)
         else:
             print("le pokemon de l'équipe 1 va commencer a attaquer !")
+            time.sleep(1.5)
             attaque_boucle(1, Pokemon_actif, choix_attaque_moment)
+            time.sleep(1.5)
             attaque_boucle(2, Pokemon_actif, choix_attaque_moment)
+            time.sleep(1.5)
     elif 1 in action:
         coordonnee = action.index(1) + 1
         print(f"le pokemon de l'équipe {coordonnee} attaquer !")
+        time.sleep(1.5)
         attaque_boucle(coordonnee, Pokemon_actif, choix_attaque_moment)
+        time.sleep(1.5)
     else:
         pass
     if action == [2, 2]:
@@ -96,7 +108,7 @@ while not fin:
             print(f"LE JOUEUR {coordonnee} A DECIDER D'ABANDONNER LA PARTIE")
             abandon = True
         else:
-            print("tu ne peux qu'a partir du round 4 chef... fallait lire les conditions :( )")  
+            print("tu ne peux qu'a partir du round 4 chef... fallait lire les conditions U0001F910 :( )")  
     else:
         pass
     if equipe_1[0].vie == 0 and equipe_1[1].vie == 0 or equipe_2[0].vie == 0 and equipe_2[1].vie == 0 or abandon == True:
