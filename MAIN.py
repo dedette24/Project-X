@@ -158,16 +158,20 @@ def efficace_raccour(num, actif, liste, B, N, O):
         degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].dfs * 1.5)) * 2  #super efficace
         actif[adv].vie -= degats_infligés
         print("c super efficace")
+        return degats_infligés
     elif actif[adv].type in N:
         degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].dfs * 1.5)) / 1.5  # Pas très efficace
         actif[adv].vie -= degats_infligés
         print("c'est pas tres éfficace")
+        return degats_infligés
     elif actif[adv].type in O:    #Inefficace
         print("Vous ne faites pas de degat !")
+        return degats_infligés
     else:
         print("l'attaque va se derouler normalement ! ")
         degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].dfs * 1.5))    #Normal
         actif[adv].vie -= degats_infligés
+        return degats_infligés
 
 def efficace(num, actif, liste):
     degats_infligés = 0
@@ -181,108 +185,126 @@ def efficace(num, actif, liste):
         liste_nul = ["feu", "eau", "dragon", "lumiere"] #N
         liste_0 = ["roche"] #X
         efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
+        degats_infligés = efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
         
     if actif[num-1].type == "glace": #glace
         liste_effi = ["glace", "plante", "caca", "roche", "dragon", "poison", "vol"] #T
         liste_nul = ["feu", "insecte"] #N
         liste_0 = ["eau"] #X
         efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
+        degats_infligés = efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
 
     if actif[num-1].type == "eau": #eau
         liste_effi = ["feu", "caca", "roche"] #T
         liste_nul = ["eau", "dragon"] #N
         liste_0 = [] #X
         efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
+        degats_infligés = efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
             
     if actif[num-1].type == "plante": #plante
         liste_effi = ["eau", "roche"] #T
         liste_nul = ["feu", "glace","plante","acier","dragon", "poison", "insecte"] #N
         liste_0 = ["caca"] #X
         efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
+        degats_infligés = efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
 
     if actif[num-1].type == "caca": #caca
         liste_effi = ["feu", "plante", "ombre", "fee", "acier", "dragon", "combat", "lumiere", "psy"] #T
         liste_nul = ["caca", "poison", "roche"] #N
         liste_0 = ["glace", "eau"] #X
         efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
+        degats_infligés = efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
 
     if actif[num-1].type == "ombre": #ombre
         liste_effi = ["spectre", "psy"] #T
         liste_nul = ['ombre', 'dragon', 'combat'] #N
         liste_0 = ["fee"] #X
         efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
+        degats_infligés = efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
             
     if actif[num-1].type == "fee": #fee
         liste_effi = ["caca", "ombre", "dragon", "combat", "lumiere", "psy"] #T
         liste_nul = ['feu', 'fee', 'acier', "poison"] #N
         liste_0 = [] #X
         efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
+        degats_infligés = efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
 
     if actif[num-1].type == "electrique": #electrique
         liste_effi = ["eau", "acier", "vol"] #T
         liste_nul = ['plante', 'electrique', 'dragon'] #N
         liste_0 = ["roche"] #X
         efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
+        degats_infligés = efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
 
     if actif[num-1].type == "acier": #acier
         liste_effi = ["glace", "caca", "fee", "roche", "dragon", "poison"] #T
         liste_nul = ["feu", "plante", "acier", "insecte"] #N
         liste_0 = [] #X
         efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
+        degats_infligés = efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
 
     if actif[num-1].type == "roche": #roche
         liste_effi = ["feu", "glace", "electrique", "acier", "roche", "poison"] #T
         liste_nul = ['eau', 'insecte', 'dragon'] #N
         liste_0 = ["vol"] #X
         efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
+        degats_infligés = efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
     
     if actif[num-1].type == "dragon": #dragon
         liste_effi = ["dragon", "psy"] #T
         liste_nul = [] #N
         liste_0 = [] #X
         efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
+        degats_infligés = efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
 
     if actif[num-1].type == "poison": #poison
         liste_effi = ["plante", "fee", "acier", "dragon", "poison", "combat"] #T
         liste_nul = ["roche", "psy"] #N
         liste_0 = [] #X
         efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
+        degats_infligés = efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
 
     if actif[num-1].type == "vol": #vol
         liste_effi = ["plante", "combat", "insecte"] #T
         liste_nul = ["electrique", "acier", "roche", "dragon", "vol"] #N
         liste_0 = [] #X
         efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
+        degats_infligés = efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
     
     if actif[num-1].type == "combat": #combat
         liste_effi = ["glace", "fee", "acier", "roche", "insecte"] #T
         liste_nul = ["eau", "caca", "dragon", "psy"] #N
         liste_0 = ["ombre", "vol", "spectre"] #X
         efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
+        degats_infligés = efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
 
     if actif[num-1].type == "insecte": #insecte
         liste_effi = ["plante", "caca", "ombre", "fee", "psy"] #T
         liste_nul = ["feu", "dragon", "insecte"] #N
         liste_0 = ["vol"] #X
         efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
+        degats_infligés = efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
 
     if actif[num-1].type == "spectre": #spectre
         liste_effi = ["dragon", "psy", "fee", "spectre"] #T
         liste_nul = [] #N
         liste_0 = ["ombre", "lumiere"] #X
         efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
+        degats_infligés = efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
 
     if actif[num-1].type == "lumiere": #lumiere
         liste_effi = ["dragon", "caca", "ombre", "vol", "combat", "spectre"] #T
         liste_nul = ["feu", "fee", "acier", "lumiere"] #N
         liste_0 = ["plante"] #X
         efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
+        degats_infligés = efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
 
     if actif[num-1].type == "psy": #psy
         liste_effi = ["poison", "combat"] #T
         liste_nul = ["caca", "acier", "dragon", "insecte", "spectre", "psy"] #N
         liste_0 = ["ombre"] #X
         efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
+        degats_infligés = efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0)
 
     return degats_infligés
 
