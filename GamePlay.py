@@ -46,7 +46,8 @@ while not fin:
     time.sleep(1.5)
     choix_action(1, action, equipe_1, equipe_2)
     choix_action(2, action, equipe_1, equipe_2)
-            
+    
+    print("\n")
     if action == [4, 4]:
         print("Vous avez tout les 2 abandonnées au meme moment, pas tres malin...")
     elif 4 in action:
@@ -62,16 +63,20 @@ while not fin:
         fin = True
         print("GG !")
         break
-                
+    
     if action == [3, 3]:
         utiliser_objet(1, Pokemon_actif, objets_aleatoires, recurrence)
         utiliser_objet(2, Pokemon_actif, objets_aleatoires, recurrence)
     elif 3 in action:
         coordonnee = action.index(3) + 1
         utiliser_objet(coordonnee, Pokemon_actif, objets_aleatoires, recurrence)
+        if coordonnee == 1:
+            action[1] = 0
+        else:
+            action[0] = 0
     else:
         pass
-      
+    
     if action == [2, 2]:
         choisir_pokemon(equipe_1, 1)
         choisir_pokemon(equipe_2, 2)
@@ -81,36 +86,35 @@ while not fin:
         choisir_pokemon(equipe_1, 1)
     else: 
         pass
-    
-    print("23456789087654323456789")
-    print(recurrence)
+
     if action == [1, 1]:
         if Pokemon_actif[0].vitesse < Pokemon_actif[1].vitesse:
-            print("le pokemon de l'équipe 2 est plus rapide ! il va donc commencer a attaquer.")
+            print(f"{Fore.RED}le pokemon de l'équipe 2 est plus rapide ! il va donc commencer a attaquer.{Fore.RESET}")
             time.sleep(1.5)
             attaque_boucle(2, Pokemon_actif, choix_attaque_moment, recurrence, equipe_1, equipe_2)
             time.sleep(1.5)
             attaque_boucle(1, Pokemon_actif, choix_attaque_moment, recurrence, equipe_1, equipe_2)
             time.sleep(1.5)
         elif Pokemon_actif[0].vitesse == Pokemon_actif[1].vitesse:
-            print("on va jeter les dés !")
+            print(f"{Fore.MAGENTA}Comme votre vitesse est la meme, nous allons designer aléatoirement l'ordre de passage ! {Fore.RESET}")
             x = int(random.randint(1,2))
-            print(x)
+            time.sleep(1.5)
+            print(f"{Fore.LIGHTMAGENTA_EX}Le dés est tombé sur le chiffre {x}, ce sera donc l'équipe {x} qui va commecer !{Fore.RESET}")
             if x == 1:
-                print("le pokemon de l'équipe 1 va commencer a attaquer !")
+                print(f"{Fore.RED}le pokemon de l'équipe 1 va commencer a attaquer !{Fore.RESET}")
                 time.sleep(1.5)
                 attaque_boucle(1, Pokemon_actif, choix_attaque_moment, recurrence, equipe_1, equipe_2)
                 time.sleep(1.5)
                 attaque_boucle(2, Pokemon_actif, choix_attaque_moment, recurrence, equipe_1, equipe_2)
                 
             else:
-                print("le pokemon de l'équipe 2 va commencer a attaquer !")
+                print(f"{Fore.RED}le pokemon de l'équipe 2 va commencer a attaquer !{Fore.RESET}")
                 time.sleep(1.5)
                 attaque_boucle(2, Pokemon_actif, choix_attaque_moment, recurrence, equipe_1, equipe_2)
                 time.sleep(1.5)
                 attaque_boucle(1, Pokemon_actif, choix_attaque_moment, recurrence, equipe_1, equipe_2)
         else:
-            print("le pokemon de l'équipe 1 va commencer a attaquer !")
+            print(f"{Fore.RED}le pokemon de l'équipe 1 va commencer a attaquer !{Fore.RESET}")
             time.sleep(1.5)
             attaque_boucle(1, Pokemon_actif, choix_attaque_moment, recurrence, equipe_1, equipe_2)
             time.sleep(1.5)
@@ -118,7 +122,7 @@ while not fin:
             time.sleep(1.5)
     elif 1 in action:
         coordonnee = action.index(1) + 1
-        print(f"le pokemon de l'équipe {coordonnee} attaque !")
+        print(f"{Fore.RED}le pokemon de l'équipe {coordonnee} attaque !{Fore.RESET}")
         time.sleep(1.5)
         attaque_boucle(coordonnee, Pokemon_actif, choix_attaque_moment, recurrence, equipe_1, equipe_2)
         time.sleep(1.5)
