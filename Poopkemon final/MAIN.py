@@ -14,11 +14,11 @@ equipe_2 = liste_pokemon[-2:]
 def info(equipe_1, equipe_2):
     print("--------------")
     print("\néquipe 1 : ")
-    print(f"le pokemon 1 de l'equipe 1 est : {Fore.YELLOW}{equipe_1[0].name}{Fore.RESET} et il a {Fore.RED}{equipe_1[0].vie}{Fore.RESET} pv")
-    print(f"le pokemon 2 de l'equipe 1 est : {Fore.YELLOW}{equipe_1[1].name}{Fore.RESET} et il a {Fore.RED}{equipe_1[1].vie}{Fore.RESET} pv")
+    print(f"le pokemon 1 de l'equipe 1 est : {Fore.YELLOW}{equipe_1[0].name}{Fore.RESET}, il a {Fore.RED}{equipe_1[0].vie}{Fore.RESET} pv et les dernieres states : atq : {Fore.RED}{equipe_1[0].atq}{Fore.RESET} | dfs : {Fore.RED}{equipe_1[0].dfs}{Fore.RESET}")
+    print(f"le pokemon 2 de l'equipe 1 est : {Fore.YELLOW}{equipe_1[1].name}{Fore.RESET}, il a {Fore.RED}{equipe_1[1].vie}{Fore.RESET} pv et les dernieres states : atq : {Fore.RED}{equipe_1[1].atq}{Fore.RESET} | dfs : {Fore.RED}{equipe_1[1].dfs}{Fore.RESET}")
     print("\néquipe 2 : ")
-    print(f"le pokemon 1 de l'equipe 2 est : {Fore.YELLOW}{equipe_2[0].name}{Fore.RESET} et il a {Fore.RED}{equipe_2[0].vie}{Fore.RESET} pv")
-    print(f"le pokemon 2 de l'equipe 2 est : {Fore.YELLOW}{equipe_2[1].name}{Fore.RESET} et il a {Fore.RED}{equipe_2[1].vie}{Fore.RESET} pv")
+    print(f"le pokemon 1 de l'equipe 2 est : {Fore.YELLOW}{equipe_2[0].name}{Fore.RESET}, il a {Fore.RED}{equipe_2[0].vie}{Fore.RESET} pv et les dernieres states : atq : {Fore.RED}{equipe_2[0].atq}{Fore.RESET} | dfs : {Fore.RED}{equipe_2[0].dfs}{Fore.RESET}")
+    print(f"le pokemon 2 de l'equipe 2 est : {Fore.YELLOW}{equipe_2[1].name}{Fore.RESET}, il a {Fore.RED}{equipe_2[1].vie}{Fore.RESET} pv et les dernieres states : atq : {Fore.RED}{equipe_2[1].atq}{Fore.RESET} | dfs : {Fore.RED}{equipe_2[1].dfs}{Fore.RESET}")
     #on définit la vitesse des pokemons
     print(f"\nla vitesse de {Fore.LIGHTMAGENTA_EX}{equipe_1[0].name}{Fore.RESET} est de : {Fore.BLUE}{equipe_1[0].vitesse}{Fore.RESET} et il est de type {Fore.LIGHTGREEN_EX}{equipe_1[0].type}{Fore.RESET}")
     print(f"la vitesse de {Fore.LIGHTMAGENTA_EX}{equipe_1[1].name}{Fore.RESET} est de : {Fore.BLUE}{equipe_1[1].vitesse}{Fore.RESET} et il est de type {Fore.LIGHTGREEN_EX}{equipe_1[1].type}{Fore.RESET}")
@@ -37,7 +37,7 @@ def choix_attaques_DEBUT(pokemon, attaques_disponibles):
 
     while len(attaques_selectionnees) < 3:
         for i, attaque in enumerate(vrai_attaque_dispo, 1):
-            print(f"{i}. {attaque.name} (Puissance: {attaque.power}, utiisations: {attaque.pp}, type : {attaque.type})")
+            print(f"{i}. {attaque.name} (Puissance: {Fore.RED}{attaque.power}{Fore.RESET}, utiisations: {attaque.pp}, type : {Fore.LIGHTGREEN_EX}{attaque.type}{Fore.RESET})")
 
         while True:
             try:
@@ -129,14 +129,19 @@ def choix_attaque(pokemon, num, liste, equipe_1, equipe_2):
     print("\n ----------------------")
     # Afficher les attaques disponibles pour le Pokémon
     if pokemon[num-1].alive == False:
-        print("Votre pokemon s'est fait tué avant de pouvoir attaquer. Merci de bien vouloir changer de Pokemon : ")
-        choisir_pokemon(equipe, num)
+        print(f"{Fore.RED}Votre pokemon s'est fait tué avant de pouvoir attaquer. Il retourne dans sa Poopkeball et c'est l'autre Pokémon restant qui rentre en jeu ! {Fore.RESET}")
+        if equipe[0].alive == False:
+            chang = 0
+        elif equipe[1].alive == False:
+            chang = 1
+        pokemon[num-1] = [equipe[chang]]
+        print(f"{Fore.RED}Vous jouez maintenant {pokemon[num-1].name} ! {Fore.RESET}")
         cbon = 0
         pass
     else:
         print(f"\n{pokemon[num-1].name} a les attaques suivantes : ")
         for i in range(3):
-            print(f"attaque {i+1} : {pokemon[num-1].pouvoir[i].name} ({pokemon[num-1].pouvoir[i].pp} utilisation restantes) {Fore.RED}(dégats de base : {pokemon[num-1].pouvoir[i].power}) {Fore.RESET}")
+            print(f"attaque {i+1} : {pokemon[num-1].pouvoir[i].name} ({pokemon[num-1].pouvoir[i].pp} utilisation restantes) {Fore.RED}(dégats de base : {pokemon[num-1].pouvoir[i].power}) {Fore.RESET} {Fore.LIGHTGREEN_EX}(type : {pokemon[num-1].pouvoir[i].type}) {Fore.RESET}")
 
         while True:
             try:
@@ -163,10 +168,13 @@ def efficace_raccour(num, actif, liste, B, N, O, rec):
         adv = 1
     else:
         adv = 0
-    
+
     potions = int(rec[num-1])
+    if rec[num-1] == 0:
+        pass
+    else:
+        print(f"{Fore.CYAN}Vous allez faire {potions} dégats en plus grâce a la potion que vous avez bu précédement!{Fore.RESET}")
     rec[num-1] = 0
-    print(f"{Fore.CYAN}Vous allez faire {potions} dégats en plus grâce a la potion que vous avez bu précédement!{Fore.RESET}")
     if actif[adv].type in B:
         degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].dfs * 1.5)) * 2  #super efficace
         actif[adv].vie -= degats_infligés
@@ -187,116 +195,116 @@ def efficace_raccour(num, actif, liste, B, N, O, rec):
         actif[adv].vie -= degats_infligés
         return degats_infligés + potions
 
-def efficace(num, actif, liste, rec):
+def efficace(num, actif, liste, rec, attaque):
     degats_infligés = 0
     if num == 1:
         adv = 1
     else:
         adv = 0
 
-    if actif[num-1].type == "feu": #feu
+    if attaque[num-1].type == "feu": #feu
         liste_effi = ["glace", "plante", "acier", "insecte"] #T
         liste_nul = ["feu", "eau", "dragon", "lumiere"] #N
         liste_0 = ["roche"] #X
         degats_infligés = efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0, rec)
         
-    if actif[num-1].type == "glace": #glace
+    if attaque[num-1].type == "glace": #glace
         liste_effi = ["glace", "plante", "caca", "roche", "dragon", "poison", "vol"] #T
         liste_nul = ["feu", "insecte"] #N
         liste_0 = ["eau"] #X
         degats_infligés = efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0, rec)
 
-    if actif[num-1].type == "eau": #eau
+    if attaque[num-1].type == "eau": #eau
         liste_effi = ["feu", "caca", "roche"] #T
         liste_nul = ["eau", "dragon"] #N
         liste_0 = [] #X
         degats_infligés = efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0, rec)
             
-    if actif[num-1].type == "plante": #plante
+    if attaque[num-1].type == "plante": #plante
         liste_effi = ["eau", "roche"] #T
         liste_nul = ["feu", "glace","plante","acier","dragon", "poison", "insecte"] #N
         liste_0 = ["caca"] #X
         degats_infligés = efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0, rec)
 
-    if actif[num-1].type == "caca": #caca
+    if attaque[num-1].type == "caca": #caca
         liste_effi = ["feu", "plante", "ombre", "fee", "acier", "dragon", "combat", "lumiere", "psy"] #T
         liste_nul = ["caca", "poison", "roche"] #N
         liste_0 = ["glace", "eau"] #X
         degats_infligés = efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0, rec)
 
-    if actif[num-1].type == "ombre": #ombre
+    if attaque[num-1].type == "ombre": #ombre
         liste_effi = ["spectre", "psy"] #T
         liste_nul = ['ombre', 'dragon', 'combat'] #N
         liste_0 = ["fee"] #X
         degats_infligés = efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0, rec)
             
-    if actif[num-1].type == "fee": #fee
+    if attaque[num-1].type == "fee": #fee
         liste_effi = ["caca", "ombre", "dragon", "combat", "lumiere", "psy"] #T
         liste_nul = ['feu', 'fee', 'acier', "poison"] #N
         liste_0 = [] #X
         degats_infligés = efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0, rec)
 
-    if actif[num-1].type == "electrique": #electrique
+    if attaque[num-1].type == "electrique": #electrique
         liste_effi = ["eau", "acier", "vol"] #T
         liste_nul = ['plante', 'electrique', 'dragon'] #N
         liste_0 = ["roche"] #X
         degats_infligés = efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0, rec)
 
-    if actif[num-1].type == "acier": #acier
+    if attaque[num-1].type == "acier": #acier
         liste_effi = ["glace", "caca", "fee", "roche", "dragon", "poison"] #T
         liste_nul = ["feu", "plante", "acier", "insecte"] #N
         liste_0 = [] #X
         degats_infligés = efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0, rec)
 
-    if actif[num-1].type == "roche": #roche
+    if attaque[num-1].type == "roche": #roche
         liste_effi = ["feu", "glace", "electrique", "acier", "roche", "poison"] #T
         liste_nul = ['eau', 'insecte', 'dragon'] #N
         liste_0 = ["vol"] #X
         degats_infligés = efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0, rec)
     
-    if actif[num-1].type == "dragon": #dragon
+    if attaque[num-1].type == "dragon": #dragon
         liste_effi = ["dragon", "psy"] #T
         liste_nul = [] #N
         liste_0 = [] #X
         degats_infligés = efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0, rec)
 
-    if actif[num-1].type == "poison": #poison
+    if attaque[num-1].type == "poison": #poison
         liste_effi = ["plante", "fee", "acier", "dragon", "poison", "combat"] #T
         liste_nul = ["roche", "psy"] #N
         liste_0 = [] #X
         degats_infligés = efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0, rec)
 
-    if actif[num-1].type == "vol": #vol
+    if attaque[num-1].type == "vol": #vol
         liste_effi = ["plante", "combat", "insecte"] #T
         liste_nul = ["electrique", "acier", "roche", "dragon", "vol"] #N
         liste_0 = [] #X
         degats_infligés = efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0, rec)
     
-    if actif[num-1].type == "combat": #combat
+    if attaque[num-1].type == "combat": #combat
         liste_effi = ["glace", "fee", "acier", "roche", "insecte"] #T
         liste_nul = ["eau", "caca", "dragon", "psy"] #N
         liste_0 = ["ombre", "vol", "spectre"] #X
         degats_infligés = efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0, rec)
 
-    if actif[num-1].type == "insecte": #insecte
+    if attaque[num-1].type == "insecte": #insecte
         liste_effi = ["plante", "caca", "ombre", "fee", "psy"] #T
         liste_nul = ["feu", "dragon", "insecte"] #N
         liste_0 = ["vol"] #X
         degats_infligés = efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0, rec)
 
-    if actif[num-1].type == "spectre": #spectre
+    if attaque[num-1].type == "spectre": #spectre
         liste_effi = ["dragon", "psy", "fee", "spectre"] #T
         liste_nul = [] #N
         liste_0 = ["ombre", "lumiere"] #X
         degats_infligés = efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0, rec)
 
-    if actif[num-1].type == "lumiere": #lumiere
+    if attaque[num-1].type == "lumiere": #lumiere
         liste_effi = ["dragon", "caca", "ombre", "vol", "combat", "spectre"] #T
         liste_nul = ["feu", "fee", "acier", "lumiere"] #N
         liste_0 = ["plante"] #X
         degats_infligés = efficace_raccour(num, actif, liste, liste_effi, liste_nul, liste_0, rec)
 
-    if actif[num-1].type == "psy": #psy
+    if attaque[num-1].type == "psy": #psy
         liste_effi = ["poison", "combat"] #T
         liste_nul = ["caca", "acier", "dragon", "insecte", "spectre", "psy"] #N
         liste_0 = ["ombre"] #X
@@ -313,10 +321,10 @@ def attaque_boucle(num, actif, liste, rec, equipe_1, equipe_2):
     if actif[num-1].vie < 1:
         print(f"Vous n'avez pas eu le temps d'attaquer, c'est dommage")
     else:
-        print(f"Vous allez attaquer équipe {num} !")
+        print(f"C'est votre tour d'attaquer, equipe {num} ! Le pokemon que vous attaquez est {Fore.RED}{actif[adv].name}{Fore.RESET} et il est de type {Fore.LIGHTGREEN_EX}{actif[adv].type}{Fore.RESET}")
         trans = choix_attaque(actif, num, liste, equipe_1, equipe_2)
         print(f"Vous utilisez l'attaque {trans[num-1].name}")
-        degat = int(efficace(num, actif, trans, rec))
+        degat = int(efficace(num, actif, trans, rec, liste))
         print(f"Vous infliger {degat} dégats à {actif[adv].name}")
         trans[num-1].pp -= 1
         print(f"il vous reste {trans[num-1].pp} utilisation restantes pour l'attaque {trans[num-1].name}")
@@ -394,5 +402,3 @@ def abandon(num):
 
 
 #par exemple pour feu qui est efficace sur glace
-
-
