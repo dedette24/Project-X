@@ -11,8 +11,8 @@ body{
 }
 
 header {
-    height: 100px;
-    width: 100px;
+    height: 100vh;
+    width: 100vh;
     background-image: url(Poopkémon.png);
     background-size: cover;
 }
