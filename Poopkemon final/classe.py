@@ -398,6 +398,16 @@ def generer_objets_aleatoires(noms_objets):
     return objets_aleatoires
 
 noms_objets_pokemon = [
+    "Poopkeball Super",
+    "Poopkeball Basic",
+    "Poopkeball Bizarre",
+    "Poopkeball 0",
+    "Poopkeball EasterEgg",
+    "Poopkeball Book",
+    "Poopkeball Newton",
+    "Poopkeball Amir",
+    "Poopkeball Adam",
+    "Poopkeball Elias",
     "Potion",
     "Super Potion",
     "Hyper Potion",
