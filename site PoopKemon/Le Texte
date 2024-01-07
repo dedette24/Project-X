@@ -8,7 +8,7 @@ Bonjour a tous, nous allons vous présenter aujourd'hui notre jeu Poopkemon.
 
 1:
 Nous avons donc décidé de faire un jeu du style de pokémon car c'est ce qui semblait être le plus accessible en python car ça ne nécessitait pas d'interface graphique.
-L'objectif était donc de faire un jeu qui opposerait deux joueurs qui ont chacun 2 poopkémons au total et dont 1 seul poopkémon actif a la fois (en gros c du 1v1, pas 2v2, 
+L'objectif était donc de faire un jeu qui opposerait deux joueurs qui ont chacun 2 poopkémons au total, dont 1 seul poopkémon actif a la fois (en gros c du 1v1, pas 2v2, 
 1 sur le terrain et l'autre en retrait). Il a donc fallu commencer par des petits progès. Au début, Elias s'occupait de faire des pokémons, Amir l'organisation des tours et Adam
 les premiers principes de combat. Au fur et à mesure quand les pokémons était prêt et fonctionnel et que la façon dont les combats et les tours marchaient était clair, Elias a fait
 les objets et une fonction pour utiliser, Amir a commencé a faire la boucle qui regrouperait tout le jeu et Adam a fait des fonctions pour le combat. Cela fait il restait encore 
@@ -26,6 +26,13 @@ ce qui a permis de réparer les erreurs plus vite. Vers la fin, on a eu des prob
 a permis de résoudre ce problème. On a rencontré beaucoup d'autres problèmes mais ce serait évidemment impossible de tout lister ici alors passons a la partie suivante qui est le futur.
 
 3:
-Au début nous avions beaucoup d'idée de modes de jeu différents, on voulait
+Au début nous avions beaucoup d'idée de modes de jeu différents, on voulait faire différents modes de jeu un peu comme le jeu Pokémon de base avec des combats a 1 Poopkemon et des
+combats avec 2 Pokemons actifs en même temps, mais aussi d'autres formats non-existants plus originaux comme des combats où tout serait aléatoire ou des combats à 6 contre 6. On
+voulait aussi rajouter des améliorations du gameplay en introduisant les mécaniques spéciales de pokémon comme la méga-évolution, les objets tenus ou l'amitié, mais on s'est vite rendu compte
+que ce serait impossible a faire en si peux de temps, on s'est donc contenté de faire le format Random Battle où tout est aléatoire, que ce soit les Poopkémon, leurs stats,
+les objets à disposition et même les types des pokémons et de leurs attaques. Mais nous comptons bien ajouter des améliorations à ce jeu dans un futur proche.
+
+4:
+
 
 
