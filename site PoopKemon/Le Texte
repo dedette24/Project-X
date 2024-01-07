@@ -6,3 +6,8 @@ Bonjour a tous, nous allons vous présenter aujourd'hui notre jeu Poopkemon.
 4- Abstraction  (Les trucs qu'on a utilisé, généralisation)
 
 
+1:
+Nous avons donc décidé de faire un jeu du style de pokémon car c'est ce qui semblait être le plus accessible en python car ça ne nécessitait pas d'interface graphique.
+L'objectif était donc de faire un jeu qui opposerait deux joueurs qui ont chacun 2 poopkémons au total et dont 1 seul poopkémon actif a la fois (en gros c du 1v1, pas 2v2, 
+1 sur le terrain et l'autre en retrait)
+
