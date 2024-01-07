@@ -3,7 +3,7 @@ Bonjour a tous, nous allons vous présenter aujourd'hui notre jeu Poopkemon.
 1- L'idée de base  ( notre idée, pk on a choisi ça, comment on a commencé et découpé en petits problèmes )
 2- Les problèmes rencontrés   ( Les nombreux problèmes qu'on a eu et comment on les a résoluts )
 3- Le futur  (Les eventuelles améliorations plus tard)
-4- Abstraction  (Les trucs qu'on a utilisé, généralisation)
+4- Abstraction et outils (Les trucs qu'on a utilisé, généralisation)
 
 
 1:
@@ -14,7 +14,8 @@ les premiers principes de combat. Au fur et à mesure quand les pokémons était
 les objets et une fonction pour utiliser, Amir a commencé a faire la boucle qui regrouperait tout le jeu et Adam a fait des fonctions pour le combat. Cela fait il restait encore 
 a faire une fonction pour pouvoir changer de poopkemon fait par Adam, faire en sorte que l'adversaire prenne plus ou moins de dégats si l'attaque est super efficace ou 
 pas très efficace fait par Amir, et une fonction pour abandonner le combat faite par Elias. Après tout ça le jeu était fonctionnel et on a tous rajouté nos petites touches personnelles
-, il fallait aussi modifier les stats pour une meilleur expérience et on a rajouté des couleurs pour que ce soit plus lisible, Le jeu était ainsi fini.
+, il fallait aussi modifier les stats pour une meilleur expérience, que les combats ne soient pas trop long ni trop court
+et on a rajouté des couleurs pour que ce soit plus lisible, des textes pour bien expliquer ce qui se passe et guider le joueur. Le jeu était ainsi fini.
 
 2: 
 Au long du progès on a évidemment rencontré beaucoup de problèmes, l'un des premiers étant la compréhension. Comme chacun codait de son côté, quand on a mis en commun il y a eu
@@ -23,16 +24,25 @@ Avec les tests ont a eu de nombreuses erreurs qui nous on parfois obligé a repr
 dans 2 listes différentes et les pokemons actifs seraient en position 0 de la liste. ça a rendu les choses très compliqué donc on a préféré crée une autre liste en plus qui 
 s'appelle actif avec une position qui correspond a chaque équipe. On avait aussi mit des stats spécifiques a chaque pokemon puis on a décidé de rendre toutes les stats aléatoires
 ce qui a permis de réparer les erreurs plus vite. Vers la fin, on a eu des problèmes quand le pokemon était KO, donc il a fallu ajouter un attribut KO a la classe Pokemon qui 
-a permis de résoudre ce problème. On a rencontré beaucoup d'autres problèmes mais ce serait évidemment impossible de tout lister ici alors passons a la partie suivante qui est le futur.
+a permis de résoudre ce problème. On a rencontré beaucoup d'autres problèmes mais ce serait évidemment impossible de tout lister ici, la plupart du temps c'était parce que l'idée
+de base était mauvaise ou mal exprimée ou alors que le moyen utilisé n'était pas optimal ou ne marchait pas. Au final on a du reprendre plusieurs chose a 0 mais on a finit par y arriver.
+Parlons maintenant du futur de notre progès.
 
 3:
 Au début nous avions beaucoup d'idée de modes de jeu différents, on voulait faire différents modes de jeu un peu comme le jeu Pokémon de base avec des combats a 1 Poopkemon et des
 combats avec 2 Pokemons actifs en même temps, mais aussi d'autres formats non-existants plus originaux comme des combats où tout serait aléatoire ou des combats à 6 contre 6. On
-voulait aussi rajouter des améliorations du gameplay en introduisant les mécaniques spéciales de pokémon comme la méga-évolution, les objets tenus ou l'amitié, mais on s'est vite rendu compte
-que ce serait impossible a faire en si peux de temps, on s'est donc contenté de faire le format Random Battle où tout est aléatoire, que ce soit les Poopkémon, leurs stats,
+avait aussi pour idée de rajouter des améliorations du gameplay en introduisant les mécaniques spéciales de pokémon comme la méga-évolution, les objets tenus ou l'amitié, mais on s'est vite rendu compte
+que ce serait impossible a faire en si peu de temps, on s'est donc contenté de faire le format Random Battle où tout est aléatoire, que ce soit les Poopkémon, leurs stats,
 les objets à disposition et même les types des pokémons et de leurs attaques. Mais nous comptons bien ajouter des améliorations à ce jeu dans un futur proche.
 
 4:
+Dans un aspect plus technique, nous avons utilisés des objets python pour faire nos Poopkémon. C'était le choix le plus logique pour un élément qui devrait porter de nombreuses
+informations comme nos Poopkémons. Un objet dans Python est une collection unique de données, appelés attributs, et de comportements, appelés méthodes. ça permet donc
+de stocker plusieurs variables en une qui sont ici : 
+la vie du Poopkémon, quand elle tombe à 0 le Poopkémon est KO et ne peut plus combattre
+L'attaque du poopkémon, qui augmente les dégats infligés à l'adversaire
+La défense du poopkémon, qui diminue les dégats reçus des attaques ennemis
+
 
 
 
