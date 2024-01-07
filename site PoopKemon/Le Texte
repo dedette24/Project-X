@@ -36,13 +36,19 @@ que ce serait impossible a faire en si peu de temps, on s'est donc contenté de 
 les objets à disposition et même les types des pokémons et de leurs attaques. Mais nous comptons bien ajouter des améliorations à ce jeu dans un futur proche.
 
 4:
-Dans un aspect plus technique, nous avons utilisés des objets python pour faire nos Poopkémon. C'était le choix le plus logique pour un élément qui devrait porter de nombreuses
-informations comme nos Poopkémons. Un objet dans Python est une collection unique de données, appelés attributs, et de comportements, appelés méthodes. ça permet donc
+Dans un aspect plus technique, nous avons utilisés des classes python pour faire nos Poopkémon. C'était le choix le plus logique pour un élément qui devrait porter de nombreuses
+informations comme nos Poopkémons. Un classe dans Python est une collection unique de données, appelés attributs, et de comportements, appelés méthodes. ça permet donc
 de stocker plusieurs variables en une qui sont ici : 
-la vie du Poopkémon, quand elle tombe à 0 le Poopkémon est KO et ne peut plus combattre
+Le nom du Poopkémon
+La vie du Poopkémon, quand elle tombe à 0 le Poopkémon est KO et ne peut plus combattre
 L'attaque du poopkémon, qui augmente les dégats infligés à l'adversaire
 La défense du poopkémon, qui diminue les dégats reçus des attaques ennemis
+La vitesse du poopkémon, qui détermine si il va attaquer avant son adversaire ou non
+Le type du poopkémon, qui détermine si les dégats subis seront super efficace, pas très efficace ou inefficace
+Les attaques du poopkémon, une liste qui regroupe les attaques qu'a le poopkémon
+Le statut KO, qui détermine si le poopkémon est utilisable ou non
 
+C'était la seul option possible, on aurait pu regrouper ces informations dans des listes pour chaque poopkémon, mais ça aurait été beaucoup plus long et compliqué 
 
 
 
