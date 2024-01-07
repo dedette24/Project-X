@@ -9,7 +9,9 @@ Bonjour a tous, nous allons vous présenter aujourd'hui notre jeu Poopkemon.
 1:
 Nous avons donc décidé de faire un jeu du style de pokémon car c'est ce qui semblait être le plus accessible en python car ça ne nécessitait pas d'interface graphique.
 L'objectif était donc de faire un jeu qui opposerait deux joueurs qui ont chacun 2 poopkémons au total, dont 1 seul poopkémon actif a la fois (en gros c du 1v1, pas 2v2, 
-1 sur le terrain et l'autre en retrait). Il a donc fallu commencer par des petits progès. Au début, Elias s'occupait de faire des pokémons, Amir l'organisation des tours et Adam
+1 sur le terrain et l'autre en retrait). Le combat se déroule de la façon suivante : chaque joueur a 2 poopkemon aléatoires, puis ils doivent choisir 3 parmis 6 attaques
+aléatoires pour leurs compagnons, une fois cela fait la partie commence. A chaque tour , les joueurs peuvent soit attaquer, soit changer de Poopkemon, soit utiliser un objet
+ou abandonner. Il a donc fallu commencer par des petits progès. Au début, Elias s'occupait de faire des pokémons, Amir l'organisation des tours et Adam
 les premiers principes de combat. Au fur et à mesure quand les pokémons était prêt et fonctionnel et que la façon dont les combats et les tours marchaient était clair, Elias a fait
 les objets et une fonction pour utiliser, Amir a commencé a faire la boucle qui regrouperait tout le jeu et Adam a fait des fonctions pour le combat. Cela fait il restait encore 
 a faire une fonction pour pouvoir changer de poopkemon fait par Adam, faire en sorte que l'adversaire prenne plus ou moins de dégats si l'attaque est super efficace ou 
@@ -37,7 +39,7 @@ les objets à disposition et même les types des pokémons et de leurs attaques.
 
 4:
 Dans un aspect plus technique, nous avons utilisés des classes python pour faire nos Poopkémon. C'était le choix le plus logique pour un élément qui devrait porter de nombreuses
-informations comme nos Poopkémons. Un classe dans Python est une collection unique de données, appelés attributs, et de comportements, appelés méthodes. ça permet donc
+informations comme nos Poopkémons. Une classe dans Python est une collection unique de données, appelés attributs, et de comportements, appelés méthodes. ça permet donc
 de stocker plusieurs variables en une qui sont ici : 
 Le nom du Poopkémon
 La vie du Poopkémon, quand elle tombe à 0 le Poopkémon est KO et ne peut plus combattre
@@ -49,9 +51,24 @@ Les attaques du poopkémon, une liste qui regroupe les attaques qu'a le poopkém
 Le statut KO, qui détermine si le poopkémon est utilisable ou non
 
 C'était la seul option possible, on aurait pu regrouper ces informations dans des listes pour chaque poopkémon, mais ça aurait été beaucoup plus compliqué à manipuler.
+Toute les fonctions qui font marcher le jeu sont dans une boucle qui répète les tours jusqu'a ce que les 2 Poopkémons d'un joueur soit KO, une fois KO le poopkemon doit quitter
+le terrain et ne peut plus être utilisé. Les autres classes utilisées dans le code sont la classe Attaque et la classe Objet. On a besoin de la classe Attaque car les Attaques
+ont aussi plusieurs particularités qui sont:
+Le nom de l'attaque
+Les dégats de base, qui déterminent les dégats sans le bonus d'attaque du poopkémon
+Le nombre d'utilisations, qui déterminent le nombre de fois que l'on peut utiliser l'attaque
+Le type,qui détermine si les dégâts infligés sont super efficace, pas très efficace ou inefficace
 
-De façon plus générale, ce code pourrait être réadapté pour faire un autre jeu de stratégie sur un autre thème, voire même faire un jeu éducatif avec des quiz. En effet si on
-garde le pokemon en enlevant 
+Les attributs des objets sont :
+Le nom de l'objet
+Le type, qui détermine si l'objet soigne, octroie un boost de défense ou d'attaque
+Le nb d'utilisations
+Les points, qui déterminent à quel point l'objet soigne, donne un boost de défense ou d'attaque 
+L'utilisateur, la personne qui l'utilise
 
-
-
+De façon plus générale, ce code pourrait être réadapté pour faire un autre jeu de stratégie sur un autre thème en modifiant quelques mécaaniques de combat
+, voire même faire un jeu éducatif avec des quiz. En effet si on
+garde la classe pokemon en enlevant certaines stats, en remplaçant le nom des attaques par des réponses et en faisant en sorte que l'adversaire pose des questions, on pourrait faire
+un jeu de question-réponse éducatif par exemple. On pourrait aussi ajouter des fonctionnalités en ligne pour faire des tournois en ligne par exemple. Il serait aussi possible
+de le réadapter pour des jeux de stratégies d'un autre type comme un jeu de carte en changeant le déroulement du jeu et en modifiant les conditions. Donc en conclusion, même si
+ça n'en a pas l'air, ce code pourrait se réveler plus utile que vous ne l'auriez cru dans des progès futur.
