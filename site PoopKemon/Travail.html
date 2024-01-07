@@ -1,16 +1,54 @@
 <!DOCTYPE html>
-
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Poopkémon</title>
+    <title>Notre Travail</title>
     <link rel="stylesheet" href="Travail.css">
+
+    <header>
+        <nav class="navbar">
+            <a href="#Home" class="logo"><img src="GrandPokemon.png" alt=""
+                    title="logo"></a>
+            <div class="nav-links">
+                <ul>
+                   <li><a href="#Notre Travail">Notre Travail</a></li>
+                </ul>
+            </div>
+            <div class="rotate">
+                <img src="menu-btn.png" alt="" class="menu-hamburger">
+            </div>
+        </nav>
+    </header>
+
 </head>
-
 <body>
-    
-<p>Notre Travail</p>
+    <div>
+        <h1 onclick="toggleText()">Notre Travail</h1>
+        <h2>Bienvenue sur notre page dédiée à notre travail. Explorez et découvrez ce que nous avons réalisé avec passion et engagement.</h2>
+        <p id="workText">
+            Python : Le jeu a été développé en utilisant le langage de programmation Python.
+            Jeu Pokémon : Le projet était inspiré du style de Pokémon, offrant une approche accessible en Python sans nécessiter d'interface graphique.
+            2 joueurs, 2 poopkémons : L'objectif était de créer un jeu où deux joueurs s'affrontent, chacun contrôlant deux poopkémons. Seul un poopkémon actif à la fois était autorisé, suivant un format de combat 1v1.
+            Répartition des tâches : Les membres de l'équipe ont divisé les responsabilités. Elias s'est occupé des pokémons, Amir de l'organisation des tours, et Adam des principes de combat.
+            Progression étape par étape : Le développement a suivi une progression logique, commençant par des tâches simples telles que la création de pokémons et évoluant vers des aspects plus complexes du jeu.
+            Boucle du jeu : Amir a travaillé sur la création d'une boucle qui a regroupé tous les éléments du jeu une fois les bases établies.
+            Fonctions pour le combat : Adam a développé des fonctions liées aux combats, tandis qu'Elias a créé des fonctions pour changer de poopkémon et abandonner le combat.
+            Personnalisation : Chaque membre de l'équipe a apporté ses touches personnelles pour améliorer l'expérience de jeu.
+            Optimisation des statistiques : Les stats du jeu ont été ajustées pour une expérience de jeu améliorée.
+            Ajout de couleurs : Des couleurs ont été introduites pour améliorer la lisibilité du jeu.
+            Finalisation du jeu : Après l'ajout des fonctionnalités finales et des touches personnelles, le jeu a été considéré comme terminé.
+        </p>
+    </div>
 
+    <script>
+        function toggleText() {
+            var workText = document.getElementById("workText");
+            var h2Text = document.querySelector("h2");
 
-
+            workText.style.display = (workText.style.display === 'none' || workText.style.display === '') ? 'block' : 'none';
+            h2Text.style.display = (h2Text.style.display === 'none' || h2Text.style.display === '') ? 'block' : 'none';
+        }
+    </script>
 </body>
+</html>
