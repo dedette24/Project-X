@@ -37,11 +37,11 @@ def generer_pokemon_aleatoire(noms):
     pokemon = []
     for _ in range(4):
         nom_aleatoire = random.choice(noms)
-        vie_aléatoire = random.randint(78, 150)  
-        dfs_aléatoire = random.randint(5, 25)  
+        vie_aléatoire = random.randint(110, 150)  
+        dfs_aléatoire = random.randint(10, 15)  
         atq_aléatoire = random.randint(10, 35)
         type_aleatoire = random.choice(["feu", "glace", "eau", "plante", "caca", "ombre", "fee", "electrique", "acier", "roche", "dragon", "poison", "vol", "combat", "insecte", "spectre", "lumiere", "psy"])
-        vts_aleatoire = random.randint(5, 20)  
+        vts_aleatoire = random.randint(10, 20)  
 
         # S'assurer qu'aucun nom n'est sélectionné deux fois
         while any(poke.name == nom_aleatoire for poke in pokemon):
@@ -350,7 +350,7 @@ def generer_attaque_aleatoire(noms):
         noms.remove(nom_aleatoire)
         power_aleatoire = random.randint(19, 25)
         type_aleatoire = random.choice(["feu", "glace", "eau", "plante", "caca", "ombre", "fee", "electrique", "acier", "roche", "dragon", "poison", "vol", "combat", "insecte", "spectre", "lumiere", "psy"])
-        pp_aleatoire = random.randint(3, 7)
+        pp_aleatoire = random.randint(5, 7)
 
         attaque = Attaque(nom_aleatoire, power_aleatoire, type_aleatoire, pp_aleatoire)
         attaques_aleatoires.append(attaque)
@@ -384,7 +384,7 @@ def generer_objets_aleatoires(noms_objets):
         type_aleatoire = random.choice(["attaque", "heal", "def"])
         pp_aleatoire = 1
         if type_aleatoire == "attaque" or type_aleatoire == "def":    
-            point_aleatoire = random.randint(1, 15)  
+            point_aleatoire = random.randint(5, 13)  
         elif type_aleatoire == "heal":    
             point_aleatoire = random.randint(1, 20)
 
