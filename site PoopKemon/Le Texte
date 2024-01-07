@@ -48,7 +48,10 @@ Le type du poopkémon, qui détermine si les dégats subis seront super efficace
 Les attaques du poopkémon, une liste qui regroupe les attaques qu'a le poopkémon
 Le statut KO, qui détermine si le poopkémon est utilisable ou non
 
-C'était la seul option possible, on aurait pu regrouper ces informations dans des listes pour chaque poopkémon, mais ça aurait été beaucoup plus long et compliqué.
+C'était la seul option possible, on aurait pu regrouper ces informations dans des listes pour chaque poopkémon, mais ça aurait été beaucoup plus compliqué à manipuler.
+
+De façon plus générale, ce code pourrait être réadapté pour faire un autre jeu de stratégie sur un autre thème, voire même faire un jeu éducatif avec des quiz. En effet si on
+garde le pokemon en enlevant 
 
 
 
