@@ -11,7 +11,7 @@ print(Fore.YELLOW + "Bienvenue dans Poopkemon, une réadaptation du jeu Pokemon 
 time.sleep(3)
 print(Fore.RED + "PENDANT TOUUUUT LE DEROULER DE LA PARTIE, MERCI DE NE PAS APPUYER TROP RAPIDEMENT SUR LES TOUCHES ET D'ATTENDRE QUE LA QUESTIONS VIENNE A VOUS. merci ! "+ Fore.RESET)
 time.sleep(3.5)
-print("\nLa partie va maintenant commencer !")
+print("\nLa partie va maintenant commencé !")
 time.sleep(1.5)
 print("\nVoici les informations de chaques équipes.")
 info(equipe_1, equipe_2)
@@ -41,11 +41,10 @@ for i, pokemon in enumerate(Pokemon_actif, 1):
 print("\n La partie va maintenant pouvoir commencé !")
 time.sleep(2)
 while not fin:
+    choix_attaque_moment = [0, 0]
     round += 1
     print(f"\n---------------------- Round {round} ----------------------")
     time.sleep(1.5)
-    choix_action(1, action, equipe_1, equipe_2)
-    choix_action(2, action, equipe_1, equipe_2)
     
     print("\n")
     if action == [4, 4]:
@@ -59,10 +58,18 @@ while not fin:
             print("tu ne peux qu'a partir du round 4 chef... fallait lire les conditions U0001F910 :( )")  
     else:
         pass
+
     if equipe_1[0].alive == False and equipe_1[1].alive == False or equipe_2[0].alive == False and equipe_2[1].vie == False or abandon == True:
         fin = True
-        print("GG !")
+        print(f"{Fore.RED}GG !")
+        if equipe_1[0].alive == False and equipe_1[1].alive:
+            print(f"L'equipe 2 a éliminé tous les poopkémons adversaire ! Il a pas conséquent gagné la partie ! Bien joué à lui.")
+        elif equipe_2[0].alive == False and equipe_2[1].alive:
+            print(f"L'equipe 1 a éliminé tous les poopkémons adversaire ! Il a pas conséquent gagné la partie ! Bien joué à lui.{Fore.RESET}")
         break
+
+    choix_action(1, action, equipe_1, equipe_2)
+    choix_action(2, action, equipe_1, equipe_2)
     
     if action == [3, 3]:
         utiliser_objet(1, Pokemon_actif, objets_aleatoires, recurrence)
@@ -78,12 +85,12 @@ while not fin:
         pass
     
     if action == [2, 2]:
-        choisir_pokemon(equipe_1, 1)
-        choisir_pokemon(equipe_2, 2)
+        Pokemon_actif[0] = choisir_pokemon(equipe_1, 1)
+        Pokemon_actif[1] = choisir_pokemon(equipe_2, 2)
     elif action[1] == 2:
-        choisir_pokemon(equipe_2, 2)
+        Pokemon_actif[1] = choisir_pokemon(equipe_2, 2)
     elif action[0] == 2:
-        choisir_pokemon(equipe_1, 1)
+        Pokemon_actif[0] = choisir_pokemon(equipe_1, 1)
     else: 
         pass
 
