@@ -282,44 +282,91 @@ noms_attaques = [
     "Onde de Choc",
     "Éruption",
     "Jet de S"
+    "Ouragan",
+    "Fouet Lianes",
+    "Exploflammes",
+    "Coup de Grâce",
+    "Lance-Pluie",
+    "Flash",
+    "Fracas",
+    "Lance-Vapeur",
+    "Rafale de Feu",
+    "Éclair Fulgurant",
+    "Avalanche",
+    "Piqué Mortel",
+    "Bourrasque",
+    "Furie",
+    "Geyser",
+    "Canon à Ondes",
+    "Écrasement",
+    "Frappe Psy",
+    "Étreinte Glacée",
+    "Mégaphone Sonique",
+    "Étincelles",
+    "Écho",
+    "Danse de la Lame",
+    "Tempête Psychique",
+    "Tourbillon",
+    "Fulguro Charge",
+    "Coup d'Éclat",
+    "Souffle Gelé",
+    "Acide Corrosif",
+    "Bouclier Éthéré",
+    "Barrage de Feu",
+    "Flèche de Glace",
+    "Danse du Vent",
+    "Séisme Dévastateur",
+    "Rafale Tornade",
+    "Foudre Céleste",
+    "Charge Foudroyante",
+    "Vent Solaire",
+    "Brume Toxique",
+    "Lueur Mystique",
+    "Rayon Solaire",
+    "Torrent Hivernal",
+    "Frappe Cosmique",
+    "Sourire Éblouissant",
+    "Pluie d'Étoiles",
+    "Éclat de Nuit",
+    "Lame Sombre",
+    "Fendoir de Glace",
+    "Météore Éthéré",
+    "Rafale Infernale"
 ]
         
 def generer_attaque_aleatoire(noms):
-    attaques_par_type = {}
-    
+    attaques_aleatoires = []
+    noms_utilises = set()
+
     for _ in range(150):
         nom_aleatoire = random.choice(noms)
+
+        # Assurez-vous que le nom n'a pas encore été utilisé
+        while nom_aleatoire in noms_utilises:
+            nom_aleatoire = random.choice(noms)
+
+        noms_utilises.add(nom_aleatoire)
+
         noms.remove(nom_aleatoire)
-        power_aleatoire = random.randint(19, 25)  
+        power_aleatoire = random.randint(19, 25)
         type_aleatoire = random.choice(["feu", "glace", "eau", "plante", "caca", "ombre", "fee", "electrique", "acier", "roche", "dragon", "poison", "vol", "combat", "insecte", "spectre", "lumiere", "psy"])
-        pp_aleatoire = random.randint(3, 7)  
+        pp_aleatoire = random.randint(3, 7)
 
         attaque = Attaque(nom_aleatoire, power_aleatoire, type_aleatoire, pp_aleatoire)
+        attaques_aleatoires.append(attaque)
 
-        # S'assurer qu'il y a entre 6 et 8 attaques pour chaque type
-        if type_aleatoire not in attaques_par_type:
-            attaques_par_type[type_aleatoire] = []
-        
-        if len(attaques_par_type[type_aleatoire]) < 8:
-            attaques_par_type[type_aleatoire].append(attaque)
-
-    # Créer une liste finale d'attaques
-    attaques_finales = []
-    for attaques_liste in attaques_par_type.values():
-        attaques_finales.extend(attaques_liste)
-
-    return attaques_finales
+    return attaques_aleatoires
 
 attaques = generer_attaque_aleatoire(noms_attaques)
     
-#separer les attaques par types :
+"""#separer les attaques par types :
 types_dict = {}
 for attaque in attaques:
     type_ = attaque.type
     if type_ not in types_dict:
         types_dict[type_] = [attaque]
     else:
-        types_dict[type_].append(attaque)
+        types_dict[type_].append(attaque)"""
 
 class Objet:
     def __init__(self, name, obj_type, pp, point):
@@ -327,6 +374,7 @@ class Objet:
         self.type = obj_type
         self.pp = pp
         self.point = point
+        self.owner = "1 ou 2"
 
 def generer_objets_aleatoires(noms_objets):
     objets_aleatoires = []
