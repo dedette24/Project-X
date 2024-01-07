@@ -12,18 +12,18 @@ equipe_1 = liste_pokemon[:2]
 equipe_2 = liste_pokemon[-2:]
 
 def info(equipe_1, equipe_2):
-    print("équipe 1 : ")
-    print(f"le pokemon 1 de l'equipe 1 est : {equipe_1[0].name} et il a {equipe_1[0].vie} pv")
-    print(f"le pokemon 2 de l'equipe 1 est : {equipe_1[1].name} et il a {equipe_1[1].vie} pv")
-    print("équipe 2 : ")
-    print(f"le pokemon 1 de l'equipe 2 est : {equipe_2[0].name} et il a {equipe_2[0].vie} pv")
-    print(f"le pokemon 2 de l'equipe 2 est : {equipe_2[1].name} et il a {equipe_2[1].vie} pv")
+    print("--------------")
+    print("\néquipe 1 : ")
+    print(f"le pokemon 1 de l'equipe 1 est : {Fore.YELLOW}{equipe_1[0].name}{Fore.RESET} et il a {Fore.RED}{equipe_1[0].vie}{Fore.RESET} pv")
+    print(f"le pokemon 2 de l'equipe 1 est : {Fore.YELLOW}{equipe_1[1].name}{Fore.RESET} et il a {Fore.RED}{equipe_1[1].vie}{Fore.RESET} pv")
+    print("\néquipe 2 : ")
+    print(f"le pokemon 1 de l'equipe 2 est : {Fore.YELLOW}{equipe_2[0].name}{Fore.RESET} et il a {Fore.RED}{equipe_2[0].vie}{Fore.RESET} pv")
+    print(f"le pokemon 2 de l'equipe 2 est : {Fore.YELLOW}{equipe_2[1].name}{Fore.RESET} et il a {Fore.RED}{equipe_2[1].vie}{Fore.RESET} pv")
     #on définit la vitesse des pokemons
-    print("")
-    print(f"la vitesse de {equipe_1[0].name} est de : {equipe_1[0].vitesse} et il est de type {equipe_1[0].type}")
-    print(f"la vitesse de {equipe_1[1].name} est de : {equipe_1[1].vitesse} et il est de type {equipe_1[1].type}")
-    print(f"la vitesse de {equipe_2[0].name} est de : {equipe_2[0].vitesse} et il est de type {equipe_2[0].type}")
-    print(f"la vitesse de {equipe_2[1].name} est de : {equipe_2[1].vitesse} et il est de type {equipe_2[1].type}")
+    print(f"\nla vitesse de {Fore.LIGHTMAGENTA_EX}{equipe_1[0].name}{Fore.RESET} est de : {Fore.BLUE}{equipe_1[0].vitesse}{Fore.RESET} et il est de type {Fore.LIGHTGREEN_EX}{equipe_1[0].type}{Fore.RESET}")
+    print(f"la vitesse de {Fore.LIGHTMAGENTA_EX}{equipe_1[1].name}{Fore.RESET} est de : {Fore.BLUE}{equipe_1[1].vitesse}{Fore.RESET} et il est de type {Fore.LIGHTGREEN_EX}{equipe_1[1].type}{Fore.RESET}")
+    print(f"la vitesse de {Fore.LIGHTMAGENTA_EX}{equipe_2[0].name}{Fore.RESET} est de : {Fore.BLUE}{equipe_2[0].vitesse}{Fore.RESET} et il est de type {Fore.LIGHTGREEN_EX}{equipe_2[0].type}{Fore.RESET}")
+    print(f"la vitesse de {Fore.LIGHTMAGENTA_EX}{equipe_2[1].name}{Fore.RESET} est de : {Fore.BLUE}{equipe_2[1].vitesse}{Fore.RESET} et il est de type {Fore.LIGHTGREEN_EX}{equipe_2[1].type}{Fore.RESET}")
     print("")
     return equipe_1, equipe_2
 
@@ -33,18 +33,18 @@ def choix_attaques_DEBUT(pokemon, attaques_disponibles):
     vrai_attaque_dispo = random.sample(attaques_disponibles, min(6, len(attaques_disponibles)))
     attaques_selectionnees = []
 
-    print(f"Choisissez 3 attaques pour {pokemon.name} parmi les attaques suivantes :")
+    print(f"Choisissez 3 attaques pour {pokemon.name} parmi les attaques suivantes : ")
 
     while len(attaques_selectionnees) < 3:
         for i, attaque in enumerate(vrai_attaque_dispo, 1):
-            print(f"{i}. {attaque.name} (Puissance: {attaque.power}, PP: {attaque.pp}, type : {attaque.type})")
+            print(f"{i}. {attaque.name} (Puissance: {attaque.power}, utiisations: {attaque.pp}, type : {attaque.type})")
 
         while True:
             try:
                 choix = int(input(f"Choisissez l'attaque {len(attaques_selectionnees) + 1}: "))
                 break  # Sort de la boucle si la conversion en int réussit
             except ValueError:
-                print("Veuillez entrer un nombre entier.")
+                print(f"{Fore.RED}Veuillez entrer un nombre entier.{Fore.RESET}")
 
         if 1 <= choix <= len(vrai_attaque_dispo):
             attaque_selectionnee = vrai_attaque_dispo.pop(choix - 1)
@@ -56,7 +56,7 @@ def choix_attaques_DEBUT(pokemon, attaques_disponibles):
             else:
                 print("Vous avez déjà choisi cette attaque. Veuillez choisir une autre attaque.")
         else:
-            print("Choix invalide. Veuillez choisir parmi les attaques disponibles.")
+            print(f"{Fore.RED}Choix invalide. Veuillez choisir parmi les attaques disponibles.{Fore.RESET}")
 
     print("\n")
     return attaques_selectionnees
@@ -95,7 +95,7 @@ def choix_action(num, liste, equipe_1, equipe_2):
     print(f"5. Consulter information des pokemons (ne compte pas comme une vrai action)")
     while True:
         try:
-            action = int(input(f"Choisie l'action que vous voulez faire equipe {num} en rentrant le numero de l'action : "))
+            action = int(input(f"\nChoisie l'action que vous voulez faire equipe {num} en rentrant le numero de l'action : "))
             if 1 <= action <= 5:
                 if action == 5:
                     info(equipe_1, equipe_2)
@@ -134,7 +134,7 @@ def choix_attaque(pokemon, num, liste, equipe_1, equipe_2):
     else:
         print(f"\n{pokemon[num-1].name} a les attaques suivantes : ")
         for i in range(3):
-            print(f"attaque {i+1} : {pokemon[num-1].pouvoir[i].name} ({pokemon[num-1].pouvoir[i].pp} utilisation restantes)")
+            print(f"attaque {i+1} : {pokemon[num-1].pouvoir[i].name} ({pokemon[num-1].pouvoir[i].pp} utilisation restantes) {Fore.RED}(dégats de base : {pokemon[num-1].pouvoir[i].power}) {Fore.RESET}")
 
         while True:
             try:
@@ -149,9 +149,8 @@ def choix_attaque(pokemon, num, liste, equipe_1, equipe_2):
                     print(f"{Fore.RED}Choix invalide. Veuillez choisir parmi les attaques disponibles.{Fore.RESET}")
             except ValueError:
                 print(f"{Fore.RED}Veuillez entrer un nombre entier.{Fore.RESET}")
-    cbon = pokemon[num-1].pouvoir[action-1]
-    liste[num-1] = cbon
-    print(liste)
+        cbon = pokemon[num-1].pouvoir[action-1]
+        liste[num-1] = cbon
     return liste
 
 rec = [0,0]
@@ -165,15 +164,15 @@ def efficace_raccour(num, actif, liste, B, N, O, rec):
     
     potions = int(rec[num-1])
     rec[num-1] = 0
-    print(f"{Fore.CYAN}Vous allez faire {potions} dégats en + !{Fore.RESET}")
+    print(f"{Fore.CYAN}Vous allez faire {potions} dégats en plus grâce a la potion que vous avez bu précédement!{Fore.RESET}")
     if actif[adv].type in B:
         degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].dfs * 1.5)) * 2  #super efficace
-        actif[adv].vie -= degats_infligés + potions
+        actif[adv].vie -= degats_infligés
         print(f"{Fore.GREEN}c'est super efficace{Fore.RESET} !")
         return degats_infligés
     elif actif[adv].type in N:
         degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].dfs * 1.5)) / 1.5  # Pas très efficace
-        actif[adv].vie -= degats_infligés + potions
+        actif[adv].vie -= degats_infligés
         print(f"{Fore.YELLOW}c'est pas tres éfficace{Fore.RESET} !")
         return degats_infligés
     elif actif[adv].type in O:    #Inefficace
@@ -184,7 +183,7 @@ def efficace_raccour(num, actif, liste, B, N, O, rec):
         print("l'attaque va se derouler normalement ! ")
         degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].dfs * 1.5))    #Normal
         actif[adv].vie -= degats_infligés
-        return degats_infligés, rec
+        return degats_infligés + potions
 
 def efficace(num, actif, liste, rec):
     degats_infligés = 0
@@ -318,8 +317,9 @@ def attaque_boucle(num, actif, liste, rec, equipe_1, equipe_2):
     print(f"il vous reste {trans[num-1].pp} utilisation restantes pour l'attaque {trans[num-1].name}")
     if actif[adv].vie < 1:
         actif[adv].alive = False
-        print(f"Vous avez eliminé {actif[adv].name}, l'adversaire ne pourra plus l'utiliser.")
-        actif[adv] = actif[adv].name + " est incappable de se battre"
+        print(f"{Fore.RED}Vous avez eliminé {actif[adv].name}, l'adversaire ne pourra plus l'utiliser à moins d'utiliser une potion de heal.{Fore.RESET}")
+        print(f"{Fore.RED}{actif[adv].name} n'est maintenant plus en capacité de combattre{Fore.RESET}")
+        actif[adv].vie = 0
     else:
         print(f"il reste {actif[adv].vie} vie à {actif[adv].name}")
 
@@ -342,6 +342,7 @@ def utiliser_objet(num, actif, liste, rec):
     print(f"Voici les potions que vous avez à votre disposition, équipe {num}: ")
     for i, potion in enumerate(potions_disponibles, 1):
         print(f"{i}. {potion.name} (utilisation restantes : {potion.pp}, Points: {potion.point}, Type : {potion.type})")
+    print(f"\n{Fore.RED}Les potions de type 'Attaque' seront utiliser au prochain tour si elles sont selectionner !{Fore.RESET}")
     while True:
         try:
             choix_potion = int(input("Entrez le numéro de la potion que vous souhaitez utiliser : "))
@@ -349,12 +350,11 @@ def utiliser_objet(num, actif, liste, rec):
                 if potions_disponibles[choix_potion - 1].pp > 0:  # Vérifier si la potion n'a pas déjà été utilisée
                     break
                 else:
-                    print("Vous avez déjà utilisé cette potion.")
+                    print(f"{Fore.RED}Vous avez déjà utilisé cette potion.{Fore.RESET}")
             else:
-                print("Choix invalide. Veuillez choisir parmi les potions disponibles.")
+                print(f"{Fore.RED}Choix invalide. Veuillez choisir parmi les potions disponibles.{Fore.RESET}")
         except ValueError:
-            print("Veuillez entrer un nombre entier.")
-    print(choix_potion)
+            print(f"{Fore.RED}Veuillez entrer un nombre entier.{Fore.RESET}")
     potion_choisie = potions_disponibles[choix_potion - 1]
 
     if potion_choisie.type == "heal":
@@ -367,8 +367,8 @@ def utiliser_objet(num, actif, liste, rec):
     elif potion_choisie.type == "attaque":
         rec[num - 1] = potion_choisie.point
         print(f"Votre prochaine attaque fera {potion_choisie.point} de dégâts en plus !")
+        print(f"{Fore.RED} ATTENTION !!! LA POTION SERA UTILISER AU PROCHAIN TOUR. SI VOUS LA BUVEZ MAINTENANT, ET QUE VOUS N'ATTAQUER PAS, ELLE SERA GACHER ! {Fore.RESET}")
     potion_choisie.pp = 0
-    print(rec)
     return rec, actif, liste
 
 #utiliser_objet(1, Pokemon_actif, objets_aleatoires, recurence)
