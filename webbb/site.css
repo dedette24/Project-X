@@ -13,7 +13,7 @@ body{
 header {
     height: 100vh;
     width: 100vw;
-    background-image: url(Poopkémon.png);
+    background-image: url(Poopkémon\ \(2\).png);
     background-size: cover;
 }
 
@@ -81,6 +81,15 @@ header {
     /* background-image:url(Poopkémon.png); */
     background-size: cover;
 
+}
+.images-container {
+    display: flex; /* Utilisation de flexbox pour aligner les images horizontalement */
+}
+
+.image {
+    width: 300px; /* Ajustez la largeur des images selon vos besoins */
+    height: auto; /* Hauteur automatique pour conserver les proportions */
+    margin-right: 10px; /* Espacement entre les images */
 }
 
 
