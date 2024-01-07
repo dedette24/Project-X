@@ -5,10 +5,12 @@ from classe import *
 from MAIN import *
 from colorama import Fore, Style
 
-recurence = [0, 0]
+recurrence = [0, 0]
 
 print(Fore.YELLOW + "Bienvenue dans Poopkemon, une réadaptation du jeu Pokemon version Python non graphique (donc forcément moins bien) \U0001f643 ! "+ Fore.RESET)
 time.sleep(3)
+print(Fore.RED + "PENDANT TOUUUUT LE DEROULER DE LA PARTIE, MERCI DE NE PAS APPUYER TROP RAPIDEMENT SUR LES TOUCHES ET D'ATTENDRE QUE LA QUESTIONS VIENNE A VOUS. merci ! "+ Fore.RESET)
+time.sleep(3.5)
 print("\nLa partie va maintenant commencé !")
 time.sleep(1.5)
 print("\nVoici les informations de chaques équipes.")
@@ -20,10 +22,10 @@ round = 0
 #établir les choses avant que ca commence
 print("\nVous allez maintenant choisir les pouvoirs de vos pokemons parmis 6 choix possibles aléatoire : ")
 time.sleep(3)
-equipe_1[0].pouvoir = choix_attaques_DEBUT(equipe_1[0])
-equipe_1[1].pouvoir = choix_attaques_DEBUT(equipe_1[1])
-equipe_2[0].pouvoir = choix_attaques_DEBUT(equipe_2[0])
-equipe_2[1].pouvoir = choix_attaques_DEBUT(equipe_2[1])
+equipe_1[0].pouvoir = choix_attaques_DEBUT(equipe_1[0], attaques)
+equipe_1[1].pouvoir = choix_attaques_DEBUT(equipe_1[1], attaques)
+equipe_2[0].pouvoir = choix_attaques_DEBUT(equipe_2[0], attaques)
+equipe_2[1].pouvoir = choix_attaques_DEBUT(equipe_2[1], attaques)
 print("\nEt maintenant vous allez choisir les premiers Pokemons que vous allez jouer : ")
 time.sleep(3)
 poke1_actif = choisir_pokemon(equipe_1, 1)
@@ -62,35 +64,33 @@ while not fin:
         break
                 
     if action == [3, 3]:
-        utiliser_objet(1, Pokemon_actif, objets_aleatoires, recurence)
-        utiliser_objet(2, Pokemon_actif, objets_aleatoires, recurence)
+        utiliser_objet(1, Pokemon_actif, objets_aleatoires, recurrence)
+        utiliser_objet(2, Pokemon_actif, objets_aleatoires, recurrence)
     elif 3 in action:
         coordonnee = action.index(3) + 1
-        utiliser_objet(coordonnee, Pokemon_actif, objets_aleatoires, recurence)
+        utiliser_objet(coordonnee, Pokemon_actif, objets_aleatoires, recurrence)
     else:
         pass
       
     if action == [2, 2]:
         choisir_pokemon(equipe_1, 1)
-        Pokemon_actif[0] = choisir_pokemon(equipe_1, 1)
         choisir_pokemon(equipe_2, 2)
-        Pokemon_actif[1] = choisir_pokemon(equipe_2, 2)
     elif action[1] == 2:
         choisir_pokemon(equipe_2, 2)
-        Pokemon_actif[1] = choisir_pokemon(equipe_2, 2)
     elif action[0] == 2:
         choisir_pokemon(equipe_1, 1)
-        Pokemon_actif[0] = choisir_pokemon(equipe_1, 1)
     else: 
         pass
     
+    print("23456789087654323456789")
+    print(recurrence)
     if action == [1, 1]:
         if Pokemon_actif[0].vitesse < Pokemon_actif[1].vitesse:
             print("le pokemon de l'équipe 2 est plus rapide ! il va donc commencer a attaquer.")
             time.sleep(1.5)
-            attaque_boucle(2, Pokemon_actif, choix_attaque_moment)
+            attaque_boucle(2, Pokemon_actif, choix_attaque_moment, recurrence, equipe_1, equipe_2)
             time.sleep(1.5)
-            attaque_boucle(1, Pokemon_actif, choix_attaque_moment)
+            attaque_boucle(1, Pokemon_actif, choix_attaque_moment, recurrence, equipe_1, equipe_2)
             time.sleep(1.5)
         elif Pokemon_actif[0].vitesse == Pokemon_actif[1].vitesse:
             print("on va jeter les dés !")
@@ -99,26 +99,28 @@ while not fin:
             if x == 1:
                 print("le pokemon de l'équipe 1 va commencer a attaquer !")
                 time.sleep(1.5)
-                attaque_boucle(1, Pokemon_actif, choix_attaque_moment)
+                attaque_boucle(1, Pokemon_actif, choix_attaque_moment, recurrence, equipe_1, equipe_2)
                 time.sleep(1.5)
+                attaque_boucle(2, Pokemon_actif, choix_attaque_moment, recurrence, equipe_1, equipe_2)
                 
             else:
                 print("le pokemon de l'équipe 2 va commencer a attaquer !")
                 time.sleep(1.5)
-                attaque_boucle(2, Pokemon_actif, choix_attaque_moment)
+                attaque_boucle(2, Pokemon_actif, choix_attaque_moment, recurrence, equipe_1, equipe_2)
                 time.sleep(1.5)
+                attaque_boucle(1, Pokemon_actif, choix_attaque_moment, recurrence, equipe_1, equipe_2)
         else:
             print("le pokemon de l'équipe 1 va commencer a attaquer !")
             time.sleep(1.5)
-            attaque_boucle(1, Pokemon_actif, choix_attaque_moment)
+            attaque_boucle(1, Pokemon_actif, choix_attaque_moment, recurrence, equipe_1, equipe_2)
             time.sleep(1.5)
-            attaque_boucle(2, Pokemon_actif, choix_attaque_moment)
+            attaque_boucle(2, Pokemon_actif, choix_attaque_moment, recurrence, equipe_1, equipe_2)
             time.sleep(1.5)
     elif 1 in action:
         coordonnee = action.index(1) + 1
         print(f"le pokemon de l'équipe {coordonnee} attaque !")
         time.sleep(1.5)
-        attaque_boucle(coordonnee, Pokemon_actif, choix_attaque_moment)
+        attaque_boucle(coordonnee, Pokemon_actif, choix_attaque_moment, recurrence, equipe_1, equipe_2)
         time.sleep(1.5)
     else:
         pass
