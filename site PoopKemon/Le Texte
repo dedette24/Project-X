@@ -19,5 +19,13 @@ pas très efficace fait par Amir, et une fonction pour abandonner le combat fait
 2: 
 Au long du progès on a évidemment rencontré beaucoup de problèmes, l'un des premiers étant la compréhension. Comme chacun codait de son côté, quand on a mis en commun il y a eu
 quelques incompréhension mais après on s'est expliqué nos parties nous nous sommes mis d'accord sur des noms de variables pour le reste du code et ça s'est bien passé. 
-Avec les tests ont a eu de nommbreuses
+Avec les tests ont a eu de nombreuses erreurs qui nous on parfois obligé a reprendre certains points du début. Par exemple on avait voulu mettre les pokemons de chaque joueur
+dans 2 listes différentes et les pokemons actifs seraient en position 0 de la liste. ça a rendu les choses très compliqué donc on a préféré crée une autre liste en plus qui 
+s'appelle actif avec une position qui correspond a chaque équipe. On avait aussi mit des stats spécifiques a chaque pokemon puis on a décidé de rendre toutes les stats aléatoires
+ce qui a permis de réparer les erreurs plus vite. Vers la fin, on a eu des problèmes quand le pokemon était KO, donc il a fallu ajouter un attribut KO a la classe Pokemon qui 
+a permis de résoudre ce problème. On a rencontré beaucoup d'autres problèmes mais ce serait évidemment impossible de tout lister ici alors passons a la partie suivante qui est le futur.
+
+3:
+Au début nous avions beaucoup d'idée de modes de jeu différents, on voulait
+
 
