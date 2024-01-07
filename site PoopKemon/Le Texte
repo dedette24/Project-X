@@ -9,5 +9,10 @@ Bonjour a tous, nous allons vous présenter aujourd'hui notre jeu Poopkemon.
 1:
 Nous avons donc décidé de faire un jeu du style de pokémon car c'est ce qui semblait être le plus accessible en python car ça ne nécessitait pas d'interface graphique.
 L'objectif était donc de faire un jeu qui opposerait deux joueurs qui ont chacun 2 poopkémons au total et dont 1 seul poopkémon actif a la fois (en gros c du 1v1, pas 2v2, 
-1 sur le terrain et l'autre en retrait)
+1 sur le terrain et l'autre en retrait). Il a donc fallu commencer par des petits progès. Au début, Elias s'occupait de faire des pokémons, Amir l'organisation des tours et Adam
+les premiers principes de combat. Au fur et à mesure quand les pokémons était prêt et fonctionnel et que la façon dont les combats et les tours marchaient était clair, Elias a fait
+les objets et une fonction pour utiliser, Amir a commencé a faire la boucle qui regrouperait tout le jeu et Adam a fait des fonctions pour le combat. Cela fait il restait encore 
+a faire une fonction pour pouvoir changer de poopkemon fait par Adam, faire en sorte que l'adversaire prenne plus ou moins de dégats si l'attaque est super efficace ou 
+pas très efficace fait par Amir, et une fonction pour abandonner le combat faite par Elias. Après tout ça le jeu était fonctionnel et on a tous rajouté de petites touches personnelles
+, il fallait modifier les stats
 
