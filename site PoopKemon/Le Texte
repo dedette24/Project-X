@@ -76,4 +76,4 @@ Amir :De façon plus générale, ce code pourrait être réadapté pour faire un
 garde la classe pokemon en enlevant certaines stats, en remplaçant le nom des attaques par des réponses et en faisant en sorte que l'adversaire pose des questions, on pourrait faire
 un jeu de question-réponse éducatif par exemple. On pourrait aussi ajouter des fonctionnalités en ligne pour faire des tournois en ligne par exemple. Il serait aussi possible
 de le réadapter pour des jeux de stratégies d'un autre type comme un jeu de carte en changeant le déroulement du jeu et en modifiant les conditions. Donc en conclusion, même si
-ça n'en a pas l'air, ce code pourrait se réveler plus utile que vous ne l'auriez cru dans des progès futur.
+ça n'en a pas l'air, ce code pourrait se réveler plus utile que vous ne l'auriez cru dans des projets futur.
