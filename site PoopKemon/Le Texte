@@ -17,5 +17,6 @@ pas très efficace fait par Amir, et une fonction pour abandonner le combat fait
 , il fallait aussi modifier les stats pour une meilleur expérience et on a rajouté des couleurs pour que ce soit plus lisible, Le jeu était donc fini.
 
 2: 
-Au long du progès on a évidemment rencontré beaucoup de problèmes
+Au long du progès on a évidemment rencontré beaucoup de problèmes, l'un des premiers étant la compréhension. Comme chacun codait de son côté, quand on a mis en commun il y a eu
+quelques incompréhension mais après nous nous sommes mis d'accord sur des noms de variables pour le reste du code et ça s'est bien passé. Avec les tests ont a eu  
 
