@@ -85,18 +85,22 @@ def choisir_pokemon(equipe, num):
     
     return equipe[choix_pokemon - 1]
 
-def choix_action(num, liste):
+def choix_action(num, liste, equipe_1, equipe_2):
     print("\n ----------------------")
     print(f"\nVous allez maintenant choisir l'action que vous voulez faire !")
     print(f"1. attaquer")
     print(f"2. changer de poopkemon")
     print(f"3. utiliser un objet")
     print(f"4. abandonner")
+    print(f"5. Consulter information des pokemons (ne compte pas comme une vrai action)")
     while True:
         try:
             action = int(input(f"Choisie l'action que vous voulez faire equipe {num} en rentrant le numero de l'action : "))
-            if 1 <= action <= 4:
-                break
+            if 1 <= action <= 5:
+                if action == 5:
+                    info(equipe_1, equipe_2)
+                else:
+                    break
             else:
                 print(f"{Fore.RED}Choix invalide. Veuillez choisir parmi les actions disponibles.{Fore.RESET}")
         except ValueError:
