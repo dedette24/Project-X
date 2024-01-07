@@ -82,7 +82,8 @@ def choisir_pokemon(equipe, num):
                 print(f"{Fore.RED}Choix invalide. Veuillez choisir parmi les Pokémon disponibles.{Fore.RESET}")
         except ValueError:
             print(f"{Fore.RED}Veuillez entrer un nombre entier.{Fore.RESET}")
-    
+    print(f"vous avez décidez de jouer {Fore.RED}{equipe[choix_pokemon - 1].name} {Fore.RESET}!")
+    #actif[num-1] = equipe[choix_pokemon - 1]
     return equipe[choix_pokemon - 1]
 
 def choix_action(num, liste, equipe_1, equipe_2):
@@ -130,6 +131,7 @@ def choix_attaque(pokemon, num, liste, equipe_1, equipe_2):
     if pokemon[num-1].alive == False:
         print("Votre pokemon s'est fait tué avant de pouvoir attaquer. Merci de bien vouloir changer de Pokemon : ")
         choisir_pokemon(equipe, num)
+        cbon = 0
         pass
     else:
         print(f"\n{pokemon[num-1].name} a les attaques suivantes : ")
@@ -308,20 +310,23 @@ def attaque_boucle(num, actif, liste, rec, equipe_1, equipe_2):
         adv = 1
     else: 
         adv = 0 
-    print(f"Vous allez attaquer équipe {num} !")
-    trans = choix_attaque(actif, num, liste, equipe_1, equipe_2)
-    print(f"Vous utilisez l'attaque {trans[num-1].name}")
-    degat = int(efficace(num, actif, trans, rec))
-    print(f"Vous infliger {degat} dégats à {actif[adv].name}")
-    trans[num-1].pp -= 1
-    print(f"il vous reste {trans[num-1].pp} utilisation restantes pour l'attaque {trans[num-1].name}")
-    if actif[adv].vie < 1:
-        actif[adv].alive = False
-        print(f"{Fore.RED}Vous avez eliminé {actif[adv].name}, l'adversaire ne pourra plus l'utiliser à moins d'utiliser une potion de heal.{Fore.RESET}")
-        print(f"{Fore.RED}{actif[adv].name} n'est maintenant plus en capacité de combattre{Fore.RESET}")
-        actif[adv].vie = 0
+    if actif[num-1].vie < 1:
+        print(f"Vous n'avez pas eu le temps d'attaquer, c'est dommage")
     else:
-        print(f"il reste {actif[adv].vie} vie à {actif[adv].name}")
+        print(f"Vous allez attaquer équipe {num} !")
+        trans = choix_attaque(actif, num, liste, equipe_1, equipe_2)
+        print(f"Vous utilisez l'attaque {trans[num-1].name}")
+        degat = int(efficace(num, actif, trans, rec))
+        print(f"Vous infliger {degat} dégats à {actif[adv].name}")
+        trans[num-1].pp -= 1
+        print(f"il vous reste {trans[num-1].pp} utilisation restantes pour l'attaque {trans[num-1].name}")
+        if actif[adv].vie < 1:
+            actif[adv].alive = False
+            print(f"{Fore.RED}Vous avez eliminé {actif[adv].name}, l'adversaire ne pourra plus l'utiliser à moins d'utiliser une potion de heal.{Fore.RESET}")
+            print(f"{Fore.RED}{actif[adv].name} n'est maintenant plus en capacité de combattre{Fore.RESET}")
+            actif[adv].vie = 0
+        else:
+            print(f"il reste {actif[adv].vie} vie à {actif[adv].name}")
 
 
 #P1 = 1.0 / P2 = 2.0
