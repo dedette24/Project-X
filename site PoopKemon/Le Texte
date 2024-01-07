@@ -1,7 +1,7 @@
 Bonjour a tous, nous allons vous présenter aujourd'hui notre jeu Poopkemon.
 #Sommaire : 
 1- L'idée de base  ( notre idée, pk on a choisi ça, comment on a commencé et découpé en petits problèmes )
-2- Les problèmes rencontrés   ( Les nombreux problèmes qu'on a eu et comment on les a résoluts
+2- Les problèmes rencontrés   ( Les nombreux problèmes qu'on a eu et comment on les a résoluts )
 3- Le futur  (Les eventuelles améliorations plus tard)
 4- Abstraction  (Les trucs qu'on a utilisé, généralisation)
 
@@ -14,9 +14,10 @@ les premiers principes de combat. Au fur et à mesure quand les pokémons était
 les objets et une fonction pour utiliser, Amir a commencé a faire la boucle qui regrouperait tout le jeu et Adam a fait des fonctions pour le combat. Cela fait il restait encore 
 a faire une fonction pour pouvoir changer de poopkemon fait par Adam, faire en sorte que l'adversaire prenne plus ou moins de dégats si l'attaque est super efficace ou 
 pas très efficace fait par Amir, et une fonction pour abandonner le combat faite par Elias. Après tout ça le jeu était fonctionnel et on a tous rajouté nos petites touches personnelles
-, il fallait aussi modifier les stats pour une meilleur expérience et on a rajouté des couleurs pour que ce soit plus lisible, Le jeu était donc fini.
+, il fallait aussi modifier les stats pour une meilleur expérience et on a rajouté des couleurs pour que ce soit plus lisible, Le jeu était ainsi fini.
 
 2: 
 Au long du progès on a évidemment rencontré beaucoup de problèmes, l'un des premiers étant la compréhension. Comme chacun codait de son côté, quand on a mis en commun il y a eu
-quelques incompréhension mais après nous nous sommes mis d'accord sur des noms de variables pour le reste du code et ça s'est bien passé. Avec les tests ont a eu  
+quelques incompréhension mais après on s'est expliqué nos parties nous nous sommes mis d'accord sur des noms de variables pour le reste du code et ça s'est bien passé. 
+Avec les tests ont a eu de nommbreuses
 
