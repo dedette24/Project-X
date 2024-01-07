@@ -14,5 +14,5 @@ les premiers principes de combat. Au fur et à mesure quand les pokémons était
 les objets et une fonction pour utiliser, Amir a commencé a faire la boucle qui regrouperait tout le jeu et Adam a fait des fonctions pour le combat. Cela fait il restait encore 
 a faire une fonction pour pouvoir changer de poopkemon fait par Adam, faire en sorte que l'adversaire prenne plus ou moins de dégats si l'attaque est super efficace ou 
 pas très efficace fait par Amir, et une fonction pour abandonner le combat faite par Elias. Après tout ça le jeu était fonctionnel et on a tous rajouté de petites touches personnelles
-, il fallait modifier les stats
+, il fallait modifier les stats pour une expérience optimale
 
