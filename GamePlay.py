@@ -44,8 +44,8 @@ while not fin:
     round += 1
     print(f"\n---------------------- Round {round} ----------------------")
     time.sleep(1.5)
-    choix_action(1, action)
-    choix_action(2, action)
+    choix_action(1, action, equipe_1, equipe_2)
+    choix_action(2, action, equipe_1, equipe_2)
             
     if action == [4, 4]:
         print("Vous avez tout les 2 abandonnées au meme moment, pas tres malin...")
@@ -124,9 +124,3 @@ while not fin:
         time.sleep(1.5)
     else:
         pass
-
-
-
-        
-         
-         
