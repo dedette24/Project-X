@@ -34,7 +34,8 @@ def choix_attaques_DEBUT(pokemon, attaques_disponibles):
     attaques_selectionnees = []
 
     print(f"Choisissez 3 attaques pour {pokemon.name} parmi les attaques suivantes : ")
-
+    if attaque.type == pokemon.type:
+        attaque.power = attaque.power * 1.5
     while len(attaques_selectionnees) < 3:
         for i, attaque in enumerate(vrai_attaque_dispo, 1):
             print(f"{i}. {attaque.name} (Puissance: {Fore.RED}{attaque.power}{Fore.RESET}, utiisations: {attaque.pp}, type : {Fore.LIGHTGREEN_EX}{attaque.type}{Fore.RESET})")
