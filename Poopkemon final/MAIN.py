@@ -331,6 +331,9 @@ def attaque_boucle(num, actif, liste, rec, equipe_1, equipe_2):
         print(f"C'est votre tour d'attaquer, equipe {num} ! Le pokemon que vous attaquez est {Fore.RED}{actif[adv].name}{Fore.RESET} et il est de type {Fore.LIGHTGREEN_EX}{actif[adv].type}{Fore.RESET}")
         trans = choix_attaque(actif, num, liste, equipe_1, equipe_2)
         print(f"Vous utilisez l'attaque {trans[num-1].name}")
+        #if trans[num-1].categorie == status:
+            #faut une fonction pour les status
+        #elif trans[num-1].categorie == atq or == atq_spe:
         degat = int(efficace(num, actif, trans, rec, liste))
         print(f"Vous infliger {degat} dégats à {actif[adv].name}")
         trans[num-1].pp -= 1
