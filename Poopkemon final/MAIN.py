@@ -406,9 +406,21 @@ def abandon(num):
     else :
         print("Le combat n'est pas fini, n'abandonne pas ! \U0001f643")
 
-#-------------------------------------------------------------------------------------------------
-# Mtn faut la boucle
-# A faire : L'etat KO des pokemons , Changer de poopkemon, dégats super efficace et pas très efficace,
+#-----------------------------------------------------------------------------------------------#
 
-
-#par exemple pour feu qui est efficace sur glace
+def status(pokemon, status):
+    if status == None:
+        print(/n)
+    if status == "brulé":
+        pokemon.atq = pokemon.atq / 2
+        dot
+    if status == "paralysé":
+        pokemon.vit = pokemon.vit / 2
+    if status == "gelé":
+        
+        dot = pokemon.hp / 10
+    if status == "endormi":
+    if status == "empoisonné":
+    if status == "gravement empoisonné":
+    if status == "mal au crâne":
+    if status == "plein de caca":
