@@ -4,20 +4,20 @@ class Pokemon:
         self.name =  name #"Son blaze"
         #self.base_vie = vie
         self.vie = vie #"Vie" #entre 78 et 150
-        #self.def_spe = def_spe #entre 5 et 20
-        #self.base_def_spe = spe
+        #self.def_spe = dfs #entre 5 et 20
+        #self.base_def_spe = dfs
         self.dfs = dfs #"Défense" #entre 5 et 20
         #self.base_dfs = dfs
-        #self.atq_spe = atq_spe #entre 10 et 35
-        #self.base_atq_spe = sper
+        #self.atq_spe = atq #entre 10 et 35
+        #self.base_atq_spe = atq
         self.atq = atq # "Attaque"  entre 10 et 35
-        #self.base_atq
+        #self.base_atq = atq
         self.type = type #"son type (pour savoir si il fait degat *2)" #10 type : feu, Glace, Eau, Fee, Plante, Ombre, Acier, Caca, electrique, 
         self.vitesse = vts #"sa rapiditer" #entre 1 et 20
-        #self.base_vit = vit
+        #self.base_vit = vts
         self.pouvoir = []
         self.alive = True
-        self.status = None # [brulé, paralysé, gelé, endormi, empoisonné, empoisonné+(ce qui correspond a gravement empoisonné), plein de caca, mal au crâne, brisé ]
+        #self.status = None # [brulé, paralysé, gelé, endormi, empoisonné, empoisonné+(ce qui correspond a gravement empoisonné), plein de caca, mal au crâne, brisé ]
 
 pokemon_names = [
     "Flarion", "Aquaphox", "Voltalon", "Terradra", "Pyrospire",
@@ -70,9 +70,9 @@ class Attaque:
         self.name = name
         self.power = power
         self.type = attack_type
-        self.categorie = catégorie #[Attaque, Attaque_spe, status]
-        self.status = status + chance #{status : chance de l'appliquer}
-        self.accuracy = précision # chance de rater entre 70 et 100 pour la plupart des attaques
+        #self.categorie = catégorie #[Attaque, Attaque_spe, status]
+        #self.status = status #+ chance {status : chance de l'appliquer}
+        #self.accuracy = précision # chance de rater entre 70 et 100 pour la plupart des attaques
         self.pp = pp
 
 import random
@@ -522,5 +522,4 @@ random.shuffle(noms_objets_pokemon)
 objets_aleatoires = generer_objets_aleatoires(noms_objets_pokemon)
 
 liste_vrai_poopkemon = [] #Une liste de poopkemon avec des stats bien définis pour d'autres formats
-
 
