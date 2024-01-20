@@ -2,19 +2,19 @@ import random
 class Pokemon:
     def __init__(self, name, vie, dfs, atq, type, vts):
         self.name =  name #"Son blaze"
-        self.base_vie = vie
+        #self.base_vie = vie
         self.vie = vie #"Vie" #entre 78 et 150
-        self.def_spe = def_spe #entre 5 et 20
-        self.base_def_spe = spe
+        #self.def_spe = def_spe #entre 5 et 20
+        #self.base_def_spe = spe
         self.dfs = dfs #"Défense" #entre 5 et 20
-        self.base_dfs = dfs
-        self.atq_spe = atq_spe #entre 10 et 35
-        self.base_atq_spe = sper
+        #self.base_dfs = dfs
+        #self.atq_spe = atq_spe #entre 10 et 35
+        #self.base_atq_spe = sper
         self.atq = atq # "Attaque"  entre 10 et 35
-        self.base_atq
+        #self.base_atq
         self.type = type #"son type (pour savoir si il fait degat *2)" #10 type : feu, Glace, Eau, Fee, Plante, Ombre, Acier, Caca, electrique, 
         self.vitesse = vts #"sa rapiditer" #entre 1 et 20
-        self.base_vit = vit
+        #self.base_vit = vit
         self.pouvoir = []
         self.alive = True
         self.status = None # [brulé, paralysé, gelé, endormi, empoisonné, empoisonné+(ce qui correspond a gravement empoisonné), plein de caca, mal au crâne, brisé ]
