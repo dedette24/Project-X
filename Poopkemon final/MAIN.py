@@ -34,11 +34,11 @@ def choix_attaques_DEBUT(pokemon, attaques_disponibles):
     attaques_selectionnees = []
 
     print(f"Choisissez 3 attaques pour {pokemon.name} parmi les attaques suivantes : ")
-    if attaque.type == pokemon.type:
-        attaque.power = attaque.power * 1.5
     while len(attaques_selectionnees) < 3:
         for i, attaque in enumerate(vrai_attaque_dispo, 1):
-            print(f"{i}. {attaque.name} (Puissance: {Fore.RED}{attaque.power}{Fore.RESET}, utiisations: {attaque.pp}, type : {Fore.LIGHTGREEN_EX}{attaque.type}{Fore.RESET})")
+                if attaque.type == pokemon.type:
+                    attaque.power = attaque.power * 1.5
+                print(f"{i}. {attaque.name} (Puissance: {Fore.RED}{attaque.power}{Fore.RESET}, utiisations: {attaque.pp}, type : {Fore.LIGHTGREEN_EX}{attaque.type}{Fore.RESET})")
 
         while True:
             try:
@@ -410,7 +410,7 @@ def abandon(num):
 
 def status(pokemon, status, action):
     if status == None:
-        print(/n)
+        print("\n")
     if status == "brulé":
         pokemon.atq = pokemon.atq / 2
         dot = 1/16 * pokemon.base_vie
@@ -433,4 +433,4 @@ def status(pokemon, status, action):
     if status == "plein de caca":
         pokemon.pouvoir.accuracy[0] -= 10
         dot = pokemon.base_vie / 20
-        
+
