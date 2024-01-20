@@ -3,33 +3,36 @@ class Pokemon:
     def __init__(self, name, vie, dfs, atq, type, vts):
         self.name =  name #"Son blaze"
         self.vie = vie #"Vie" #entre 78 et 150
+        self.def_spe = def_spe #entre 5 et 20
         self.dfs = dfs #"Défense" #entre 5 et 20
+        self.atq_spe = atq_spe #entre 10 et 35
         self.atq = atq # "Attaque"  entre 10 et 35
         self.type = type #"son type (pour savoir si il fait degat *2)" #10 type : feu, Glace, Eau, Fee, Plante, Ombre, Acier, Caca, electrique, 
         self.vitesse = vts #"sa rapiditer" #entre 1 et 20
         self.pouvoir = []
         self.alive = True
+        self.status = status # [brulé, paralysé, gelé, plein de caca, etc...]
 
 pokemon_names = [
     "Flarion", "Aquaphox", "Voltalon", "Terradra", "Pyrospire",
     "Zephyreon", "Dracoline", "Glacara", "Sylverix", "Magmawisp",
-    "Leafblade", "Frostbite", "Thunderaegis", "Rockquake", "Psychwing",
-    "Spectrosa", "Emberflare", "Aquaquill", "Galestorm", "Terrafin",
+    "Leafblade", "Frostbite", "Dracoco", "Rockquake", "Psychwing",
+    "Spectrosa", "Emberflare", "Aquaquill", "Gytan", "Terrafin",
     "Flufflare", "Voltorbolt", "Earthquakeon", "Pyroclaw", "Zephyraptor",
     "Dracofire", "Glacius", "Sylvanight", "Magmaraider", "Leafshadow",
-    "Frostnova", "Tidaltide", "Blitzspark", "Boulderback", "Mindflare",
+    "Frostnova", "Tidaltide", "Blitzspark", "Torpingpong", "Mindflare",
     "Shadowstalker", "Flareonix", "Wavewarden", "Boltstrike", "Mossquake",
-    "Infernia", "Aerowing", "Blizzardragon", "Lavalanche", "Leafwhisper",
+    "Amphinlande", "Aerowing", "RedBull", "Lavalanche", "Leafwhisper",
     "Thunderclaw", "Wavecrest", "Quakestone", "Vortexblade", "Solarflare",
-    "Lunarshroud", "Mysticbreeze", "Searage", "Frostfang", "Stormsurge",
+    "Lunarshroud", "Mysticbreeze", "Dedette", "Frostfang", "Stormsurge",
     "Abyssalbite", "Ironhide", "Mysticshade", "Radiantbeam", "Dreadhowl",
     "Venomfang", "Magmaflare", "Cinderstorm", "Glacialchill", "Dedette",
     "Zapstrike", "Aerofrost", "Aquashade", "Rockshade", "Flarefrost",
     "Voltflare", "Sylvanstrike", "Pyroscorch", "Dracothunder", "Aquamist",
     "Leafshimmer", "Frostbreeze", "Shadowsting", "Mysticblast", "Ragingroar",
-    "Thunderstrike", "Blazeclaw", "Aquanox", "Gustwhisper", "Stoneshatter",
+    "Thunderstrike", "Pigrochou", "Aquanox", "Gustwhisper", "Stoneshatter",
     "Flamehowl", "Waveblade", "Stormshadow", "Terraquake", "Freezefury",
-    "Zephyrtide", "Dracowind", "Volcanicburst", "Lunarflare", "Solarshard",
+    "Zephyrtide", "Dracowind", "Ark", "Lunarflare", "Solarshard",
     "Arcticstorm", "Mysticshroud", "Cinderwing", "Venomquake", "Boltstorm"
 ]
 
@@ -59,6 +62,9 @@ class Attaque:
         self.name = name
         self.power = power
         self.type = attack_type
+        self.categorie = catégorie #[Attaque, Attaque_spe, status]
+        self.status = status + chance #{status : chance de l'appliquer}
+        self.accuracy = précision # chance de rater entre 70 et 100 pour la plupart des attaques
         self.pp = pp
 
 import random
@@ -304,7 +310,7 @@ noms_attaques = [
     "Mégaphone Sonique",
     "Étincelles",
     "Écho",
-    "Danse de la Lame",
+    "Danse Lame",
     "Tempête Psychique",
     "Tourbillon",
     "Fulguro Charge",
@@ -332,6 +338,8 @@ noms_attaques = [
     "Fendoir de Glace",
     "Météore Éthéré",
     "Rafale Infernale"
+    "Ecrasement"
+    "Triple axel"
 ]
         
 def generer_attaque_aleatoire(noms):
@@ -350,7 +358,7 @@ def generer_attaque_aleatoire(noms):
         noms.remove(nom_aleatoire)
         power_aleatoire = random.randint(19, 25)
         type_aleatoire = random.choice(["feu", "glace", "eau", "plante", "caca", "ombre", "fee", "electrique", "acier", "roche", "dragon", "poison", "vol", "combat", "insecte", "spectre", "lumiere", "psy"])
-        pp_aleatoire = random.randint(5, 7)
+        pp_aleatoire = random.randint(2, 7)
 
         attaque = Attaque(nom_aleatoire, power_aleatoire, type_aleatoire, pp_aleatoire)
         attaques_aleatoires.append(attaque)
@@ -504,4 +512,7 @@ random.shuffle(noms_objets_pokemon)
 
 # Utiliser la fonction pour générer 4 objets aléatoires
 objets_aleatoires = generer_objets_aleatoires(noms_objets_pokemon)
+
+liste_vrai_poopkemon = [] #Une liste de poopkemon avec des stats bien définis pour d'autres formats
+
 
