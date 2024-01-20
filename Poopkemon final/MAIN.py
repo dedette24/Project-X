@@ -408,19 +408,29 @@ def abandon(num):
 
 #-----------------------------------------------------------------------------------------------#
 
-def status(pokemon, status):
+def status(pokemon, status, action):
     if status == None:
         print(/n)
     if status == "brulé":
         pokemon.atq = pokemon.atq / 2
-        dot
+        dot = 1/16 * pokemon.base_vie
     if status == "paralysé":
-        pokemon.vit = pokemon.vit / 2
+        pokemon.vitesse = pokemon.vitesse / 2
     if status == "gelé":
-        
-        dot = pokemon.hp / 10
+        action = None
+        dot = pokemon.vie / 10
+        return action
     if status == "endormi":
+        action = None
+        return action
     if status == "empoisonné":
+        dot = pokemon.base_vie * 1/16
     if status == "gravement empoisonné":
+        dot = pokemon.base_vie * 1/20
+        dot += pokemon.base_vie * 1/20
     if status == "mal au crâne":
+        pokemon.atq_spe = pokemon.atq_spe / 2
     if status == "plein de caca":
+        pokemon.pouvoir.accuracy[0] -= 10
+        dot = pokemon.base_vie / 20
+        
