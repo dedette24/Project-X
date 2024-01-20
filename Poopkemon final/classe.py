@@ -11,7 +11,7 @@ class Pokemon:
         self.vitesse = vts #"sa rapiditer" #entre 1 et 20
         self.pouvoir = []
         self.alive = True
-        self.status = status # [brulé, paralysé, gelé, plein de caca, etc...]
+        self.status = None # [brulé, paralysé, gelé, endormi, empoisonné, empoisonné+(ce qui correspond a gravement empoisonné), plein de caca, mal au crâne, brisé ]
 
 pokemon_names = [
     "Flarion", "Aquaphox", "Voltalon", "Terradra", "Pyrospire",
@@ -41,8 +41,10 @@ def generer_pokemon_aleatoire(noms):
     for _ in range(4):
         nom_aleatoire = random.choice(noms)
         vie_aléatoire = random.randint(110, 150)  
-        dfs_aléatoire = random.randint(10, 15)  
+        dfs_aléatoire = random.randint(5, 20)  
+        def_spe_aletoire = random.randint(5, 20)
         atq_aléatoire = random.randint(10, 35)
+        atq_spe_aleatoire = random.randint(10, 35)
         type_aleatoire = random.choice(["feu", "glace", "eau", "plante", "caca", "ombre", "fee", "electrique", "acier", "roche", "dragon", "poison", "vol", "combat", "insecte", "spectre", "lumiere", "psy"])
         vts_aleatoire = random.randint(10, 20)  
 
