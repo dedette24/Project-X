@@ -178,6 +178,12 @@ def efficace_raccour(num, actif, liste, B, N, O, rec):
     rec[num-1] = 0
     if actif[adv].type in B:
         degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].dfs * 1.5)) * 2  #super efficace
+        #if liste[num-1].categorie == atq:
+            #degats_infligés = ((liste[num-1].power + actif[num - 1].atq) - (actif[adv].dfs * 1.5)) * 2
+        #elif liste[num-1].categorie == atq_spe:
+            #degats_infligés = ((liste[num-1].power + actif[num - 1].atq_spe) - (actif[adv].def_spe * 1.5)) * 2
+        #else:
+        
         actif[adv].vie -= degats_infligés
         print(f"{Fore.GREEN}c'est super efficace{Fore.RESET} !")
         return degats_infligés
