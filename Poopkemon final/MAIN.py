@@ -14,16 +14,16 @@ equipe_2 = liste_pokemon[-2:]
 def info(equipe_1, equipe_2):
     print("--------------")
     print("\néquipe 1 : ")
-    print(f"le pokemon 1 de l'equipe 1 est : {Fore.YELLOW}{equipe_1[0].name}{Fore.RESET}, il a {Fore.RED}{equipe_1[0].vie}{Fore.RESET} pv et les dernieres states : atq : {Fore.RED}{equipe_1[0].atq}{Fore.RESET} | dfs : {Fore.RED}{equipe_1[0].dfs}{Fore.RESET}")
-    print(f"le pokemon 2 de l'equipe 1 est : {Fore.YELLOW}{equipe_1[1].name}{Fore.RESET}, il a {Fore.RED}{equipe_1[1].vie}{Fore.RESET} pv et les dernieres states : atq : {Fore.RED}{equipe_1[1].atq}{Fore.RESET} | dfs : {Fore.RED}{equipe_1[1].dfs}{Fore.RESET}")
+    print(f"le pokemon 1 de l'equipe 1 est : {Fore.YELLOW}{equipe_1[0].name}{Fore.RESET}, il a {Fore.RED}{equipe_1[0].vie}{Fore.RESET} pv et et est de type {Fore.LIGHTGREEN_EX}{equipe_1[0].type}{Fore.RESET}")
+    print(f"le pokemon 2 de l'equipe 1 est : {Fore.YELLOW}{equipe_1[1].name}{Fore.RESET}, il a {Fore.RED}{equipe_1[1].vie}{Fore.RESET} pv et il est de type {Fore.LIGHTGREEN_EX}{equipe_1[1].type}{Fore.RESET}")  
     print("\néquipe 2 : ")
-    print(f"le pokemon 1 de l'equipe 2 est : {Fore.YELLOW}{equipe_2[0].name}{Fore.RESET}, il a {Fore.RED}{equipe_2[0].vie}{Fore.RESET} pv et les dernieres states : atq : {Fore.RED}{equipe_2[0].atq}{Fore.RESET} | dfs : {Fore.RED}{equipe_2[0].dfs}{Fore.RESET}")
-    print(f"le pokemon 2 de l'equipe 2 est : {Fore.YELLOW}{equipe_2[1].name}{Fore.RESET}, il a {Fore.RED}{equipe_2[1].vie}{Fore.RESET} pv et les dernieres states : atq : {Fore.RED}{equipe_2[1].atq}{Fore.RESET} | dfs : {Fore.RED}{equipe_2[1].dfs}{Fore.RESET}")
+    print(f"le pokemon 1 de l'equipe 2 est : {Fore.YELLOW}{equipe_2[0].name}{Fore.RESET}, il a {Fore.RED}{equipe_2[0].vie}{Fore.RESET} pv et il est de type {Fore.LIGHTGREEN_EX}{equipe_2[0].type}{Fore.RESET}")
+    print(f"le pokemon 2 de l'equipe 2 est : {Fore.YELLOW}{equipe_2[1].name}{Fore.RESET}, il a {Fore.RED}{equipe_2[1].vie}{Fore.RESET} pv et il est de type {Fore.LIGHTGREEN_EX}{equipe_2[1].type}{Fore.RESET}") 
     #on définit la vitesse des pokemons
-    print(f"\nla vitesse de {Fore.LIGHTMAGENTA_EX}{equipe_1[0].name}{Fore.RESET} est de : {Fore.BLUE}{equipe_1[0].vitesse}{Fore.RESET} et il est de type {Fore.LIGHTGREEN_EX}{equipe_1[0].type}{Fore.RESET}")
-    print(f"la vitesse de {Fore.LIGHTMAGENTA_EX}{equipe_1[1].name}{Fore.RESET} est de : {Fore.BLUE}{equipe_1[1].vitesse}{Fore.RESET} et il est de type {Fore.LIGHTGREEN_EX}{equipe_1[1].type}{Fore.RESET}")
-    print(f"la vitesse de {Fore.LIGHTMAGENTA_EX}{equipe_2[0].name}{Fore.RESET} est de : {Fore.BLUE}{equipe_2[0].vitesse}{Fore.RESET} et il est de type {Fore.LIGHTGREEN_EX}{equipe_2[0].type}{Fore.RESET}")
-    print(f"la vitesse de {Fore.LIGHTMAGENTA_EX}{equipe_2[1].name}{Fore.RESET} est de : {Fore.BLUE}{equipe_2[1].vitesse}{Fore.RESET} et il est de type {Fore.LIGHTGREEN_EX}{equipe_2[1].type}{Fore.RESET}")
+    print(f"\n stats de {Fore.LIGHTMAGENTA_EX}{equipe_1[0].name}{Fore.RESET} : | vitesse : {Fore.BLUE}{equipe_1[0].vitesse}{Fore.RESET} | attaque : {Fore.RED}{equipe_1[0].atq}{Fore.RESET} | defense : {Fore.RED}{equipe_1[0].dfs}{Fore.RESET}")
+    print(f"stats de {Fore.LIGHTMAGENTA_EX}{equipe_1[1].name}{Fore.RESET} : | vitesse : {Fore.BLUE}{equipe_1[1].vitesse}{Fore.RESET} | attaque : {Fore.RED}{equipe_1[1].atq}{Fore.RESET} | defense : {Fore.RED}{equipe_1[1].dfs}{Fore.RESET}")
+    print(f"stats de {Fore.LIGHTMAGENTA_EX}{equipe_2[0].name}{Fore.RESET} : | vitesse : {Fore.BLUE}{equipe_2[0].vitesse}{Fore.RESET} | attaque : {Fore.RED}{equipe_2[0].atq}{Fore.RESET} | defense : {Fore.RED}{equipe_2[0].dfs}{Fore.RESET}")
+    print(f"stats de {Fore.LIGHTMAGENTA_EX}{equipe_2[1].name}{Fore.RESET} : | vitesse : {Fore.BLUE}{equipe_2[1].vitesse}{Fore.RESET} | attaque : {Fore.RED}{equipe_2[1].atq}{Fore.RESET} | defense : {Fore.RED}{equipe_2[1].dfs}{Fore.RESET}")
     print("")
     return equipe_1, equipe_2
 
