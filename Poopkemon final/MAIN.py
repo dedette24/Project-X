@@ -38,7 +38,7 @@ def choix_attaques_DEBUT(pokemon, attaques_disponibles):
         for i, attaque in enumerate(vrai_attaque_dispo, 1):
                 if attaque.type == pokemon.type:
                     attaque.power = attaque.power * 1.5
-                print(f"{i}. {attaque.name} (Puissance: {Fore.RED}{attaque.power}{Fore.RESET}, utiisations: {attaque.pp}, type : {Fore.LIGHTGREEN_EX}{attaque.type}{Fore.RESET})")
+                print(f"{i}. {attaque.name} (Puissance: {Fore.RED}{attaque.power}{Fore.RESET}, utiisations: {attaque.pp}, type : {Fore.LIGHTGREEN_EX}{attaque.type}{Fore.RESET}), catégorie: {Fore.BLUE}{attaque.categorie}{Fore.RESET}")
 
         while True:
             try:
