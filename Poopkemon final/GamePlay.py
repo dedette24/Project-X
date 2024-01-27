@@ -11,7 +11,7 @@ print(Fore.YELLOW + "Bienvenue dans Poopkemon, une réadaptation du jeu Pokemon 
 time.sleep(3)
 print(Fore.RED + "PENDANT TOUUUUT LE DEROULER DE LA PARTIE, MERCI DE NE PAS APPUYER TROP RAPIDEMENT SUR LES TOUCHES ET D'ATTENDRE QUE LA QUESTIONS VIENNE A VOUS. merci ! "+ Fore.RESET)
 time.sleep(3.5)
-print("\nLa partie va maintenant commencé !")
+print("\nLa partie va maintenant commencer !")
 time.sleep(1.5)
 print("\nVoici les informations de chaques équipes.")
 info(equipe_1, equipe_2)
