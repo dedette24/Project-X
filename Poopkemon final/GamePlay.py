@@ -9,7 +9,7 @@ recurrence = [0, 0]
 
 print(Fore.YELLOW + "Bienvenue dans Poopkemon, une réadaptation du jeu Pokemon version Python non graphique (donc forcément moins bien) \U0001f643 ! "+ Fore.RESET)
 time.sleep(3)
-print(Fore.RED + "PENDANT TOUUUUT LE DEROULER DE LA PARTIE, MERCI DE NE PAS APPUYER TROP RAPIDEMENT SUR LES TOUCHES ET D'ATTENDRE QUE LA QUESTIONS VIENNE A VOUS. merci ! "+ Fore.RESET)
+print(Fore.RED + "PENDANT TOUUUUT LE DEROULé DE LA PARTIE, MERCI DE NE PAS APPUYER TROP RAPIDEMENT SUR LES TOUCHES ET D'ATTENDRE QUE LA QUESTION VIENNE A VOUS. Merci :) ! "+ Fore.RESET)
 time.sleep(3.5)
 print("\nLa partie va maintenant commencer !")
 time.sleep(1.5)
@@ -20,7 +20,7 @@ info(equipe_1, equipe_2)
 print("__________________________________________________________")
 round = 0
 #établir les choses avant que ca commence
-print("\nVous allez maintenant choisir les pouvoirs de vos pokemons parmis 6 choix possibles aléatoire : ")
+print("\nVous allez maintenant choisir les attaques de vos pokemons parmis 6 choix possibles aléatoire : ")
 time.sleep(3)
 equipe_1[0].pouvoir = choix_attaques_DEBUT(equipe_1[0], attaques)
 equipe_1[1].pouvoir = choix_attaques_DEBUT(equipe_1[1], attaques)
@@ -38,7 +38,7 @@ abandon = False
 print("")
 for i, pokemon in enumerate(Pokemon_actif, 1):
             print(f"équipe {i} joue : {pokemon.name}")
-print("\n La partie va maintenant pouvoir commencé !")
+print("\n La partie va maintenant pouvoir commencer !")
 time.sleep(2)
 while not fin:
     choix_attaque_moment = [0, 0]
@@ -63,9 +63,9 @@ while not fin:
         fin = True
         print(f"{Fore.RED}GG !")
         if equipe_1[0].alive == False and equipe_1[1].alive:
-            print(f"L'equipe 2 a éliminé tous les poopkémons adversaire ! Il a pas conséquent gagné la partie ! Bien joué à lui.")
+            print(f"Le joueur 2 a éliminé tous les poopkémons adversaire ! Il a pas conséquent gagné la partie ! Bien joué à lui.")
         elif equipe_2[0].alive == False and equipe_2[1].alive:
-            print(f"L'equipe 1 a éliminé tous les poopkémons adversaire ! Il a pas conséquent gagné la partie ! Bien joué à lui.{Fore.RESET}")
+            print(f"Le joueur 1 a éliminé tous les poopkémons adversaire ! Il a pas conséquent gagné la partie ! Bien joué à lui.{Fore.RESET}")
         break
 
     choix_action(1, action, equipe_1, equipe_2)
